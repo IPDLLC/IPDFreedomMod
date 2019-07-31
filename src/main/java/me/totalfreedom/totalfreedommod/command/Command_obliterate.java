@@ -90,7 +90,7 @@ public class Command_obliterate extends FreedomCommand
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
 
         // Log doom
-        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.DOOM, null));
+        plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.OBLITERATION, null));
 
         new BukkitRunnable()
         {

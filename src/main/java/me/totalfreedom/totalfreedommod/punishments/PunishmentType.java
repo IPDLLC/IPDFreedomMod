@@ -7,6 +7,7 @@ public enum PunishmentType
     KICK,
     TEMPBAN,
     BAN,
+    BANHAMMER,
     DOOM,
-    BANHAMMER
+    OBLITERATION
 }

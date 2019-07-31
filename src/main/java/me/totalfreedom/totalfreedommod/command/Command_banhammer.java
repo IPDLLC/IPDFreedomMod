@@ -134,18 +134,28 @@ public class Command_banhammer extends FreedomCommand
         plugin.bm.addBan(ban);
 
         // Broadcast
-
+        String ip = FUtil.getFuzzyIp(player.getAddress().getAddress().getHostAddress());
         final StringBuilder bcast = new StringBuilder()
                 .append(ChatColor.RED)
                 .append("Banning: ")
-                .append(player.getName())
+                .append(username)
                 .append(", IP: ")
-                .append(StringUtils.join(ips, ", "));
+                .append(ip);
         if (reason != null)
         {
 
         }
         FUtil.bcastMsg(bcast.toString());
+        final StringBuilder adminNotice = new StringBuilder()
+                .append(ChatColor.DARK_AQUA)
+                .append("[STAFF] ")
+                .append(ChatColor.WHITE)
+                .append(sender.getName())
+                .append(" has summoned the banhammer on ")
+                .append(username)
+                .append(" for ")
+                .append(reason);
+        plugin.al.messageAllAdmins(adminNotice.toString());
 
         // Kick player
         if (player != null)

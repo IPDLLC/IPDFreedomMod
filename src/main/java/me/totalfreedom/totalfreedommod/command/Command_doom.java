@@ -108,6 +108,14 @@ public class Command_doom extends FreedomCommand
             {
                 // message
                 FUtil.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
+        final StringBuilder adminNotice = new StringBuilder()
+                .append(ChatColor.DARK_AQUA)
+                .append("[STAFF] ")
+                .append(ChatColor.WHITE)
+                .append(sender.getName())
+                .append(" has doom'd ")
+                .append(player.getName());
+        plugin.al.messageAllAdmins(adminNotice.toString());
 
                 // generate explosion
                 player.getWorld().createExplosion(player.getLocation(), 0F, false);

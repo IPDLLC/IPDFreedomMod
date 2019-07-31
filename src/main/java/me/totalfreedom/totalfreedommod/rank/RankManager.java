@@ -55,6 +55,11 @@ public class RankManager extends FreedomService
         {
             return Title.OWNER;
         }
+        // If the player's a youtuber, display that.
+        if (ConfigEntry.SERVER_YOUTUBERS.getList().contains(player.getName()))
+        {
+            return Title.YOUTUBER;
+        }
 
         // Developers always show up
         if (FUtil.DEVELOPERS.contains(player.getName()))

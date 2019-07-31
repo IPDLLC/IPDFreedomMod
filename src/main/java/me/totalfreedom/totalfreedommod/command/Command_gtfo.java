@@ -131,12 +131,13 @@ public class Command_gtfo extends FreedomCommand
         plugin.bm.addBan(ban);
 
         // Broadcast
+        String ip = FUtil.getFuzzyIp(player.getAddress().getAddress().getHostAddress());
         final StringBuilder bcast = new StringBuilder()
                 .append(ChatColor.RED)
                 .append("Banning: ")
                 .append(username)
                 .append(", IPs: ")
-                .append(StringUtils.join(ips, ", "));
+                .append(ip);
 
         FUtil.bcastMsg(bcast.toString());
         final StringBuilder adminNotice = new StringBuilder()
@@ -145,7 +146,7 @@ public class Command_gtfo extends FreedomCommand
                 .append(ChatColor.WHITE)
                 .append(sender.getName())
                 .append(" has banned ")
-                .append(player.getName())
+                .append(username)
                 .append(" for ")
                 .append(reason);
         plugin.al.messageAllAdmins(adminNotice.toString());

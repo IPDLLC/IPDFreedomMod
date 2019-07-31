@@ -6,22 +6,21 @@ import org.bukkit.ChatColor;
 public enum Rank implements Displayable
 {
 
-    IMPOSTOR("an", "Impostor", Type.PLAYER, "Imp", ChatColor.BLACK),
-    NON_OP("a", "Non-Op", Type.PLAYER, "", ChatColor.WHITE),
-    OP("an", "Op", Type.PLAYER, "OP", ChatColor.GRAY),
-    MODERATOR("a", "Moderator", Type.ADMIN, "Mod", ChatColor.BLUE),
-    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, "SA", ChatColor.AQUA),
-    YOUTUBER("a", "YouTuber", Type.ADMIN, "YT", ChatColor.RED),
-    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, "STA", ChatColor.DARK_GREEN),
-    TELNET_CLAN_ADMIN("a", "Telnet Clan Admin", Type.ADMIN, "TCA", ChatColor.GREEN),
-    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.GOLD),
-    SPAZZLE("a", "Spazzle", Type.ADMIN, "Spazzle", ChatColor.RED),
-    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
-    TELNET_CLAN_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
-    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
-    SPAZZLE_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.RED),
-    SYSTEM_ADMIN("a", "System Administrator", Type.ADMIN, "Sys Admin", ChatColor.DARK_BLUE),
-    SYS_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_BLUE);
+    IMPOSTOR("an", "Impostor", Type.PLAYER, ChatColor.BLACK, "Imp"),
+    NON_OP("a", "Non-Op", Type.PLAYER, ChatColor.DARK_GRAY, ""),
+    OP("an", "Op", Type.PLAYER, ChatColor.GRAY, "OP"),
+    MODERATOR("a", "Moderator", Type.ADMIN, ChatColor.DARK_PURPLE, "§oMod"),
+    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, ChatColor.RED, "Admin"),
+    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, ChatColor.DARK_GREEN, "§oTelnet §c§oAdmin"),
+    TELNET_CLAN_ADMIN("a", "Telnet Clan Admin", Type.ADMIN, ChatColor.GREEN, "§oClan §c§oAdmin"),
+    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, ChatColor.GOLD, "§oSenior §c§oAdmin"),
+    SPAZZLE("a", "Spazzle", Type.ADMIN, ChatColor.GOLD, "§oSpazzle"),
+    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
+    TELNET_CLAN_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
+    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
+    SPAZZLE_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.RED, "Console"),
+    SYSTEM_ADMIN("a", "System Administrator", Type.ADMIN, ChatColor.DARK_BLUE, "System Admin"),
+    SYS_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_BLUE, "Console");
     @Getter
     private final Type type;
     @Getter
@@ -36,14 +35,14 @@ public enum Rank implements Displayable
     @Getter
     private final ChatColor color;
 
-    private Rank(String determiner, String name, Type type, String abbr, ChatColor color)
+    private Rank(String determiner, String name, Type type, ChatColor color, String abbr)
     {
         this.type = type;
         this.name = name;
         this.abbr = abbr;
         this.determiner = determiner;
         this.tag = abbr.isEmpty() ? "" : "[" + abbr + "]";
-        this.coloredTag = abbr.isEmpty() ? "" : color + "[" + color + abbr + "]" + color;
+        this.coloredTag = abbr.isEmpty() ? "" : ChatColor.DARK_GRAY + "[" + color + abbr + ChatColor.DARK_GRAY + "]" + color;
         this.color = color;
     }
 

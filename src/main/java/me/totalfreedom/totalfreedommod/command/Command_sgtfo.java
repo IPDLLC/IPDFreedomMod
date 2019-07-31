@@ -65,9 +65,6 @@ public class Command_sgtfo extends FreedomCommand
             // Clear inventory
             player.getInventory().clear();
 
-
-            // Kill player
-            player.setHealth(0.0);
         }
 
         String reason = null;
@@ -131,7 +128,7 @@ public class Command_sgtfo extends FreedomCommand
                 .append(ChatColor.WHITE)
                 .append(sender.getName())
                 .append(" has banned ")
-                .append(player.getName())
+                .append(username)
                 .append(" for ")
                 .append(reason);
         plugin.al.messageAllAdmins(adminNotice.toString());

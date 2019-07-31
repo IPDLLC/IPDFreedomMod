@@ -5,11 +5,12 @@ import org.bukkit.ChatColor;
 
 public enum Title implements Displayable
 {
-
+//yee_yee_juice = break java zOMg BoMB eOUtSidE
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
-    EXECUTIVE("an", "Executive", ChatColor.RED, "Exec"),
-    DEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "Dev"),
-    OWNER("the", "Owner", ChatColor.DARK_RED, "Owner");
+    YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube"),
+    EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec"),
+    DEVELOPER("a", "Developer", ChatColor.AQUA, "§lDeveloper"),
+    OWNER("the", "Owner", ChatColor.LIGHT_PURPLE, "§oOwner");
 
     private final String determiner;
     @Getter
@@ -27,7 +28,7 @@ public enum Title implements Displayable
     {
         this.determiner = determiner;
         this.name = name;
-        this.coloredTag = color + "[" + tag + "]" + color;
+        this.coloredTag = ChatColor.DARK_GRAY + "[" + color + tag + ChatColor.DARK_GRAY + "]" + color;
         this.abbr = tag;
         this.tag = "[" + tag + "]";
         this.color = color;
