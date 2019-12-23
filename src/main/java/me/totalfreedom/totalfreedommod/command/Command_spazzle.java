@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-@CommandPermissions(level = Rank.SPAZZLE, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.SYSTEM_ADMIN, source = SourceType.BOTH)
 @CommandParameters(description = "BUZZ DOWN", usage = "/<command>")
 public class Command_spazzle extends FreedomCommand
 {

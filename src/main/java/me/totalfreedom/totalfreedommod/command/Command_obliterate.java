@@ -7,6 +7,7 @@ import me.totalfreedom.totalfreedommod.punishments.Punishment;
 import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
+import static net.coreprotect.model.Config.username;
 import net.pravian.aero.util.Ips;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -36,9 +37,7 @@ public class Command_obliterate extends FreedomCommand
             return true;
         }
 
-        FUtil.adminAction(sender.getName(), "Completely fucking over " + player.getName(), true);
-        FUtil.bcastMsg(player.getName() + " will be fried!", ChatColor.RED);
-        FUtil.bcastMsg(player.getName() + " is about to be hit with Thor's all mighty hammer!", ChatColor.BLUE);
+        FUtil.adminAction(sender.getName(), "Orbital Cannoning " + player.getName(), true);
 
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
@@ -56,18 +55,16 @@ public class Command_obliterate extends FreedomCommand
             }
         }
 
-        // Remove from whitelist
+        // yee yee juice
         player.setWhitelisted(false);
         
 
         // Deop
         player.setOp(false);
-        FUtil.bcastMsg(player.getName() + " will not be missed.", ChatColor.GRAY);
-        FUtil.bcastMsg(player.getName() + " will not be loved.", ChatColor.GREEN);
         
         // Ban player
         Ban ban = Ban.forPlayer(player, sender);
-        ban.setReason("&cWhat an idiot you are, fuck you.");
+        ban.setReason("&cDid that feel nice?");
         for (String playerIp : plugin.pl.getData(player).getIps())
         {
             ban.addIp(playerIp);
@@ -85,9 +82,13 @@ public class Command_obliterate extends FreedomCommand
 
         // Generate explosion
         player.getWorld().createExplosion(player.getLocation(), 0F, false);
-
-        // Shoot the player in the sky
-        player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        player.getWorld().createExplosion(player.getLocation(), 0F, false);
+        
 
         // Log doom
         plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.OBLITERATION, null));
@@ -111,17 +112,25 @@ public class Command_obliterate extends FreedomCommand
             public void run()
             {
                 // message
-                FUtil.bcastMsg(player.getName() + ", how does it feel being whacked around with thor's hammer? I bet you're regretting it now!", ChatColor.DARK_RED);
-                FUtil.bcastMsg(player.getName() + " is being thwacked like a football!", ChatColor.RED);
-                FUtil.bcastMsg(player.getName() + " is about to die and burn in HELL!", ChatColor.DARK_RED);
+                FUtil.bcastMsg(player.getName() + " was obliterated by the Orbital Cannon", ChatColor.WHITE);
                 FUtil.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
                 FUtil.bcastMsg("Ah, that feels better.", ChatColor.AQUA);
+                
+        
+        final StringBuilder adminNotice = new StringBuilder()
+                .append(ChatColor.DARK_AQUA)
+                .append("[STAFF] ")
+                .append(ChatColor.WHITE)
+                .append(sender.getName())
+                .append(" Orbital Cannoned ")
+                .append(player.getName());
+        plugin.al.messageAllAdmins(adminNotice.toString());
 
                 // generate explosion
                 player.getWorld().createExplosion(player.getLocation(), 0F, false);
 
                 // kick player
-                player.kickPlayer(ChatColor.RED + "FUCKOFF, and get your shit together!");
+                player.kickPlayer(ChatColor.RED + "git gud");
             }
         }.runTaskLater(plugin, 3L * 20L);
 

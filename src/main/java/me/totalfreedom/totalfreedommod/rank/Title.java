@@ -6,11 +6,15 @@ import org.bukkit.ChatColor;
 public enum Title implements Displayable
 {
 //yee_yee_juice = break java zOMg BoMB eOUtSidE
+    VIP("a", "VIP", ChatColor.GREEN, "VIP"),
+    MVP ("an", "MVP", ChatColor.AQUA, "MVP"),
+    GOD ("a", "God", ChatColor.GOLD, "GOD"),
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
-    YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube"),
-    EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec"),
-    DEVELOPER("a", "Developer", ChatColor.AQUA, "§lDeveloper"),
-    OWNER("the", "Owner", ChatColor.LIGHT_PURPLE, "§oOwner");
+    YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube§c"),
+    EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec§c"),
+    DEVELOPER("a", "Developer", ChatColor.AQUA, "§lDeveloper§b"),
+    MANAGER("the", "Manager", ChatColor.RED, "§lManager§c"),
+    OWNER("the", "Owner", ChatColor.LIGHT_PURPLE, "§oOwner§d");
 
     private final String determiner;
     @Getter

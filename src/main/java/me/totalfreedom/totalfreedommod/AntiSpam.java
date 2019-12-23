@@ -84,14 +84,6 @@ public class AntiSpam extends FreedomService
             return;
         }
 
-        // Check for message repeat
-        if (playerdata.getLastMessage().equalsIgnoreCase(message))
-        {
-            FSync.playerMsg(player, "Please do not repeat messages.");
-            event.setCancelled(true);
-            return;
-        }
-
         playerdata.setLastMessage(message);
     }
 

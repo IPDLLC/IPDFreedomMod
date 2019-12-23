@@ -55,6 +55,26 @@ public class RankManager extends FreedomService
         {
             return Title.OWNER;
         }
+        // If the player's a Manager, display that
+        if (ConfigEntry.SERVER_MANAGERS.getList().contains(player.getName()))
+        {
+            return Title.MANAGER;
+        }
+        // If the player's a VIP, display that
+        if (ConfigEntry.SERVER_VIPS.getList().contains(player.getName()))
+        {
+            return Title.VIP;
+        }
+        // If the player's an MVP, display that
+        if (ConfigEntry.SERVER_MVPS.getList().contains(player.getName()))
+        {
+            return Title.MVP;
+        }
+        // If the player's a GOD, display that
+        if (ConfigEntry.SERVER_GODS.getList().contains(player.getName()))
+        {
+            return Title.GOD;
+        }
         // If the player's a youtuber, display that.
         if (ConfigEntry.SERVER_YOUTUBERS.getList().contains(player.getName()))
         {

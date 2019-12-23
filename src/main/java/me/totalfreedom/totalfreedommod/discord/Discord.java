@@ -178,7 +178,12 @@ public class Discord extends FreedomService
         {
             return false;
         }
-
+        Role moderatorAdminRole = server.getRoleById(ConfigEntry.DISCORD_MODERATOR_ROLE_ID.getString());
+        if (moderatorAdminRole == null)
+        {
+            FLog.severe("The specified Moderator role does not exist!");
+            return false;
+        }
         Role superAdminRole = server.getRoleById(ConfigEntry.DISCORD_SUPER_ROLE_ID.getString());
         if (superAdminRole == null)
         {
@@ -191,10 +196,22 @@ public class Discord extends FreedomService
             FLog.severe("The specified Telnet Admin role does not exist!");
             return false;
         }
+        Role telnetclanAdminRole = server.getRoleById(ConfigEntry.DISCORD_TELNET_CLAN_ROLE_ID.getString());
+        if (telnetclanAdminRole == null)
+        {
+            FLog.severe("The specified Telnet Clan Admin role does not exist!");
+            return false;
+        }
         Role seniorAdminRole = server.getRoleById(ConfigEntry.DISCORD_SENIOR_ROLE_ID.getString());
         if (seniorAdminRole == null)
         {
             FLog.severe("The specified Senior Admin role does not exist!");
+            return false;
+        }
+        Role systemadminAdminRole = server.getRoleById(ConfigEntry.DISCORD_SYSTEM_ADMIN_ROLE_ID.getString());
+        if (systemadminAdminRole == null)
+        {
+            FLog.severe("The specified System Admin role does not exist!");
             return false;
         }
 
@@ -231,6 +248,42 @@ public class Discord extends FreedomService
             }
             return true;
         }
+        else if (admin.getRank().equals(Rank.MODERATOR))
+        {
+            if (!member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.addRolesToMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(superAdminRole))
+            {
+                controller.removeRolesFromMember(member, superAdminRole).complete();
+            }
+            if (member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.removeRolesFromMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.removeRolesFromMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.removeRolesFromMember(member, systemadminAdminRole).complete();
+            }
+            if (member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.removeRolesFromMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.removeRolesFromMember(member, systemadminAdminRole).complete();
+            }
+            if (member.getRoles().contains(seniorAdminRole))
+            {
+                controller.removeRolesFromMember(member, seniorAdminRole).complete();
+            }
+            return true;
+        }
         else if (admin.getRank().equals(Rank.TELNET_ADMIN))
         {
             if (!member.getRoles().contains(telnetAdminRole))
@@ -240,6 +293,42 @@ public class Discord extends FreedomService
             if (member.getRoles().contains(superAdminRole))
             {
                 controller.removeRolesFromMember(member, superAdminRole).complete();
+            }
+            if (member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.removeRolesFromMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.removeRolesFromMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.removeRolesFromMember(member, systemadminAdminRole).complete();
+            }
+            if (member.getRoles().contains(seniorAdminRole))
+            {
+                controller.removeRolesFromMember(member, seniorAdminRole).complete();
+            }
+            return true;
+        }
+        else if (admin.getRank().equals(Rank.TELNET_CLAN_ADMIN))
+        {
+            if (!member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.addRolesToMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(superAdminRole))
+            {
+                controller.removeRolesFromMember(member, superAdminRole).complete();
+            }
+            if (member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.removeRolesFromMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.removeRolesFromMember(member, systemadminAdminRole).complete();
             }
             if (member.getRoles().contains(seniorAdminRole))
             {
@@ -257,13 +346,48 @@ public class Discord extends FreedomService
             {
                 controller.removeRolesFromMember(member, superAdminRole).complete();
             }
+            if (member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.removeRolesFromMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.removeRolesFromMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.removeRolesFromMember(member, systemadminAdminRole).complete();
+            }
             if (member.getRoles().contains(telnetAdminRole))
             {
                 controller.removeRolesFromMember(member, telnetAdminRole).complete();
             }
             return true;
         }
-
+        else if (admin.getRank().equals(Rank.SYSTEM_ADMIN))
+        {
+            if (!member.getRoles().contains(systemadminAdminRole))
+            {
+                controller.addRolesToMember(member, systemadminAdminRole).complete();
+            }
+            if (member.getRoles().contains(superAdminRole))
+            {
+                controller.removeRolesFromMember(member, superAdminRole).complete();
+            }
+            if (member.getRoles().contains(moderatorAdminRole))
+            {
+                controller.removeRolesFromMember(member, moderatorAdminRole).complete();
+            }
+            if (member.getRoles().contains(telnetclanAdminRole))
+            {
+                controller.removeRolesFromMember(member, telnetclanAdminRole).complete();
+            }
+            if (member.getRoles().contains(seniorAdminRole))
+            {
+                controller.removeRolesFromMember(member, seniorAdminRole).complete();
+            }
+            return true;
+        }
         return false;
     }
 }

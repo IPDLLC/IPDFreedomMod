@@ -9,16 +9,14 @@ public enum Rank implements Displayable
     IMPOSTOR("an", "Impostor", Type.PLAYER, ChatColor.BLACK, "Imp"),
     NON_OP("a", "Non-Op", Type.PLAYER, ChatColor.DARK_GRAY, ""),
     OP("an", "Op", Type.PLAYER, ChatColor.GRAY, "OP"),
-    MODERATOR("a", "Moderator", Type.ADMIN, ChatColor.DARK_PURPLE, "§oMod"),
+    MODERATOR("a", "Moderator", Type.ADMIN, ChatColor.DARK_PURPLE, "§oMod§5"),
     SUPER_ADMIN("a", "Super Admin", Type.ADMIN, ChatColor.RED, "Admin"),
-    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, ChatColor.DARK_GREEN, "§oTelnet §c§oAdmin"),
-    TELNET_CLAN_ADMIN("a", "Telnet Clan Admin", Type.ADMIN, ChatColor.GREEN, "§oClan §c§oAdmin"),
-    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, ChatColor.GOLD, "§oSenior §c§oAdmin"),
-    SPAZZLE("a", "Spazzle", Type.ADMIN, ChatColor.GOLD, "§oSpazzle"),
+    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, ChatColor.DARK_GREEN, "§oTelnet §c§oAdmin§2"),
+    TELNET_CLAN_ADMIN("a", "Telnet Clan Admin", Type.ADMIN, ChatColor.GREEN, "§oClan §c§oAdmin§a"),
+    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, ChatColor.GOLD, "§oSenior §c§oAdmin§6"),
     TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
     TELNET_CLAN_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
     SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
-    SPAZZLE_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.RED, "Console"),
     SYSTEM_ADMIN("a", "System Administrator", Type.ADMIN, ChatColor.DARK_BLUE, "System Admin"),
     SYS_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_BLUE, "Console");
     @Getter
@@ -125,9 +123,6 @@ public enum Rank implements Displayable
             case SENIOR_ADMIN:
             case SENIOR_CONSOLE:
                 return SENIOR_CONSOLE;
-            case SPAZZLE:
-            case SPAZZLE_CONSOLE:
-                return SPAZZLE_CONSOLE;
             case SYSTEM_ADMIN:
             case SYS_CONSOLE:
                 return SYS_CONSOLE;
