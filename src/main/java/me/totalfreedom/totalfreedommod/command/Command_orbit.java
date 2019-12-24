@@ -39,7 +39,7 @@ public class Command_orbit extends FreedomCommand
         {
             if (args[1].equals("stop"))
             {
-                msg("Stopped orbiting " + player.getName());
+                msg("Stopped cucking " + player.getName());
                 playerdata.stopOrbiting();
                 return true;
             }
@@ -59,7 +59,8 @@ public class Command_orbit extends FreedomCommand
         playerdata.startOrbiting(strength);
 
         player.setVelocity(new Vector(0, strength, 0));
-        FUtil.adminAction(sender.getName(), "Orbiting " + player.getName(), false);
+        FUtil.adminAction(sender.getName(), "Cucking " + player.getName(), false);
+        FUtil.bcastMsg(player.getName() + " got cucked lol", ChatColor.RED);
 
         return true;
     }
