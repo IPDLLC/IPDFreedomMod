@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
 @CommandParameters(description = "Manage permanently banned players and IPs.", usage = "/<command> reload")
-public class Command_permban extends FreedomCommand
+public class Command_blacklist extends FreedomCommand
 {
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -23,10 +23,10 @@ public class Command_permban extends FreedomCommand
             return false;
         }
 
-        msg("Reloading permban list...", ChatColor.RED);
+        msg("Reloading blacklist...", ChatColor.RED);
         plugin.pm.stop();
         plugin.pm.start();
-        msg("Reloaded permban list.");
+        msg("Reloaded blacklist.");
         msg(plugin.pm.getPermbannedIps().size() + " IPs and "
                 + plugin.pm.getPermbannedNames().size() + " usernames loaded.");
         return true;

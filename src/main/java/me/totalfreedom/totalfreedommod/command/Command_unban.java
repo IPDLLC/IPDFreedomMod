@@ -13,7 +13,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandPermissions(level = Rank.MODERATOR, source = SourceType.BOTH)
 @CommandParameters(description = "Unbans a player", usage = "/<command> <username> [-r[estore]]")
 public class Command_unban extends FreedomCommand
 {
@@ -37,8 +37,14 @@ public class Command_unban extends FreedomCommand
             ips.addAll(entry.getIps());
 
  // Broadcast
-            FUtil.adminAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ", "), true);
-            plugin.bm.removeBan(plugin.bm.getByUsername(username));
+        final StringBuilder adminNotice = new StringBuilder()
+                .append(ChatColor.DARK_AQUA)
+                .append("[STAFF] ")
+                .append(ChatColor.WHITE)
+                .append(sender.getName())
+                .append(" has unbanbanned ")
+                .append(username);
+        plugin.al.messageAllAdmins(adminNotice.toString());
 
             if (args.length >= 2)
             {
