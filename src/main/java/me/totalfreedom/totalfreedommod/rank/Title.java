@@ -7,8 +7,9 @@ public enum Title implements Displayable
 {
 //yee_yee_juice = break java zOMg BoMB eOUtSidE
     VIP("a", "VIP", ChatColor.GREEN, "VIP"),
-    MVP ("an", "MVP", ChatColor.AQUA, "MVP"),
-    GOD ("a", "God", ChatColor.GOLD, "GOD"),
+    MVP("an", "MVP", ChatColor.AQUA, "MVP"),
+    GOD("a", "God", ChatColor.GOLD, "GOD"),
+    OVERLORD("an", "Overlord", ChatColor.DARK_PURPLE, "Overlord"),
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
     YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube§c"),
     EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec§c"),

@@ -48,6 +48,7 @@ public enum ConfigEntry
     SERVER_VIPS(List.class, "server.vips"),
     SERVER_MVPS(List.class, "server.mvps"),
     SERVER_GODS(List.class, "server.gods"),
+    SERVER_OVERLORDS(List.class, "server.overlords"),
     SERVER_MASTER_BUILDER_MANAGEMENT(List.class, "server.master_builder_management"),
     SERVER_BAN_URL(String.class, "server.ban_url"),
     SERVER_PERMBAN_URL(String.class, "server.permban_url"),

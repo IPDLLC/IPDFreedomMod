@@ -75,6 +75,11 @@ public class RankManager extends FreedomService
         {
             return Title.GOD;
         }
+        // If the player's an Overlord, display that
+        if (ConfigEntry.SERVER_OVERLORDS.getList().contains(player.getName()))
+        {
+            return Title.OVERLORD;
+        }
         // If the player's a youtuber, display that.
         if (ConfigEntry.SERVER_YOUTUBERS.getList().contains(player.getName()))
         {
