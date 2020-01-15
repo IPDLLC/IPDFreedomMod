@@ -91,6 +91,12 @@ public class RankManager extends FreedomService
         {
             return Title.DEVELOPER;
         }
+        
+        // Co Owner always show up
+        if (FUtil.CO_OWNER.contains(player.getName()))
+        {
+            return Title.CO_OWNER;
+        }
 
         if (ConfigEntry.SERVER_EXECUTIVES.getList().contains(player.getName()) && plugin.al.isAdmin(player))
         {

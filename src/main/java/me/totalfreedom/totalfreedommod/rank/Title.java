@@ -15,6 +15,7 @@ public enum Title implements Displayable
     EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec§c"),
     DEVELOPER("a", "Developer", ChatColor.AQUA, "§lDeveloper§b"),
     MANAGER("the", "Manager", ChatColor.RED, "§lManager§c"),
+    CO_OWNER("the", "Co Owner", ChatColor.GOLD, "§oCo Owner"),
     OWNER("the", "Owner", ChatColor.LIGHT_PURPLE, "§oOwner§d");
 
     private final String determiner;
