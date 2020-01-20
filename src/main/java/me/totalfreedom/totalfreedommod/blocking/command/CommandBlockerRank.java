@@ -11,9 +11,11 @@ public enum CommandBlockerRank
 {
     ANYONE("a"),
     OP("o"),
+    MODERATOR("m"),
     SUPER("s"),
     TELNET("t"),
     SENIOR("c"),
+    SYSTEM("sys"),
     NOBODY("n");
     //
     private final String token;

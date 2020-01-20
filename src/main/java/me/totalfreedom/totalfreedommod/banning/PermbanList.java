@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 public class PermbanList extends FreedomService
 {
 
-    public static final String CONFIG_FILENAME = "permbans.yml";
+    public static final String CONFIG_FILENAME = "blacklist.yml";
 
     @Getter
     private final Set<String> permbannedNames = Sets.newHashSet();
@@ -45,7 +45,7 @@ public class PermbanList extends FreedomService
             permbannedIps.addAll(config.getStringList(name));
         }
 
-        FLog.info("Loaded " + permbannedIps.size() + " perm IP bans and " + permbannedNames.size() + " perm username bans.");
+        FLog.info("Loaded " + permbannedIps.size() + " blacklisted IPs " + permbannedNames.size() + " blacklisted names");
     }
 
     @Override

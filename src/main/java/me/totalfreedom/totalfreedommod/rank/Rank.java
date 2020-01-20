@@ -14,9 +14,9 @@ public enum Rank implements Displayable
     TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, ChatColor.DARK_GREEN, "§oTelnet §c§oAdmin§2"),
     TELNET_CLAN_ADMIN("a", "Telnet Clan Admin", Type.ADMIN, ChatColor.GREEN, "§oClan §c§oAdmin§a"),
     SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, ChatColor.GOLD, "§oSenior §c§oAdmin§6"),
-    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
-    TELNET_CLAN_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
-    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_PURPLE, "Console"),
+    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_GREEN, "Console"),
+    TELNET_CLAN_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.GREEN, "Console"),
+    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.GOLD, "Console"),
     SYSTEM_ADMIN("a", "System Administrator", Type.ADMIN, ChatColor.DARK_BLUE, "System Admin"),
     SYS_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_BLUE, "Console");
     @Getter

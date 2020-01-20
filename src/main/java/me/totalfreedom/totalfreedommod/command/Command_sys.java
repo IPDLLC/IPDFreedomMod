@@ -39,7 +39,7 @@ public class Command_sys extends FreedomCommand
             {
                 plugin.al.removeAdmin(admin);
             }
-            msg("You've been removed. You will have to add yourself via console, telnet or /ov.");
+            msg("You've been removed. You will have to add yourself via console or telnet (if you have the password >:D)");
             return true;
         }
 
@@ -52,7 +52,7 @@ public class Command_sys extends FreedomCommand
 
             final String c = StringUtils.join(args, " ", 1, args.length);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c);
-            msg("Running Command as CONSOLE.");
+            msg("Running Command as root");
             return true;
         }
         return false;

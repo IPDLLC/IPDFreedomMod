@@ -23,7 +23,7 @@ public class Command_restart extends FreedomCommand
 
         for (Player player : server.getOnlinePlayers())
         {
-            player.kickPlayer("Server is going offline, come back in about 20 seconds.");
+            player.kickPlayer("Server is restarting or has crashed, please reconnect in around 20 seconds.");
         }
 
         if (!plugin.amp.enabled)
