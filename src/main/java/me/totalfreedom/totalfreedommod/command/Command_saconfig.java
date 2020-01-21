@@ -41,7 +41,6 @@ public class Command_saconfig extends FreedomCommand
 
             case "clean":
             {
-                checkConsole();
                 checkRank(Rank.TELNET_ADMIN);
 
                 FUtil.adminAction(sender.getName(), "Cleaning admin list", true);
@@ -63,7 +62,6 @@ public class Command_saconfig extends FreedomCommand
 
             case "setrank":
             {
-                checkConsole();
                 checkNotHostConsole();
                 checkRank(Rank.SENIOR_CONSOLE);
                 
@@ -159,7 +157,6 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
-                checkConsole();
                 checkRank(Rank.TELNET_CONSOLE);
 
                 // Player already an admin?
@@ -326,7 +323,6 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
-                checkConsole();
                 checkRank(Rank.TELNET_CLAN_CONSOLE);
 
                 Player player = getPlayer(args[1]);
