@@ -17,7 +17,7 @@ public class Command_stop extends FreedomCommand
     {
         FUtil.bcastMsg("Server is going offline!", ChatColor.LIGHT_PURPLE);
 
-        String reason = "Server is going offline, come back in about 20 seconds.";
+        String reason = "Server is restarting or has crashed. Please reconnect in around 20 seconds.";
 
         if (args.length > 0)
         {

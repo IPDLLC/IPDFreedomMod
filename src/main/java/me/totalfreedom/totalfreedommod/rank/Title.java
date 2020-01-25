@@ -9,14 +9,14 @@ public enum Title implements Displayable
     VIP("a", "VIP", ChatColor.GREEN, "VIP"),
     MVP("an", "MVP", ChatColor.AQUA, "MVP"),
     GOD("a", "God", ChatColor.GOLD, "GOD"),
-    OVERLORD("an", "Overlord", ChatColor.DARK_PURPLE, "Overlord"),
+    OVERLORD("an", "Overlord", ChatColor.DARK_PURPLE, "§lOverlord"),
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
     YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube§c"),
     EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec§c"),
     DEVELOPER("a", "Developer", ChatColor.AQUA, "§lDeveloper§b"),
     MANAGER("the", "Manager", ChatColor.RED, "§lManager§c"),
     CO_OWNER("the", "Co Owner", ChatColor.GOLD, "§oCo Owner"),
-    OWNER("the", "Owner", ChatColor.LIGHT_PURPLE, "§oOwner§d");
+    OWNER("the", "Owner", ChatColor.DARK_RED, "§oOwner§4");
 
     private final String determiner;
     @Getter

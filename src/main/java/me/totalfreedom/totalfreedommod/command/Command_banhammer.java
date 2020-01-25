@@ -69,8 +69,12 @@ public class Command_banhammer extends FreedomCommand
                 {
                     final Location strike_pos = new Location(targetPos.getWorld(), targetPos.getBlockX() + x, targetPos.getBlockY(), targetPos.getBlockZ() + z);
                     targetPos.getWorld().strikeLightning(strike_pos);
+                    targetPos.getWorld().strikeLightning(strike_pos);
+                    targetPos.getWorld().strikeLightning(strike_pos);
+                    targetPos.getWorld().strikeLightning(strike_pos);
                 }
             }
+
             // generate explosion
             player.getWorld().createExplosion(player.getLocation(), 0F, false);
                 
@@ -122,7 +126,7 @@ public class Command_banhammer extends FreedomCommand
         if (player != null)
         {
         FUtil.adminAction(sender.getName(), "Unleashed the senior's all mighty ban hammer on " + player.getName(), true);
-        FUtil.bcastMsg(player.getName() + " exploded into smithereens!", ChatColor.RED);
+        FUtil.bcastMsg(player.getName() + " was struck with the ban hammer.", ChatColor.WHITE);
         }
 
         // Ban player
@@ -151,7 +155,7 @@ public class Command_banhammer extends FreedomCommand
                 .append("[STAFF] ")
                 .append(ChatColor.WHITE)
                 .append(sender.getName())
-                .append(" has summoned the banhammer on ")
+                .append(" has struck the banhammer on ")
                 .append(username)
                 .append(" for ")
                 .append(reason);
