@@ -97,6 +97,11 @@ public class RankManager extends FreedomService
         {
             return Title.CO_OWNER;
         }
+        // -wheelchair noises-
+        if (FUtil.CRIPPLINGDEPRESSION.contains(player.getName()))
+        {
+            return Title.CRIPPLINGDEPRESSION;
+        }
 
         if (ConfigEntry.SERVER_EXECUTIVES.getList().contains(player.getName()) && plugin.al.isAdmin(player))
         {

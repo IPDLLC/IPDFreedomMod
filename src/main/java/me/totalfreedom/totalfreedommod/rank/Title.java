@@ -10,6 +10,7 @@ public enum Title implements Displayable
     MVP("an", "MVP", ChatColor.AQUA, "MVP"),
     GOD("a", "God", ChatColor.GOLD, "GOD"),
     OVERLORD("an", "Overlord", ChatColor.DARK_PURPLE, "§lOverlord"),
+    CRIPPLINGDEPRESSION("a", "Crippling Child", ChatColor.GREEN, "Crippling Depression"),
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
     YOUTUBER("a", "YouTuber", ChatColor.RED, "§lYou§f§lTube§c"),
     EXECUTIVE("an", "Executive", ChatColor.RED, "§oExec§c"),
