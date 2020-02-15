@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 public class PermbanList extends FreedomService
 {
 
-    public static final String CONFIG_FILENAME = "blacklist.yml";
+    public static final String CONFIG_FILENAME = "permbans.yml";
 
     @Getter
     private final Set<String> permbannedNames = Sets.newHashSet();
