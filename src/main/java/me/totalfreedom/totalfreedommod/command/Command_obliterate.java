@@ -130,7 +130,7 @@ public class Command_obliterate extends FreedomCommand
                 player.getWorld().createExplosion(player.getLocation(), 0F, false);
 
                 // kick player
-                player.kickPlayer(ChatColor.RED + "git gud");
+                player.kickPlayer(ChatColor.RED + "lesson #1, dont ever fuck up this bad.");
             }
         }.runTaskLater(plugin, 3L * 20L);
 
