@@ -32,3 +32,6 @@ manifest.mf
 ehthumbs.db
 Thumbs.db
 dependency-reduced-pom.xml
+.checkstyle
+.classpath
+.factorypath
