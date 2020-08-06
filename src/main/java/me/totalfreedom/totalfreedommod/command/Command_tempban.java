@@ -1,6 +1,7 @@
 package me.totalfreedom.totalfreedommod.command;
 
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,12 @@ import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
+=======
+import java.util.Date;
+import me.totalfreedom.totalfreedommod.banning.Ban;
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Location;
@@ -18,10 +25,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.MODERATOR, source = SourceType.BOTH)
 @CommandParameters(description = "Temporarily ban someone.", usage = "/<command> [playername] [duration] [reason]")
 public class Command_tempban extends FreedomCommand
 {
+=======
+@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Temporarily ban someone.", usage = "/<command> [playername] [duration] [reason]")
+public class Command_tempban extends FreedomCommand
+{
+
+>>>>>>> devel
     private static final SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
 
     @Override
@@ -32,12 +47,16 @@ public class Command_tempban extends FreedomCommand
             return false;
         }
 
+<<<<<<< HEAD
         final String username;
         final List<String> ips = new ArrayList<>();
 
         final Player player = getPlayer(args[0]);
         final PlayerData entry = plugin.pl.getData(args[0]);
 
+=======
+        final Player player = getPlayer(args[0]);
+>>>>>>> devel
 
         if (player == null)
         {
@@ -45,8 +64,11 @@ public class Command_tempban extends FreedomCommand
             return true;
         }
 
+<<<<<<< HEAD
         username = entry.getUsername();
         ips.addAll(entry.getIps());
+=======
+>>>>>>> devel
         final StringBuilder message = new StringBuilder("Temporarily banned " + player.getName());
 
         Date expires = FUtil.parseDateOffset("30m");
@@ -74,12 +96,17 @@ public class Command_tempban extends FreedomCommand
             for (int z = -1; z <= 1; z++)
             {
                 final Location strike_pos = new Location(targetPos.getWorld(), targetPos.getBlockX() + x, targetPos.getBlockY(), targetPos.getBlockZ() + z);
+<<<<<<< HEAD
                 targetPos.getWorld().strikeLightningEffect(strike_pos);
+=======
+                targetPos.getWorld().strikeLightning(strike_pos);
+>>>>>>> devel
             }
         }
 
         FUtil.adminAction(sender.getName(), message.toString(), true);
 
+<<<<<<< HEAD
         Ban ban = Ban.forPlayerName(username, sender, expires, reason);
         for (String ip : ips)
         {
@@ -89,6 +116,11 @@ public class Command_tempban extends FreedomCommand
         player.kickPlayer(sender.getName() + " - " + message.toString());
 
         plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.TEMPBAN, reason));
+=======
+        plugin.bm.addBan(Ban.forPlayer(player, sender, expires, reason));
+
+        player.kickPlayer(sender.getName() + " - " + message.toString());
+>>>>>>> devel
 
         return true;
     }

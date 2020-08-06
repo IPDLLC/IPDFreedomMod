@@ -5,6 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+>>>>>>> devel
 import java.util.List;
 import java.util.Set;
 import lombok.Getter;
@@ -22,13 +26,24 @@ import org.bukkit.entity.Player;
 
 public class Ban implements ConfigLoadable, ConfigSavable, Validatable
 {
+<<<<<<< HEAD
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
     @Getter
     private final List<String> ips = Lists.newArrayList();
+=======
+
+    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
+
+>>>>>>> devel
     @Getter
     @Setter
     private String username = null;
     @Getter
+<<<<<<< HEAD
+=======
+    private final List<String> ips = Lists.newArrayList();
+    @Getter
+>>>>>>> devel
     @Setter
     private String by = null;
     @Getter
@@ -46,9 +61,15 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
     {
         this(username,
                 new String[]
+<<<<<<< HEAD
                         {
                                 ip
                         },
+=======
+                {
+                    ip
+                },
+>>>>>>> devel
                 by,
                 expire,
                 reason);
@@ -67,6 +88,10 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
         this.reason = reason;
     }
 
+<<<<<<< HEAD
+=======
+    //
+>>>>>>> devel
     // For player IP
     public static Ban forPlayerIp(Player player, CommandSender by)
     {
@@ -76,9 +101,15 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
     public static Ban forPlayerIp(Player player, CommandSender by, Date expiry, String reason)
     {
         return new Ban(null, new String[]
+<<<<<<< HEAD
                 {
                         Ips.getIp(player)
                 }, by.getName(), expiry, reason);
+=======
+        {
+            Ips.getIp(player)
+        }, by.getName(), expiry, reason);
+>>>>>>> devel
     }
 
     public static Ban forPlayerIp(String ip, CommandSender by, Date expiry, String reason)
@@ -96,12 +127,20 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
     public static Ban forPlayerName(String player, CommandSender by, Date expiry, String reason)
     {
         return new Ban(player,
+<<<<<<< HEAD
                 (String[])null,
+=======
+                (String[]) null,
+>>>>>>> devel
                 by.getName(),
                 expiry,
                 reason);
     }
 
+<<<<<<< HEAD
+=======
+    //
+>>>>>>> devel
     // For player
     public static Ban forPlayer(Player player, CommandSender by)
     {
@@ -151,6 +190,14 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
         return expiryUnix > 0;
     }
 
+<<<<<<< HEAD
+=======
+    public Date getExpiryDate()
+    {
+        return FUtil.getUnixDate(expiryUnix);
+    }
+
+>>>>>>> devel
     public boolean isExpired()
     {
         return hasExpiry() && expiryUnix < FUtil.getUnixTime();
@@ -161,7 +208,10 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
         final StringBuilder message = new StringBuilder(ChatColor.GOLD + "You");
 
         message.append(!hasUsername() ? "r IP address is" : " are").append(" temporarily banned from this server.");
+<<<<<<< HEAD
         message.append("\n If you feel your ban is unjustified. You may appeal on our forums for an unban.");
+=======
+>>>>>>> devel
         message.append("\nAppeal at ").append(ChatColor.BLUE)
                 .append(ConfigEntry.SERVER_BAN_URL.getString());
 
@@ -199,9 +249,15 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
             return false;
         }
 
+<<<<<<< HEAD
         final Ban ban = (Ban)object;
         if (hasIps() != ban.hasIps()
                 || hasUsername() != ban.hasUsername())
+=======
+        final Ban ban = (Ban) object;
+        if (hasIps() != ban.hasIps()
+                || hasUsername() != hasUsername())
+>>>>>>> devel
         {
             return false;
         }
@@ -254,7 +310,22 @@ public class Ban implements ConfigLoadable, ConfigSavable, Validatable
 
     private void dedupeIps()
     {
+<<<<<<< HEAD
         Set<String> uniqueIps = new HashSet<>();
         ips.removeIf(s -> !uniqueIps.add(s));
+=======
+
+        Set<String> uniqueIps = new HashSet<>();
+
+        Iterator<String> it = ips.iterator();
+        while (it.hasNext())
+        {
+            if (!uniqueIps.add(it.next()))
+            {
+                it.remove();
+            }
+        }
+
+>>>>>>> devel
     }
 }

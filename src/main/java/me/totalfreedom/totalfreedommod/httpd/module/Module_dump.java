@@ -5,19 +5,32 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
+<<<<<<< HEAD
+=======
+import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.list;
+import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.paragraph;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.httpd.HTTPDaemon;
 import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+<<<<<<< HEAD
 import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.list;
 import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.paragraph;
+=======
+>>>>>>> devel
 
 public class Module_dump extends HTTPDModule
 {
 
+<<<<<<< HEAD
     private final String body;
     private File echoFile = null;
+=======
+    private File echoFile = null;
+    private final String body;
+>>>>>>> devel
 
     public Module_dump(TotalFreedomMod plugin, NanoHTTPD.HTTPSession session)
     {

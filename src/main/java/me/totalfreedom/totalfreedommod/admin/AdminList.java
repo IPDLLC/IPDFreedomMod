@@ -3,9 +3,13 @@ package me.totalfreedom.totalfreedommod.admin;
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+=======
+import java.util.Date;
+>>>>>>> devel
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -26,6 +30,10 @@ import org.bukkit.plugin.ServicePriority;
 
 public class AdminList extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     public static final String CONFIG_FILENAME = "admins.yml";
 
     @Getter
@@ -41,6 +49,10 @@ public class AdminList extends FreedomService
     public AdminList(TotalFreedomMod plugin)
     {
         super(plugin);
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         this.config = new YamlConfig(plugin, CONFIG_FILENAME, true);
     }
 
@@ -48,7 +60,20 @@ public class AdminList extends FreedomService
     protected void onStart()
     {
         load();
+<<<<<<< HEAD
         server.getServicesManager().register(Function.class, (Function<Player, Boolean>)this::isAdmin, plugin, ServicePriority.Normal);
+=======
+
+        server.getServicesManager().register(Function.class, new Function<Player, Boolean>()
+        {
+            @Override
+            public Boolean apply(Player player)
+            {
+                return isAdmin(player);
+            }
+        }, plugin, ServicePriority.Normal);
+
+>>>>>>> devel
         deactivateOldEntries(false);
     }
 
@@ -104,6 +129,7 @@ public class AdminList extends FreedomService
         config.save();
     }
 
+<<<<<<< HEAD
     public void messageAllAdmins(String message)
     {
         for (Player player : server.getOnlinePlayers())
@@ -115,11 +141,14 @@ public class AdminList extends FreedomService
         }
     }
 
+=======
+>>>>>>> devel
     public synchronized boolean isAdminSync(CommandSender sender)
     {
         return isAdmin(sender);
     }
 
+<<<<<<< HEAD
     public List<String> getActiveAdminNames()
     {
         List<String> names = new ArrayList();
@@ -130,6 +159,8 @@ public class AdminList extends FreedomService
         return names;
     }
 
+=======
+>>>>>>> devel
     public boolean isAdmin(CommandSender sender)
     {
         if (!(sender instanceof Player))
@@ -137,7 +168,11 @@ public class AdminList extends FreedomService
             return true;
         }
 
+<<<<<<< HEAD
         Admin admin = getAdmin((Player)sender);
+=======
+        Admin admin = getAdmin((Player) sender);
+>>>>>>> devel
 
         return admin != null && admin.isActive();
     }
@@ -157,7 +192,11 @@ public class AdminList extends FreedomService
     {
         if (sender instanceof Player)
         {
+<<<<<<< HEAD
             return getAdmin((Player)sender);
+=======
+            return getAdmin((Player) sender);
+>>>>>>> devel
         }
 
         return getEntryByName(sender.getName());
@@ -185,6 +224,11 @@ public class AdminList extends FreedomService
                 }
                 return admin;
             }
+<<<<<<< HEAD
+=======
+
+            // Impostor
+>>>>>>> devel
         }
 
         // Admin by ip
@@ -323,6 +367,10 @@ public class AdminList extends FreedomService
             {
                 ipTable.put(ip, admin);
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         }
 
         plugin.wm.adminworld.wipeAccessCache();
@@ -357,7 +405,11 @@ public class AdminList extends FreedomService
 
             if (verbose)
             {
+<<<<<<< HEAD
                 FUtil.adminAction("TotalFreedomMod", "Deactivating admin " + admin.getName() + ", inactive for " + lastLoginHours + " hours", true);
+=======
+                FUtil.adminAction("TotalFreedomMod", "Deactivating superadmin " + admin.getName() + ", inactive for " + lastLoginHours + " hours", true);
+>>>>>>> devel
             }
 
             admin.setActive(false);

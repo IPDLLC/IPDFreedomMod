@@ -1,7 +1,13 @@
 package me.totalfreedom.totalfreedommod.freeze;
 
 import lombok.Getter;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.player.FPlayer;
+=======
+import me.totalfreedom.totalfreedommod.TotalFreedomMod;
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+import static me.totalfreedom.totalfreedommod.player.FPlayer.AUTO_PURGE_TICKS;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.util.FLog;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.bukkit.GameMode;
@@ -9,8 +15,11 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+<<<<<<< HEAD
 import static me.totalfreedom.totalfreedommod.TotalFreedomMod.plugin;
 import static me.totalfreedom.totalfreedommod.player.FPlayer.AUTO_PURGE_TICKS;
+=======
+>>>>>>> devel
 
 public class FreezeData
 {
@@ -36,7 +45,11 @@ public class FreezeData
         final Player player = fPlayer.getPlayer();
         if (player == null)
         {
+<<<<<<< HEAD
             FLog.info("Could not freeze " + player.getName() + ". Player not online!");
+=======
+            FLog.info("Could not freeze " + fPlayer.getName() + ". Player not online!");
+>>>>>>> devel
             return;
         }
 
@@ -57,11 +70,20 @@ public class FreezeData
         location = player.getLocation(); // Blockify location
         FUtil.setFlying(player, true); // Avoid infinite falling
 
+<<<<<<< HEAD
+=======
+        if (fPlayer.getPlugin().al.isAdminImpostor(player))
+        {
+            return; // Don't run unfreeze task for impostors
+        }
+
+>>>>>>> devel
         unfreeze = new BukkitRunnable()
         {
             @Override
             public void run()
             {
+<<<<<<< HEAD
                 if (!plugin().al.isAdminImpostor(player) && plugin().pv.isPlayerImpostor(player))
                 {
                     FUtil.adminAction("TotalFreedom", "Unfreezing " + player.getName(), false);
@@ -70,6 +92,13 @@ public class FreezeData
             }
 
         }.runTaskLater(plugin(), AUTO_PURGE_TICKS);
+=======
+                FUtil.adminAction("TotalFreedom", "Unfreezing " + player.getName(), false);
+                setFrozen(false);
+            }
+
+        }.runTaskLater(fPlayer.getPlugin(), AUTO_PURGE_TICKS);
+>>>>>>> devel
     }
 
 }

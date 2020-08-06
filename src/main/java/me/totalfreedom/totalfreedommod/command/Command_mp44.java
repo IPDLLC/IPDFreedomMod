@@ -14,6 +14,10 @@ import org.bukkit.inventory.ItemStack;
 @CommandParameters(description = "Modern weaponry, FTW. Use 'draw' to start firing, 'sling' to stop firing.", usage = "/<command> <draw | sling>")
 public class Command_mp44 extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -37,7 +41,11 @@ public class Command_mp44 extends FreedomCommand
             msg("mp44 is ARMED! Left click with gunpowder to start firing, left click again to quit.", ChatColor.GREEN);
             msg("Type /mp44 sling to disable.  -by Madgeek1450", ChatColor.GREEN);
 
+<<<<<<< HEAD
             playerSender.getEquipment().setItemInMainHand(new ItemStack(Material.GUNPOWDER, 1));
+=======
+            playerSender.getEquipment().setItemInMainHand(new ItemStack(Material.SULPHUR, 1));
+>>>>>>> devel
         }
         else
         {
@@ -48,4 +56,8 @@ public class Command_mp44 extends FreedomCommand
 
         return true;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> devel

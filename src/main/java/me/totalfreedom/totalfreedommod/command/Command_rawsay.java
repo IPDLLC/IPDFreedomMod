@@ -7,10 +7,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Broadcasts the given message. Supports colors.", usage = "/<command> <message>")
 public class Command_rawsay extends FreedomCommand
 {
+=======
+@CommandPermissions(level = Rank.SENIOR_ADMIN, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
+@CommandParameters(description = "Broadcasts the given message. Supports colors.", usage = "/<command> <message>")
+public class Command_rawsay extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -18,6 +26,10 @@ public class Command_rawsay extends FreedomCommand
         {
             FUtil.bcastMsg(FUtil.colorize(StringUtils.join(args, " ")));
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         return true;
     }
 }

@@ -13,6 +13,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Gives you a tag with random colors", usage = "/<command> <tag>", aliases = "tn")
 public class Command_tagnyan extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -29,6 +33,7 @@ public class Command_tagnyan extends FreedomCommand
         }
 
         String tagStr = tag.toString();
+<<<<<<< HEAD
 
         int tagLimit = (plugin.al.isAdmin(sender) ? 30 : 20);
 
@@ -49,6 +54,14 @@ public class Command_tagnyan extends FreedomCommand
                     msg("That tag contains a forbidden word.");
                     return true;
                 }
+=======
+        for (String word : Command_tag.FORBIDDEN_WORDS)
+        {
+            if (tagStr.contains(word))
+            {
+                msg("That tag contains a forbidden word.");
+                return true;
+>>>>>>> devel
             }
         }
 

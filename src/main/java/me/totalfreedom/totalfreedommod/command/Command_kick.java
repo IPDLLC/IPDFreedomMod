@@ -1,10 +1,15 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.punishments.Punishment;
 import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
+=======
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -15,6 +20,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Kick a player.", usage = "/<command> <player> [reason]", aliases = "k")
 public class Command_kick extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     protected boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -24,13 +33,25 @@ public class Command_kick extends FreedomCommand
         }
 
         Player player = getPlayer(args[0]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> devel
         if (player == null)
         {
             msg(PLAYER_NOT_FOUND);
             return true;
         }
 
+<<<<<<< HEAD
+=======
+        if (isAdmin(player))
+        {
+            msg("Admins can not be kicked", ChatColor.RED);
+            return true;
+        }
+
+>>>>>>> devel
         String reason = null;
         if (args.length > 1)
         {
@@ -52,9 +73,15 @@ public class Command_kick extends FreedomCommand
         }
 
         player.kickPlayer(builder.toString());
+<<<<<<< HEAD
 
         plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.KICK, reason));
 
         return true;
     }
+=======
+        return true;
+    }
+
+>>>>>>> devel
 }

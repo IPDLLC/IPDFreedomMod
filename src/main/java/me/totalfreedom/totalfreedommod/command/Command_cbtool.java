@@ -20,6 +20,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "No Description Yet", usage = "/<command>")
 public class Command_cbtool extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -76,6 +80,7 @@ public class Command_cbtool extends FreedomCommand
         return SubCommand.getByName(args[0]).getExecutable().execute(ArrayUtils.remove(args, 0));
     }
 
+<<<<<<< HEAD
     private enum SubCommand
     {
         PLAYER_DETECT("playerdetect", args ->
@@ -138,11 +143,84 @@ public class Command_cbtool extends FreedomCommand
             }
 
             throw new SubCommandFailureException("No player found in range.");
+=======
+    private static enum SubCommand
+    {
+
+        PLAYER_DETECT("playerdetect", new SubCommandExecutable()
+        {
+            @Override
+            public String execute(String[] args) throws SubCommandFailureException
+            {
+                if (args.length != 5)
+                {
+                    throw new SubCommandFailureException("Invalid # of arguments.");
+                }
+
+                double x, y, z;
+                try
+                {
+                    x = Double.parseDouble(args[0].trim());
+                    y = Double.parseDouble(args[1].trim());
+                    z = Double.parseDouble(args[2].trim());
+                }
+                catch (NumberFormatException ex)
+                {
+                    throw new SubCommandFailureException("Invalid coordinates.");
+                }
+
+                World world = null;
+                final String needleWorldName = args[3].trim();
+                final List<World> worlds = Bukkit.getWorlds();
+                for (final World testWorld : worlds)
+                {
+                    if (testWorld.getName().trim().equalsIgnoreCase(needleWorldName))
+                    {
+                        world = testWorld;
+                        break;
+                    }
+                }
+
+                if (world == null)
+                {
+                    throw new SubCommandFailureException("Invalid world name.");
+                }
+
+                final Location testLocation = new Location(world, x, y, z);
+
+                double radius;
+                try
+                {
+                    radius = Double.parseDouble(args[4].trim());
+                }
+                catch (NumberFormatException ex)
+                {
+                    throw new SubCommandFailureException("Invalid radius.");
+                }
+
+                final double radiusSq = radius * radius;
+
+                final List<Player> worldPlayers = testLocation.getWorld().getPlayers();
+                for (final Player testPlayer : worldPlayers)
+                {
+                    if (testPlayer.getLocation().distanceSquared(testLocation) < radiusSq)
+                    {
+                        return testPlayer.getName();
+                    }
+                }
+
+                throw new SubCommandFailureException("No player found in range.");
+            }
+>>>>>>> devel
         }),
         PLAYER_DETECT_BOOLEAN("playerdetectboolean", new SubCommandExecutable()
         {
             @Override
+<<<<<<< HEAD
             public String execute(String[] args)
+=======
+            public String execute(String[] args) throws SubCommandFailureException
+>>>>>>> devel
             {
                 try
                 {
@@ -156,16 +234,37 @@ public class Command_cbtool extends FreedomCommand
                 return "1";
             }
         });
+<<<<<<< HEAD
 
         private final String name;
         private final SubCommandExecutable executable;
 
         SubCommand(String subCommandName, SubCommandExecutable subCommandImpl)
+=======
+        //
+        private final String name;
+        private final SubCommandExecutable executable;
+
+        private SubCommand(String subCommandName, SubCommandExecutable subCommandImpl)
+>>>>>>> devel
         {
             this.name = subCommandName;
             this.executable = subCommandImpl;
         }
 
+<<<<<<< HEAD
+=======
+        public SubCommandExecutable getExecutable()
+        {
+            return executable;
+        }
+
+        public String getName()
+        {
+            return name;
+        }
+
+>>>>>>> devel
         public static SubCommand getByName(String needle) throws SubCommandFailureException
         {
             needle = needle.trim();
@@ -178,6 +277,7 @@ public class Command_cbtool extends FreedomCommand
             }
             throw new SubCommandFailureException("Invalid subcommand name.");
         }
+<<<<<<< HEAD
 
         public SubCommandExecutable getExecutable()
         {
@@ -188,18 +288,37 @@ public class Command_cbtool extends FreedomCommand
         {
             return name;
         }
+=======
+>>>>>>> devel
     }
 
     private interface SubCommandExecutable
     {
+<<<<<<< HEAD
         String execute(String[] args) throws SubCommandFailureException;
+=======
+
+        public String execute(String[] args) throws SubCommandFailureException;
+>>>>>>> devel
     }
 
     private static class SubCommandFailureException extends Exception
     {
+<<<<<<< HEAD
+=======
+
+        public SubCommandFailureException()
+        {
+        }
+
+>>>>>>> devel
         public SubCommandFailureException(String message)
         {
             super(message);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

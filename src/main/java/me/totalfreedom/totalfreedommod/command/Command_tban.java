@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 import me.totalfreedom.totalfreedommod.banning.Ban;
@@ -9,6 +10,11 @@ import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
+=======
+import me.totalfreedom.totalfreedommod.banning.Ban;
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -16,10 +22,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.MODERATOR, source = SourceType.BOTH)
 @CommandParameters(description = "Temporarily bans a player for five minutes.", usage = "/<command> <player> [reason]", aliases = "noob")
 public class Command_tban extends FreedomCommand
 {
+=======
+@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Temporarily bans a player for five minutes.", usage = "/<command> <player> [reason]", aliases = "noob")
+public class Command_tban extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -28,6 +42,7 @@ public class Command_tban extends FreedomCommand
             return false;
         }
 
+<<<<<<< HEAD
         final String username;
         final List<String> ips = new ArrayList<>();
 
@@ -44,6 +59,16 @@ public class Command_tban extends FreedomCommand
         username = entry.getUsername();
         ips.addAll(entry.getIps());
 
+=======
+        final Player player = getPlayer(args[0]);
+
+        if (player == null)
+        {
+            msg(FreedomCommand.PLAYER_NOT_FOUND, ChatColor.RED);
+            return true;
+        }
+
+>>>>>>> devel
         String reason;
         if (args.length > 1)
         {
@@ -61,11 +86,16 @@ public class Command_tban extends FreedomCommand
             for (int z = -1; z <= 1; z++)
             {
                 final Location strike_pos = new Location(targetPos.getWorld(), targetPos.getBlockX() + x, targetPos.getBlockY(), targetPos.getBlockZ() + z);
+<<<<<<< HEAD
                 targetPos.getWorld().strikeLightningEffect(strike_pos);
+=======
+                targetPos.getWorld().strikeLightning(strike_pos);
+>>>>>>> devel
             }
         }
 
         FUtil.adminAction(sender.getName(), "Tempbanning: " + player.getName() + " for 5 minutes.", true);
+<<<<<<< HEAD
         Ban ban = Ban.forPlayerName(username, sender, FUtil.parseDateOffset("5m"), reason);
         for (String ip : ips)
         {
@@ -74,6 +104,12 @@ public class Command_tban extends FreedomCommand
         plugin.bm.addBan(ban);
         player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read totalfreedom.me for more info.");
         plugin.pul.logPunishment(new Punishment(player.getName(), Ips.getIp(player), sender.getName(), PunishmentType.TEMPBAN, reason));
+=======
+        plugin.bm.addBan(Ban.forPlayer(player, sender, FUtil.parseDateOffset("5m"), reason));
+
+        player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read totalfreedom.me for more info.");
+
+>>>>>>> devel
         return true;
     }
 }

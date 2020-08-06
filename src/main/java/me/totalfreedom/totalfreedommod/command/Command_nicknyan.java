@@ -12,6 +12,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Essentials Interface Command - Nyanify your nickname.", usage = "/<command> <<nick> | off>")
 public class Command_nicknyan extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

@@ -3,32 +3,48 @@ package me.totalfreedom.totalfreedommod.blocking;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.util.Groups;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.block.ShulkerBox;
 import org.bukkit.entity.Entity;
+=======
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Projectile;
+>>>>>>> devel
 import org.bukkit.entity.Tameable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBurnEvent;
+<<<<<<< HEAD
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.event.block.BlockPistonExtendEvent;
 import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.block.BlockRedstoneEvent;
+=======
+import org.bukkit.event.block.BlockFromToEvent;
+import org.bukkit.event.block.BlockIgniteEvent;
+>>>>>>> devel
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
+<<<<<<< HEAD
 import org.bukkit.event.entity.FireworkExplodeEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
+=======
+import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
+>>>>>>> devel
 
 public class EventBlocker extends FreedomService
 {
@@ -80,7 +96,11 @@ public class EventBlocker extends FreedomService
     {
         if (!ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
         {
+<<<<<<< HEAD
             event.blockList().clear();
+=======
+            event.setCancelled(true);
+>>>>>>> devel
             return;
         }
 
@@ -118,6 +138,22 @@ public class EventBlocker extends FreedomService
     }
 
     @EventHandler(priority = EventPriority.HIGH)
+<<<<<<< HEAD
+=======
+    public void onProjectileHit(ProjectileHitEvent event)
+    {
+        if (ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
+        {
+            Projectile entity = event.getEntity();
+            if (event.getEntityType() == EntityType.ARROW)
+            {
+                entity.getWorld().createExplosion(entity.getLocation(), 2F);
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+>>>>>>> devel
     public void onEntityDamage(EntityDamageEvent event)
     {
         switch (event.getCause())
@@ -137,7 +173,11 @@ public class EventBlocker extends FreedomService
             Entity entity = event.getEntity();
             if (entity instanceof Tameable)
             {
+<<<<<<< HEAD
                 if (((Tameable)entity).isTamed())
+=======
+                if (((Tameable) entity).isTamed())
+>>>>>>> devel
                 {
                     event.setCancelled(true);
                 }
@@ -153,7 +193,11 @@ public class EventBlocker extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         if (event.getPlayer().getWorld().getEntities().size() > 750 && !plugin.al.isAdmin(event.getPlayer()))
+=======
+        if (event.getPlayer().getWorld().getEntities().size() > 750)
+>>>>>>> devel
         {
             event.setCancelled(true);
         }
@@ -165,6 +209,7 @@ public class EventBlocker extends FreedomService
         event.setCancelled(true);
     }
 
+<<<<<<< HEAD
     @EventHandler(priority = EventPriority.HIGH)
     public void onFireworkExplode(FireworkExplodeEvent event)
     {
@@ -232,4 +277,6 @@ public class EventBlocker extends FreedomService
             }
         }
     }
+=======
+>>>>>>> devel
 }

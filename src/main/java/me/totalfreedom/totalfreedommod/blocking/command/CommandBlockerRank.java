@@ -1,6 +1,9 @@
 package me.totalfreedom.totalfreedommod.blocking.command;
 
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.rank.Rank;
@@ -9,6 +12,7 @@ import org.bukkit.entity.Player;
 
 public enum CommandBlockerRank
 {
+<<<<<<< HEAD
     ANYONE("a"),
     OP("o"),
     MODERATOR("m"),
@@ -16,6 +20,14 @@ public enum CommandBlockerRank
     TELNET("t"),
     SENIOR("c"),
     SYSTEM("sys"),
+=======
+
+    ANYONE("a"),
+    OP("o"),
+    SUPER("s"),
+    TELNET("t"),
+    SENIOR("c"),
+>>>>>>> devel
     NOBODY("n");
     //
     private final String token;
@@ -25,6 +37,19 @@ public enum CommandBlockerRank
         this.token = token;
     }
 
+<<<<<<< HEAD
+=======
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    public boolean hasPermission(CommandSender sender)
+    {
+        return fromSender(sender).ordinal() >= ordinal();
+    }
+
+>>>>>>> devel
     public static CommandBlockerRank fromSender(CommandSender sender)
     {
         if (!(sender instanceof Player))
@@ -32,7 +57,11 @@ public enum CommandBlockerRank
             return TELNET;
         }
 
+<<<<<<< HEAD
         Admin admin = Objects.requireNonNull(TotalFreedomMod.plugin()).al.getAdmin(sender);
+=======
+        Admin admin = TotalFreedomMod.plugin().al.getAdmin(sender);
+>>>>>>> devel
         if (admin != null)
         {
             if (admin.getRank() == Rank.SENIOR_ADMIN)
@@ -62,6 +91,7 @@ public enum CommandBlockerRank
         }
         return ANYONE;
     }
+<<<<<<< HEAD
 
     public String getToken()
     {
@@ -72,4 +102,6 @@ public enum CommandBlockerRank
     {
         return fromSender(sender).ordinal() >= ordinal();
     }
+=======
+>>>>>>> devel
 }

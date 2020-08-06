@@ -3,4 +3,14 @@ jdk:
   - oraclejdk8
 notifications:
   email: false
+<<<<<<< HEAD
 script: mvn clean install
+=======
+addons:
+  apt:
+    packages:
+      - sshpass
+script: mvn clean install
+after_success:
+  - ./travis-upload.sh
+>>>>>>> devel

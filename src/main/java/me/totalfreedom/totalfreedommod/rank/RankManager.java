@@ -5,7 +5,10 @@ import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.playerverification.VPlayer;
+=======
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.ChatUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -42,7 +45,11 @@ public class RankManager extends FreedomService
             return getRank(sender); // Consoles don't have display ranks
         }
 
+<<<<<<< HEAD
         final Player player = (Player)sender;
+=======
+        final Player player = (Player) sender;
+>>>>>>> devel
 
         // Display impostors
         if (plugin.al.isAdminImpostor(player))
@@ -50,6 +57,7 @@ public class RankManager extends FreedomService
             return Rank.IMPOSTOR;
         }
 
+<<<<<<< HEAD
         // If the player's an owner, display that
         if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
         {
@@ -86,11 +94,14 @@ public class RankManager extends FreedomService
             return Title.YOUTUBER;
         }
 
+=======
+>>>>>>> devel
         // Developers always show up
         if (FUtil.DEVELOPERS.contains(player.getName()))
         {
             return Title.DEVELOPER;
         }
+<<<<<<< HEAD
         
         // Co Owner always show up
         if (FUtil.CO_OWNER.contains(player.getName()))
@@ -115,13 +126,35 @@ public class RankManager extends FreedomService
         }
 
         return getRank(player);
+=======
+
+        final Rank rank = getRank(player);
+
+        // Non-admins don't have titles, display actual rank
+        if (!rank.isAdmin())
+        {
+            return rank;
+        }
+
+        // If the player's an owner, display that
+        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
+        {
+            return Title.OWNER;
+        }
+
+        return rank;
+>>>>>>> devel
     }
 
     public Rank getRank(CommandSender sender)
     {
         if (sender instanceof Player)
         {
+<<<<<<< HEAD
             return getRank((Player)sender);
+=======
+            return getRank((Player) sender);
+>>>>>>> devel
         }
 
         // CONSOLE?
@@ -151,7 +184,11 @@ public class RankManager extends FreedomService
 
     public Rank getRank(Player player)
     {
+<<<<<<< HEAD
         if (plugin.al.isAdminImpostor(player) || plugin.pv.isPlayerImpostor(player) || plugin.mbl.isMasterBuilderImpostor(player))
+=======
+        if (plugin.al.isAdminImpostor(player))
+>>>>>>> devel
         {
             return Rank.IMPOSTOR;
         }
@@ -165,6 +202,7 @@ public class RankManager extends FreedomService
         return player.isOp() ? Rank.OP : Rank.NON_OP;
     }
 
+<<<<<<< HEAD
     public void updateDisplay(Player player)
     {
         if (!player.isOnline())
@@ -186,13 +224,18 @@ public class RankManager extends FreedomService
         }
     }
 
+=======
+>>>>>>> devel
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         final Player player = event.getPlayer();
         //plugin.pl.getData(player);
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
+<<<<<<< HEAD
         VPlayer target = plugin.pv.getVerificationPlayer(player);
+=======
+>>>>>>> devel
 
         // Unban admins
         boolean isAdmin = plugin.al.isAdmin(player);
@@ -212,6 +255,7 @@ public class RankManager extends FreedomService
         }
 
         // Handle impostors
+<<<<<<< HEAD
         boolean isImpostor = plugin.al.isAdminImpostor(player) || plugin.pv.isPlayerImpostor(player) || plugin.mbl.isMasterBuilderImpostor(player);
         if (isImpostor)
         {
@@ -230,6 +274,12 @@ public class RankManager extends FreedomService
             }
             String displayName = Rank.IMPOSTOR.getColor() + player.getName();
             player.setPlayerListName(StringUtils.substring(displayName, 0, 16));
+=======
+        if (plugin.al.isAdminImpostor(player))
+        {
+            FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + Rank.IMPOSTOR.getColoredLoginMessage());
+            FUtil.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
+>>>>>>> devel
             player.getInventory().clear();
             player.setOp(false);
             player.setGameMode(GameMode.SURVIVAL);
@@ -239,7 +289,11 @@ public class RankManager extends FreedomService
         }
 
         // Set display
+<<<<<<< HEAD
         if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()) || plugin.mbl.isMasterBuilder(player))
+=======
+        if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()))
+>>>>>>> devel
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
@@ -252,6 +306,7 @@ public class RankManager extends FreedomService
                     loginMsg = ChatUtils.colorize(admin.getLoginMessage());
                 }
             }
+<<<<<<< HEAD
             FUtil.bcastMsg(ChatColor.AQUA + (loginMsg.contains("%name%") ? "" : player.getName() + " is ") + FUtil.colorize(loginMsg).replace("%name%", player.getName()));
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
 
@@ -263,6 +318,11 @@ public class RankManager extends FreedomService
                     plugin.pl.getPlayer(player).setTag(FUtil.colorize(admin.getTag()));
                 }
             }
+=======
+
+            FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
+            plugin.pl.getPlayer(player).setTag(display.getColoredTag());
+>>>>>>> devel
 
             String displayName = display.getColor() + player.getName();
             try
@@ -273,6 +333,7 @@ public class RankManager extends FreedomService
             {
             }
         }
+<<<<<<< HEAD
 
         if (!plugin.pv.isPlayerImpostor(player) && target.getEnabled())
         {
@@ -281,5 +342,7 @@ public class RankManager extends FreedomService
                 plugin.pl.getPlayer(player).setTag(FUtil.colorize(target.getTag()));
             }
         }
+=======
+>>>>>>> devel
     }
 }

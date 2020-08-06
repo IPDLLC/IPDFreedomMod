@@ -1,10 +1,15 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.punishments.Punishment;
 import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
+=======
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -14,6 +19,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.MODERATOR, source = SourceType.BOTH)
 @CommandParameters(description = "Someone being a little bitch? Smite them down...", usage = "/<command> <player> [reason]")
 public class Command_smite extends FreedomCommand
@@ -27,6 +33,52 @@ public class Command_smite extends FreedomCommand
     {
         FUtil.bcastMsg(player.getName() + " has been a naughty, naughty boy.", ChatColor.RED);
 
+=======
+@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Someone being a little bitch? Smite them down...", usage = "/<command> <player> [reason]")
+public class Command_smite extends FreedomCommand
+{
+
+    @Override
+    public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+        if (args.length < 1)
+        {
+            return false;
+        }
+
+        final Player player = getPlayer(args[0]);
+
+        String reason = null;
+        if (args.length > 1)
+        {
+            reason = StringUtils.join(args, " ", 1, args.length);
+        }
+
+        if (player == null)
+        {
+            msg(FreedomCommand.PLAYER_NOT_FOUND);
+            return true;
+        }
+
+        smite(player, reason);
+        return true;
+    }
+
+    public static void smite(Player player)
+    {
+        smite(player, null);
+    }
+
+    public static void smite(Player player, String reason)
+    {
+        FUtil.bcastMsg(player.getName() + " has been a naughty, naughty boy.", ChatColor.RED);
+
+        if (reason != null)
+        {
+            FUtil.bcastMsg("  Reason: " + reason, ChatColor.YELLOW);
+        }
+>>>>>>> devel
 
         // Deop
         player.setOp(false);
@@ -57,6 +109,7 @@ public class Command_smite extends FreedomCommand
             player.sendMessage(ChatColor.RED + "You've been smitten. Reason: " + ChatColor.YELLOW + reason);
         }
     }
+<<<<<<< HEAD
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -86,4 +139,6 @@ public class Command_smite extends FreedomCommand
 
         return true;
     }
+=======
+>>>>>>> devel
 }

@@ -16,6 +16,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Set a landmine trap.", usage = "/<command>")
 public class Command_landmine extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -62,4 +66,8 @@ public class Command_landmine extends FreedomCommand
 
         return true;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

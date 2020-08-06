@@ -62,12 +62,15 @@ public class AntiSpam extends FreedomService
     public void onAsyncPlayerChat(AsyncPlayerChatEvent event)
     {
         final Player player = event.getPlayer();
+<<<<<<< HEAD
 
         if (plugin.al.isAdmin(player))
         {
             return;
         }
 
+=======
+>>>>>>> devel
         String message = event.getMessage().trim();
 
         final FPlayer playerdata = plugin.pl.getPlayerSync(player);
@@ -84,6 +87,17 @@ public class AntiSpam extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
+=======
+        // Check for message repeat
+        if (playerdata.getLastMessage().equalsIgnoreCase(message))
+        {
+            FSync.playerMsg(player, "Please do not repeat messages.");
+            event.setCancelled(true);
+            return;
+        }
+
+>>>>>>> devel
         playerdata.setLastMessage(message);
     }
 
@@ -102,11 +116,14 @@ public class AntiSpam extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         if (plugin.al.isAdmin(player))
         {
             return;
         }
 
+=======
+>>>>>>> devel
         if (fPlayer.incrementAndGetMsgCount() > MSG_PER_CYCLE)
         {
             FUtil.bcastMsg(player.getName() + " was automatically kicked for spamming commands.", ChatColor.RED);
@@ -116,4 +133,9 @@ public class AntiSpam extends FreedomService
             event.setCancelled(true);
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> devel

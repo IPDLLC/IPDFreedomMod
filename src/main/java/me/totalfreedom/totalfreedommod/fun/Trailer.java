@@ -1,15 +1,25 @@
 package me.totalfreedom.totalfreedommod.fun;
 
 import java.util.HashSet;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> devel
 import java.util.Random;
 import java.util.Set;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.util.Groups;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
+=======
+import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+>>>>>>> devel
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -17,6 +27,10 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class Trailer extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private final Random random = new Random();
     private final Set<String> trailPlayers = new HashSet<>(); // player name
 
@@ -48,11 +62,14 @@ public class Trailer extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         if (event.getPlayer().getWorld().equals(plugin.wm.masterBuilderWorld.getWorld()))
         {
             return;
         }
 
+=======
+>>>>>>> devel
         Block fromBlock = event.getFrom().getBlock();
         if (!fromBlock.isEmpty())
         {
@@ -65,6 +82,7 @@ public class Trailer extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         fromBlock.setType(Groups.WOOL_COLORS.get(random.nextInt(Groups.WOOL_COLORS.size())));
         BlockData data = fromBlock.getBlockData();
         Material material = Material.getMaterial(String.valueOf(fromBlock.getType()));
@@ -74,6 +92,10 @@ public class Trailer extends FreedomService
         {
             plugin.cpb.getCoreProtectAPI().logPlacement(event.getPlayer().getName(), trail_pos, material, data);
         }
+=======
+        fromBlock.setType(Material.WOOL);
+        DepreciationAggregator.setData_Block(fromBlock, (byte) random.nextInt(16));
+>>>>>>> devel
     }
 
     public void remove(Player player)

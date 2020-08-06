@@ -1,5 +1,9 @@
 #
+<<<<<<< HEAD
 # TotalFreedomMod 2019.3.2 Configuration
+=======
+# TotalFreedomMod 5.0 Configuration
+>>>>>>> devel
 # by Madgeek1450 and Prozza
 #
 
@@ -19,6 +23,7 @@ server:
 
   # All players who show up as owner
   owners:
+<<<<<<< HEAD
     - idiotpolice
     - GeminiTaze
 
@@ -28,6 +33,9 @@ server:
 
   # All players who can manage the master builder list
   master_builder_management: []
+=======
+    - TheMinecraft
+>>>>>>> devel
 
   # URL players should appeal for bans at
   ban_url: http://totalfreedom.boards.net/
@@ -35,6 +43,7 @@ server:
   # URL players should appeal for permanent bans at
   permban_url: http://bit.ly/TF_PermBan
 
+<<<<<<< HEAD
 # Discord
 discord:
   # If you do not have a token, make a bot account and get one at https://discordapp.com/developers/applications/me
@@ -52,6 +61,8 @@ discord:
   # Senior Admin role ID
   senior_role_id: ''
 
+=======
+>>>>>>> devel
 # Admin list
 adminlist:
 
@@ -62,6 +73,7 @@ adminlist:
   # Handy in development environments.
   console_is_senior: true
 
+<<<<<<< HEAD
 # CoreProtect
 coreprotect:
   enabled: false
@@ -71,6 +83,8 @@ coreprotect:
   password: ''
   database: 'coreprotect'
 
+=======
+>>>>>>> devel
 # ForceIP configuration
 forceip:
   enabled: false
@@ -81,11 +95,14 @@ forceip:
   # The kick message sent to players when logging in with the wrong hostname
   kickmsg: You have been kicked from the server - Please connect using %address%
 
+<<<<<<< HEAD
 # TotalFreedom Social Media Links, casing will be preserved
 social_links:
   Forum: 'UNDER MAINTENANCE'
   Discord: 'https://discord.gg/q3A3Xrs'
 
+=======
+>>>>>>> devel
 
 # Blocking certain events
 allow:
@@ -97,10 +114,13 @@ allow:
   water_place: false
   tnt_minecarts: false
   explosions: false
+<<<<<<< HEAD
   redstone: true
   fireworks: false
   frostwalker: false
   unsafe_enchantments: true
+=======
+>>>>>>> devel
 
 # Blocked commands:
 #
@@ -136,9 +156,16 @@ allow:
 #   - 'n:b:/ban:_'
 #
 blocked_commands:
+<<<<<<< HEAD
   # Disabled commands
   - 'n:b:/time:Server-side time changing is disabled. Please use /ptime to set your own personal time.'
   - 'n:b:/gamemode:Use /creative and /survival to set your gamemode.'
+=======
+    # Disabled commands
+  - 'n:b:/time:Server-side time changing is disabled. Please use /ptime to set your own personal time.'
+  - 'n:b:/gamemode:Use /creative and /survival to set your gamemode.'
+  - 'n:b:/ban:_'
+>>>>>>> devel
   - 'n:b:/pardon:_'
   - 'n:b:/ban-ip:_'
   - 'n:b:/pardon-ip:_'
@@ -159,6 +186,7 @@ blocked_commands:
   - 'n:b:/pp hugeexplosion:You may not use this particle! Please use another.'
   - 'n:b:/pp barrier:You may not use this particle! Please use another.'
   - 'n:b:/setjail:_'
+<<<<<<< HEAD
   - 'n:b:/function:_'
   - 'n:b:/data:_'
   - 'n:b:/datapack:_'
@@ -166,6 +194,12 @@ blocked_commands:
   - 'n:b://forceload:_'
 
   # Admin commands
+=======
+  - 'n:b:/tfbanlist:Use /banlist to see and wipe the ban list'
+  - 'n:b:/tfipbanlist:Use /banlist to see and wipe the ban list'
+
+  # Superadmin commands
+>>>>>>> devel
   - 's:b:/save-all:_'
   - 's:b:/kick:_'
   - 's:b:/socialspy:_'
@@ -202,6 +236,7 @@ blocked_commands:
   - 's:b:/togglejail:_'
   - 's:b:/fill:_'
   - 's:b:/flood:_'
+<<<<<<< HEAD
   - 's:b:/team:_'
 
 # Commands that should be blocked in certain circumstances
@@ -225,6 +260,15 @@ blocked:
 
 # Automatically wipe dropped objects
 auto_wipe: false
+=======
+
+  # Superadmin commands - Auto-eject
+  - 's:a:/stop:_'
+  - 's:a:/restart:_'
+
+# Automatically wipe dropped objects
+auto_wipe: true
+>>>>>>> devel
 
 # Nuking prevention
 nukemonitor:
@@ -241,13 +285,23 @@ preprocess_log: true
 
 # Disable certain events
 disable:
+<<<<<<< HEAD
   night: false
   weather: false
+=======
+  night: true
+  weather: true
+
+>>>>>>> devel
 
 # Enable misc. features
 landmines_enabled: false
 mp44_enabled: false
+<<<<<<< HEAD
 tossmob_enabled: true
+=======
+tossmob_enabled: false
+>>>>>>> devel
 
 # Moblimiter
 moblimiter:
@@ -264,12 +318,21 @@ flatlands:
   generate: true
 
   # Flatlands generation parameters - Uses CleanroomGenerator syntax - http://dev.bukkit.org/server-mods/cleanroomgenerator/
+<<<<<<< HEAD
   generate_params: 16,stone,32,dirt,1,grass_block
 
 # Admin-Only Mode
 admin_only_mode: true
 
 # Protected Areas - Protect areas so that only admins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.
+=======
+  generate_params: 16,stone,32,dirt,1,grass
+
+# Admin-Only Mode
+admin_only_mode: false
+
+# Protected Areas - Protect areas so that only superadmins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.
+>>>>>>> devel
 protectarea:
   enabled: true
   auto_protect_spawnpoints: true
@@ -280,16 +343,28 @@ protectarea:
 host_sender_names:
   - rcon
   - remotebukkit
+<<<<<<< HEAD
 
 # Announcer
 announcer:
   enabled: false
+=======
+  - console
+
+# Announcer
+announcer:
+  enabled: true
+>>>>>>> devel
 
   # Interval between announcements, in seconds.
   interval: 600
 
   # Prefix for all announcements
+<<<<<<< HEAD
   prefix: '4&lIPD&c&lFreedom&3: '
+=======
+  prefix: '&5[&eTotalFreedom&5] &b'
+>>>>>>> devel
 
   announcements:
     - 'Be sure to visit our forums at &6http://totalfreedom.boards.net/'
@@ -298,15 +373,24 @@ announcer:
     - 'Somebody breaking the rules? Report it! /report <user> <reason>'
     - 'Griefing is not allowed!'
     - 'Hacked clients are allowed!'
+<<<<<<< HEAD
     - 'Interested in becoming admin? Type "/ai" for more information!'
+=======
+    - 'Interested in becoming admin? Do "/ai" for more information!'
+>>>>>>> devel
     - 'You may view all online administrators via "/list -a"'
     - 'Save your buildings via WorldEdit! http://totalfreedom.me for more information!'
     - 'Famous players, such as Notch, are always fake! We are an offline/cracked server!'
     - 'You may contact TotalFreedom support on Twitter! https://tiny.re/tfsupport'
     - 'You may download TotalFreedomMod here: https://tiny.re/tfm+'
+<<<<<<< HEAD
     - 'Catholic_Mario is the owner of TotalFreedom.'
     - 'MarkByron is the founder of TotalFreedom.'
     - 'Server lagging? Check the lag via "/tps"'
+=======
+    - 'MarkByron is the owner of TotalFreedom.'
+    - 'Server lagging?  Check the lag via "/tps"'
+>>>>>>> devel
     - 'You are allowed to record and stream videos on TotalFreedom.'
     - 'Player vs player while in creative or god mode is forbidden!'
     - 'Spawn killing is forbidden!'
@@ -314,6 +398,7 @@ announcer:
     - 'Serial griefing and trolling will result in a permanent ban!'
     - 'TotalFreedom does not accept any form of donations!'
     - 'Racism, nazism, and sexism are strictly forbidden!'
+<<<<<<< HEAD
     - 'Join our Discord server! Link: https://discordapp.com/invite/XXjmAmV/'
 
 # What to display in the admininfo command.
@@ -333,11 +418,17 @@ masterbuilderinfo:
   - ' &6- Copy the template and create a thread on our forums'
   - ' &2- Template:'
   - '    &4CURRENTLY NOT AVAILABLE'
+=======
+    - 'Join our Mumble server! IP: 64.34.202.140:2862'
+>>>>>>> devel
 
 # Famous players - cannot be banned by username
 famous_players:
   - honeydew
+<<<<<<< HEAD
   - idiotpolice
+=======
+>>>>>>> devel
   - xephos
   - captainsparklez
   - truemu
@@ -395,7 +486,11 @@ service_checker_url: http://status.mojang.com/check
 # HTTPD server
 httpd:
   enabled: true
+<<<<<<< HEAD
   port: 2666
+=======
+  port: 28966
+>>>>>>> devel
   public_folder: ./public_html
 
 # Inactivity Auto-Kick (Requires Essentials)
@@ -415,6 +510,7 @@ overlord_ips:
   - 107.191.101.27
   - 178.62.117.94
   - 141.101.104.243
+<<<<<<< HEAD
   - 192.168.1.114
 
 # AMP Integration, used to restart server (optional, without it, have to start server manually after stop)
@@ -423,3 +519,6 @@ amp:
   username: username
   password: password
   url: url
+=======
+
+>>>>>>> devel

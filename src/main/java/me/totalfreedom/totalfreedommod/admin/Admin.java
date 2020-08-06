@@ -15,16 +15,22 @@ import net.pravian.aero.base.Validatable;
 import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
+<<<<<<< HEAD
 import org.bukkit.ChatColor;
+=======
+>>>>>>> devel
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 public class Admin implements ConfigLoadable, ConfigSavable, Validatable
 {
 
+<<<<<<< HEAD
     public static final String CONFIG_FILENAME = "admins.yml";
     @Getter
     private final List<String> ips = Lists.newArrayList();
+=======
+>>>>>>> devel
     @Getter
     private String configKey;
     @Getter
@@ -34,13 +40,20 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     private boolean active = true;
     @Getter
     @Setter
+<<<<<<< HEAD
     private Rank rank = Rank.MODERATOR;
+=======
+    private Rank rank = Rank.SUPER_ADMIN;
+    @Getter
+    private final List<String> ips = Lists.newArrayList();
+>>>>>>> devel
     @Getter
     @Setter
     private Date lastLogin = new Date();
     @Getter
     @Setter
     private String loginMessage = null;
+<<<<<<< HEAD
     @Getter
     @Setter
     private String discordID = null;
@@ -62,6 +75,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private Boolean logStick = false;
+=======
+>>>>>>> devel
 
     public Admin(Player player)
     {
@@ -85,6 +100,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- Last Login: ").append(FUtil.dateToString(lastLogin)).append("\n")
                 .append("- Custom Login Message: ").append(loginMessage).append("\n")
                 .append("- Rank: ").append(rank.getName()).append("\n")
+<<<<<<< HEAD
                 .append("- Is Active: ").append(active).append("\n")
                 .append("- Discord ID: ").append(discordID).append("\n")
                 .append("- Tag: ").append(tag).append("\n").append(ChatColor.GRAY)
@@ -94,6 +110,11 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- Log Stick: ").append(logStick);
 
         return output.toString().replace("null", "not set");
+=======
+                .append("- Is Active: ").append(active);
+
+        return output.toString();
+>>>>>>> devel
     }
 
     public void loadFrom(Player player)
@@ -114,6 +135,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         ips.addAll(cs.getStringList("ips"));
         lastLogin = FUtil.stringToDate(cs.getString("last_login"));
         loginMessage = cs.getString("login_message", null);
+<<<<<<< HEAD
         discordID = cs.getString("discord_id", null);
         tag = cs.getString("tag", null);
         commandSpy = cs.getBoolean("command_spy", false);
@@ -121,6 +143,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         acFormat = cs.getString("acformat", null);
         oldTags = cs.getBoolean("oldtags", false);
         logStick = cs.getBoolean("logstick", false);
+=======
+>>>>>>> devel
     }
 
     @Override
@@ -133,6 +157,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("ips", Lists.newArrayList(ips));
         cs.set("last_login", FUtil.dateToString(lastLogin));
         cs.set("login_message", loginMessage);
+<<<<<<< HEAD
         cs.set("discord_id", discordID);
         cs.set("tag", tag);
         cs.set("command_spy", commandSpy);
@@ -140,6 +165,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("acformat", acFormat);
         cs.set("oldtags", oldTags);
         cs.set("logstick", logStick);
+=======
+>>>>>>> devel
     }
 
     public boolean isAtLeast(Rank pRank)
@@ -169,6 +196,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         }
     }
 
+<<<<<<< HEAD
     public String getLoginMessage()
     {
         return this.loginMessage;
@@ -179,6 +207,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         this.loginMessage = loginMessage;
     }
 
+=======
+>>>>>>> devel
     public void removeIp(String ip)
     {
         if (ips.contains(ip))
@@ -192,6 +222,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         ips.clear();
     }
 
+<<<<<<< HEAD
     @Override
     public boolean isValid()
     {
@@ -207,6 +238,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         return this.active;
     }
 
+=======
+>>>>>>> devel
     public void setActive(boolean active)
     {
         this.active = active;
@@ -227,6 +260,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         }
     }
 
+<<<<<<< HEAD
     public String getConfigKey()
     {
         return this.configKey;
@@ -275,5 +309,15 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     public void setDiscordID(String discordID)
     {
         this.discordID = discordID;
+=======
+    @Override
+    public boolean isValid()
+    {
+        return configKey != null
+                && name != null
+                && rank != null
+                && !ips.isEmpty()
+                && lastLogin != null;
+>>>>>>> devel
     }
 }

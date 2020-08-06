@@ -13,6 +13,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Show misc. server info.", usage = "/<command>")
 public class Command_status extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     public static final Map<String, String> SERVICE_MAP = new HashMap<>();
 
     static
@@ -29,6 +33,10 @@ public class Command_status extends FreedomCommand
     public boolean run(final CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         msg("For information about TotalFreedomMod, try /tfm", ChatColor.GREEN); // Temporary
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         msg("Server is currently running with 'online-mode=" + (server.getOnlineMode() ? "true" : "false") + "'.", ChatColor.YELLOW);
         msg("Loaded worlds:", ChatColor.BLUE);
         int i = 0;
@@ -36,6 +44,10 @@ public class Command_status extends FreedomCommand
         {
             msg(String.format("World %d: %s - %d players.", i++, world.getName(), world.getPlayers().size()), ChatColor.BLUE);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         return true;
     }
 }

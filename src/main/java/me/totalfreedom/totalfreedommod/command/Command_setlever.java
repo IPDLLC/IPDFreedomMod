@@ -2,20 +2,34 @@ package me.totalfreedom.totalfreedommod.command;
 
 import java.util.List;
 import me.totalfreedom.totalfreedommod.rank.Rank;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
+>>>>>>> devel
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+<<<<<<< HEAD
 import org.bukkit.block.BlockState;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.material.Lever;
+=======
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+>>>>>>> devel
 
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
 @CommandParameters(description = "Set the on/off state of the lever at position x, y, z in world 'worldname'.", usage = "/<command> <x> <y> <z> <worldname> <on|off>")
 public class Command_setlever extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -63,17 +77,28 @@ public class Command_setlever extends FreedomCommand
 
         if (targetBlock.getType() == Material.LEVER)
         {
+<<<<<<< HEAD
             BlockState state = targetBlock.getState();
             Lever lever = (Lever)state.getData();
             lever.setPowered(leverOn);
             state.setData(lever);
             state.update();
+=======
+            org.bukkit.material.Lever lever = DepreciationAggregator.makeLeverWithData(DepreciationAggregator.getData_Block(targetBlock));
+            lever.setPowered(leverOn);
+            DepreciationAggregator.setData_Block(targetBlock, DepreciationAggregator.getData_MaterialData(lever));
+            targetBlock.getState().update();
+>>>>>>> devel
         }
         else
         {
             msg("Target block " + targetBlock + "  is not a lever.");
             return true;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         return true;
     }
 }

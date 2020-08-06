@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +8,10 @@ import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.bukkit.Bukkit;
+=======
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,6 +21,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Switch server online-mode on and off.", usage = "/<command> <on | off>")
 public class Command_onlinemode extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -26,7 +35,11 @@ public class Command_onlinemode extends FreedomCommand
         }
         else
         {
+<<<<<<< HEAD
             boolean onlineMode = Bukkit.getOnlineMode();
+=======
+            boolean onlineMode;
+>>>>>>> devel
 
             if (sender instanceof Player && !plugin.al.isSeniorAdmin(sender))
             {
@@ -36,20 +49,26 @@ public class Command_onlinemode extends FreedomCommand
 
             if (args[0].equalsIgnoreCase("on"))
             {
+<<<<<<< HEAD
                 if (onlineMode)
                 {
                     msg("The server is already running in online mode.", ChatColor.RED);
                     return true;
                 }
+=======
+>>>>>>> devel
                 onlineMode = true;
             }
             else if (args[0].equalsIgnoreCase("off"))
             {
+<<<<<<< HEAD
                 if (!onlineMode)
                 {
                     msg("The server is already running in offline mode.", ChatColor.RED);
                     return true;
                 }
+=======
+>>>>>>> devel
                 onlineMode = false;
             }
             else
@@ -57,6 +76,7 @@ public class Command_onlinemode extends FreedomCommand
                 return false;
             }
 
+<<<<<<< HEAD
             try
             {
                 plugin.si.setOnlineMode(onlineMode);
@@ -92,3 +112,31 @@ public class Command_onlinemode extends FreedomCommand
         return Collections.emptyList();
     }
 }
+=======
+//            try
+//            {
+//                plugin.si.setOnlineMode(onlineMode);
+//
+//                if (onlineMode)
+//                {
+//                    for (Player player : server.getOnlinePlayers())
+//                    {
+//                        player.kickPlayer("Server is activating \"online-mode=true\". Please reconnect.");
+//                    }
+//                }
+//
+//                FUtil.adminAction(sender.getName(), "Turning player validation " + (onlineMode ? "on" : "off") + ".", true);
+//
+//                server.reload();
+//            }
+//            catch (Exception ex)
+//            {
+//                FLog.severe(ex);
+//            }
+            FUtil.adminAction(sender.getName(), "Online-Mode toggling is temporarily disabled.", true);
+        }
+
+        return true;
+    }
+}
+>>>>>>> devel

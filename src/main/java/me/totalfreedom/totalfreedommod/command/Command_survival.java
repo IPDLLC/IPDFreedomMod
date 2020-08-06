@@ -11,6 +11,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Quickly change your own gamemode to survival, or define someone's username to change theirs.", usage = "/<command> <[partialname] | -a>", aliases = "gms")
 public class Command_survival extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -27,7 +31,11 @@ public class Command_survival extends FreedomCommand
             return true;
         }
 
+<<<<<<< HEAD
         checkRank(Rank.SENIOR_ADMIN);
+=======
+        checkRank(Rank.SUPER_ADMIN);
+>>>>>>> devel
 
         if (args[0].equals("-a"))
         {

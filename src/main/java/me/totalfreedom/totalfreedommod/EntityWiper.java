@@ -6,7 +6,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import lombok.Getter;
+=======
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.bukkit.Bukkit;
@@ -15,15 +18,22 @@ import org.bukkit.World;
 import org.bukkit.entity.AreaEffectCloud;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Boat;
+<<<<<<< HEAD
 import org.bukkit.entity.DragonFireball;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.EnderPearl;
+=======
+import org.bukkit.entity.EnderCrystal;
+>>>>>>> devel
 import org.bukkit.entity.EnderSignal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.entity.Explosive;
 import org.bukkit.entity.FallingBlock;
+<<<<<<< HEAD
 import org.bukkit.entity.Fireball;
+=======
+>>>>>>> devel
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Minecart;
@@ -33,7 +43,10 @@ import org.bukkit.entity.ThrownPotion;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.ItemSpawnEvent;
+<<<<<<< HEAD
 import org.bukkit.event.player.PlayerDropItemEvent;
+=======
+>>>>>>> devel
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -45,8 +58,11 @@ public class EntityWiper extends FreedomService
     public static final int CHUNK_ENTITY_MAX = 20;
     //
     private final List<Class<? extends Entity>> wipables = new ArrayList<>();
+<<<<<<< HEAD
     @Getter
     private boolean enabled;
+=======
+>>>>>>> devel
     //
     private BukkitTask wipeTask;
 
@@ -55,7 +71,10 @@ public class EntityWiper extends FreedomService
         super(plugin);
         wipables.add(EnderCrystal.class);
         wipables.add(EnderSignal.class);
+<<<<<<< HEAD
         wipables.add(EnderPearl.class);
+=======
+>>>>>>> devel
         wipables.add(ExperienceOrb.class);
         wipables.add(Projectile.class);
         wipables.add(FallingBlock.class);
@@ -68,8 +87,11 @@ public class EntityWiper extends FreedomService
         wipables.add(Boat.class);
         wipables.add(FallingBlock.class);
         wipables.add(ArmorStand.class);
+<<<<<<< HEAD
         wipables.add(Fireball.class);
         wipables.add(DragonFireball.class);
+=======
+>>>>>>> devel
     }
 
     @Override
@@ -176,7 +198,10 @@ public class EntityWiper extends FreedomService
             for (Entity e : cel)
             {
                 e.remove();
+<<<<<<< HEAD
                 removed++;
+=======
+>>>>>>> devel
             }
         }
 
@@ -200,6 +225,7 @@ public class EntityWiper extends FreedomService
 
     }
 
+<<<<<<< HEAD
     @EventHandler
     public void onDrop(PlayerDropItemEvent event)
     {
@@ -209,4 +235,6 @@ public class EntityWiper extends FreedomService
             event.setCancelled(true);
         }
     }
+=======
+>>>>>>> devel
 }

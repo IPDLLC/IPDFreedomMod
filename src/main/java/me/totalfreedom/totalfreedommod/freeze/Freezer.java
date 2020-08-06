@@ -32,6 +32,14 @@ public class Freezer extends FreedomService
     {
     }
 
+<<<<<<< HEAD
+=======
+    public void setGlobalFreeze(boolean frozen)
+    {
+        this.globalFreeze = frozen;
+    }
+
+>>>>>>> devel
     public void purge()
     {
         this.globalFreeze = false;
@@ -60,7 +68,11 @@ public class Freezer extends FreedomService
 
         FUtil.setFlying(player, true);
 
+<<<<<<< HEAD
         Location loc = player.getLocation();
+=======
+        Location loc = fd.getLocation();
+>>>>>>> devel
         if (loc == null)
         {
             loc = event.getFrom();
@@ -69,6 +81,7 @@ public class Freezer extends FreedomService
         event.setTo(loc);
     }
 
+<<<<<<< HEAD
     public boolean isGlobalFreeze()
     {
         return this.globalFreeze;
@@ -78,4 +91,6 @@ public class Freezer extends FreedomService
     {
         this.globalFreeze = frozen;
     }
+=======
+>>>>>>> devel
 }

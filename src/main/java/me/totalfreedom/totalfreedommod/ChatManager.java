@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod;
 
+<<<<<<< HEAD
 import com.google.common.base.Strings;
 import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
@@ -7,13 +8,23 @@ import me.totalfreedom.totalfreedommod.rank.Displayable;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import me.totalfreedom.totalfreedommod.util.FSync;
 import me.totalfreedom.totalfreedommod.util.FUtil;
+=======
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+import me.totalfreedom.totalfreedommod.util.FLog;
+import me.totalfreedom.totalfreedommod.util.FSync;
+import static me.totalfreedom.totalfreedommod.util.FUtil.playerMsg;
+import org.bukkit.Bukkit;
+>>>>>>> devel
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+<<<<<<< HEAD
 import static me.totalfreedom.totalfreedommod.util.FUtil.playerMsg;
+=======
+>>>>>>> devel
 
 public class ChatManager extends FreedomService
 {
@@ -72,12 +83,18 @@ public class ChatManager extends FreedomService
                     caps++;
                 }
             }
+<<<<<<< HEAD
             if (((float)caps / (float)message.length()) > 0.65) //Compute a ratio so that longer sentences can have more caps.
             {
                 if (!plugin.al.isAdmin(player))
                 {
                     message = message.toLowerCase();
                 }
+=======
+            if (((float) caps / (float) message.length()) > 0.65) //Compute a ratio so that longer sentences can have more caps.
+            {
+                message = message.toLowerCase();
+>>>>>>> devel
             }
         }
 
@@ -99,13 +116,18 @@ public class ChatManager extends FreedomService
         String tag = fPlayer.getTag();
         if (tag != null && !tag.isEmpty())
         {
+<<<<<<< HEAD
             format = "<" + tag.replace("%", "%%") + " " + "%1$s> %2$s";
+=======
+            format = tag.replace("%", "%%") + " " + format;
+>>>>>>> devel
         }
 
         // Set format
         event.setFormat(format);
     }
 
+<<<<<<< HEAD
     public ChatColor getColor(Admin admin, Displayable display)
     {
         ChatColor color = display.getColor();
@@ -146,11 +168,18 @@ public class ChatManager extends FreedomService
     {
         Displayable display = plugin.rm.getDisplay(sender);
         FLog.info("[STAFF] " + sender.getName() + " " + display.getTag() + ": " + message);
+=======
+    public void adminChat(CommandSender sender, String message)
+    {
+        String name = sender.getName() + " " + plugin.rm.getDisplay(sender).getColoredTag() + ChatColor.WHITE;
+        FLog.info("[ADMIN] " + name + ": " + message);
+>>>>>>> devel
 
         for (Player player : server.getOnlinePlayers())
         {
             if (plugin.al.isAdmin(player))
             {
+<<<<<<< HEAD
                 Admin admin = plugin.al.getAdmin(player);
                 if (!Strings.isNullOrEmpty(admin.getAcFormat()))
                 {
@@ -163,6 +192,9 @@ public class ChatManager extends FreedomService
                 {
                     player.sendMessage("[" + ChatColor.AQUA + "STAFF" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + sender.getName() + getColor(admin, display) + " [" + getColoredTag(admin, display) + "]" + ChatColor.DARK_RED + ": " + ChatColor.AQUA + message);
                 }
+=======
+                player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.GOLD + message);
+>>>>>>> devel
             }
         }
     }
@@ -173,8 +205,16 @@ public class ChatManager extends FreedomService
         {
             if (plugin.al.isAdmin(player))
             {
+<<<<<<< HEAD
                 playerMsg(player, ChatColor.RED + "[Reports] " + ChatColor.GOLD + reporter.getName() + " has reported " + reported.getName() + " for " + report);
             }
         }
     }
+=======
+                playerMsg(player, ChatColor.RED + "[REPORTS] " + ChatColor.GOLD + reporter.getName() + " has reported " + reported.getName() + " for " + report);
+            }
+        }
+    }
+
+>>>>>>> devel
 }

@@ -3,11 +3,15 @@ package me.totalfreedom.totalfreedommod;
 import java.util.regex.Pattern;
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.command.Command_vanish;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.masterbuilder.MasterBuilder;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.playerverification.VPlayer;
+=======
+import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.util.FSync;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.bukkit.ChatColor;
@@ -29,18 +33,25 @@ public class LoginProcess extends FreedomService
     //
     @Getter
     @Setter
+<<<<<<< HEAD
     private static boolean lockdownEnabled = false;
+=======
+    private boolean lockdownEnabled = false;
+>>>>>>> devel
 
     public LoginProcess(TotalFreedomMod plugin)
     {
         super(plugin);
     }
 
+<<<<<<< HEAD
     public static boolean isLockdownEnabled()
     {
         return lockdownEnabled;
     }
 
+=======
+>>>>>>> devel
     @Override
     protected void onStart()
     {
@@ -113,16 +124,28 @@ public class LoginProcess extends FreedomService
                 final int forceIpPort = ConfigEntry.FORCE_IP_PORT.getInteger();
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
                         ConfigEntry.FORCE_IP_KICKMSG.getString()
+<<<<<<< HEAD
                                 .replace("%address%", ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == DEFAULT_PORT ? "" : ":" + forceIpPort)));
+=======
+                        .replace("%address%", ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == DEFAULT_PORT ? "" : ":" + forceIpPort)));
+>>>>>>> devel
                 return;
             }
         }
 
         // Check if player is admin
+<<<<<<< HEAD
         final boolean isAdmin = plugin.al.getEntryByIp(ip) != null;
 
         // Validation below this point
         if (isAdmin) // Player is admin
+=======
+        // Not safe to use TFM_Util.isSuperAdmin(player) because player.getAddress() will return a null until after player login.
+        final boolean isAdmin = plugin.al.getEntryByIp(ip) != null;
+
+        // Validation below this point
+        if (isAdmin) // Player is superadmin
+>>>>>>> devel
         {
             // Force-allow log in
             event.allow();
@@ -176,6 +199,7 @@ public class LoginProcess extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         // Whitelist
         if (plugin.si.isWhitelisted())
         {
@@ -185,12 +209,24 @@ public class LoginProcess extends FreedomService
                 return;
             }
         }
+=======
+//        // Whitelist
+//        if (plugin.si.isWhitelisted())
+//        {
+//            if (!plugin.si.getWhitelisted().contains(username.toLowerCase()))
+//            {
+//                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "You are not whitelisted on this server.");
+//                return;
+//            }
+//        }
+>>>>>>> devel
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         final Player player = event.getPlayer();
+<<<<<<< HEAD
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
 
         for (Player p : Command_vanish.VANISHED)
@@ -220,6 +256,8 @@ public class LoginProcess extends FreedomService
                 }
             }
         }
+=======
+>>>>>>> devel
 
         new BukkitRunnable()
         {
@@ -228,7 +266,11 @@ public class LoginProcess extends FreedomService
             {
                 if (ConfigEntry.ADMIN_ONLY_MODE.getBoolean())
                 {
+<<<<<<< HEAD
                     player.sendMessage(ChatColor.RED + "Server is currently closed to non-admins.");
+=======
+                    player.sendMessage(ChatColor.RED + "Server is currently closed to non-superadmins.");
+>>>>>>> devel
                 }
 
                 if (lockdownEnabled)
@@ -239,8 +281,11 @@ public class LoginProcess extends FreedomService
         }.runTaskLater(plugin, 20L * 1L);
     }
 
+<<<<<<< HEAD
     public boolean setLockdownEnabled(boolean toggle)
     {
         return this.lockdownEnabled = toggle;
     }
+=======
+>>>>>>> devel
 }

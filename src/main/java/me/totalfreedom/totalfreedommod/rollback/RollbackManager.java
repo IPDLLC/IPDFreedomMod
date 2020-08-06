@@ -11,12 +11,18 @@ import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
 import me.totalfreedom.totalfreedommod.util.FUtil;
+<<<<<<< HEAD
 import net.coreprotect.CoreProtectAPI.ParseResult;
+=======
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+<<<<<<< HEAD
 import org.bukkit.block.Block;
+=======
+>>>>>>> devel
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -200,7 +206,11 @@ public class RollbackManager extends FreedomService
     public List<RollbackEntry> getEntriesAtLocation(final Location location)
     {
         final int testX = location.getBlockX();
+<<<<<<< HEAD
         final short testY = (short)location.getBlockY();
+=======
+        final short testY = (short) location.getBlockY();
+>>>>>>> devel
         final int testZ = location.getBlockZ();
         final String testWorldName = location.getWorld().getName();
 
@@ -226,14 +236,19 @@ public class RollbackManager extends FreedomService
 
         if (!event.hasItem()
                 || event.getItem().getType() != Material.STICK
+<<<<<<< HEAD
                 || !plugin.al.isAdmin(player)
                 || !plugin.al.getAdmin(player).getLogStick())
+=======
+                || !plugin.al.isAdmin(player))
+>>>>>>> devel
         {
             return;
         }
 
         event.setCancelled(true);
 
+<<<<<<< HEAD
         final Block block = DepreciationAggregator.getTargetBlock(player, null, 5);
 
         if (plugin.cpb.isEnabled())
@@ -277,6 +292,26 @@ public class RollbackManager extends FreedomService
                 FUtil.playerMsg(player, " - " + ChatColor.BLUE + entry.author + " " + entry.getType() + " "
                         + StringUtils.capitalize(entry.getMaterial().toString().toLowerCase()) + (entry.data == null ? "" : ":" + entry.data));
             }
+=======
+        final Location location = DepreciationAggregator.getTargetBlock(player, null, 5).getLocation();
+        final List<RollbackEntry> entries = plugin.rb.getEntriesAtLocation(location);
+
+        if (entries.isEmpty())
+        {
+            FUtil.playerMsg(player, "No block edits at that location.");
+            return;
+        }
+
+        FUtil.playerMsg(player, "Block edits at ("
+                + ChatColor.WHITE + "x" + location.getBlockX()
+                + ", y" + location.getBlockY()
+                + ", z" + location.getBlockZ()
+                + ChatColor.BLUE + ")" + ChatColor.WHITE + ":", ChatColor.BLUE);
+        for (RollbackEntry entry : entries)
+        {
+            FUtil.playerMsg(player, " - " + ChatColor.BLUE + entry.author + " " + entry.getType() + " "
+                    + StringUtils.capitalize(entry.getMaterial().toString().toLowerCase()) + (entry.data == 0 ? "" : ":" + entry.data));
+>>>>>>> devel
         }
     }
 

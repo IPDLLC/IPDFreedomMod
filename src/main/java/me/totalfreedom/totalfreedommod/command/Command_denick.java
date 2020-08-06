@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Essentials Interface Command - Remove the nickname of all players on the server.", usage = "/<command>")
 public class Command_denick extends FreedomCommand
 {
+<<<<<<< HEAD
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -19,6 +20,12 @@ public class Command_denick extends FreedomCommand
             return true;
         }
 
+=======
+
+    @Override
+    public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+>>>>>>> devel
         FUtil.adminAction(sender.getName(), "Removing all nicknames", false);
 
         for (Player player : server.getOnlinePlayers())

@@ -3,6 +3,10 @@ package me.totalfreedom.totalfreedommod.world;
 import java.io.File;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.util.FLog;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,7 +21,10 @@ public class Flatlands extends CustomWorld
 {
 
     private static final String GENERATION_PARAMETERS = ConfigEntry.FLATLANDS_GENERATE_PARAMS.getString();
+<<<<<<< HEAD
     String WORLD_NAME = "flatlands";
+=======
+>>>>>>> devel
 
     public Flatlands()
     {
@@ -34,7 +41,11 @@ public class Flatlands extends CustomWorld
 
         wipeFlatlandsIfFlagged();
 
+<<<<<<< HEAD
         final WorldCreator worldCreator = new WorldCreator(WORLD_NAME);
+=======
+        final WorldCreator worldCreator = new WorldCreator(getName());
+>>>>>>> devel
         worldCreator.generateStructures(false);
         worldCreator.type(WorldType.NORMAL);
         worldCreator.environment(World.Environment.NORMAL);
@@ -46,10 +57,17 @@ public class Flatlands extends CustomWorld
         world.setSpawnLocation(0, 50, 0);
 
         final Block welcomeSignBlock = world.getBlockAt(0, 50, 0);
+<<<<<<< HEAD
         welcomeSignBlock.setType(Material.SIGN);
         org.bukkit.block.Sign welcomeSign = (org.bukkit.block.Sign)welcomeSignBlock.getState();
 
         org.bukkit.material.Sign signData = (org.bukkit.material.Sign)welcomeSign.getData();
+=======
+        welcomeSignBlock.setType(Material.SIGN_POST);
+        org.bukkit.block.Sign welcomeSign = (org.bukkit.block.Sign) welcomeSignBlock.getState();
+
+        org.bukkit.material.Sign signData = (org.bukkit.material.Sign) welcomeSign.getData();
+>>>>>>> devel
         signData.setFacingDirection(BlockFace.NORTH);
 
         welcomeSign.setLine(0, ChatColor.GREEN + "Flatlands");
@@ -63,7 +81,10 @@ public class Flatlands extends CustomWorld
         return world;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> devel
     public void wipeFlatlandsIfFlagged()
     {
         boolean doFlatlandsWipe = false;

@@ -45,7 +45,11 @@ public class PermbanList extends FreedomService
             permbannedIps.addAll(config.getStringList(name));
         }
 
+<<<<<<< HEAD
         FLog.info("Loaded " + permbannedIps.size() + " blacklisted IPs " + permbannedNames.size() + " blacklisted names");
+=======
+        FLog.info("Loaded " + permbannedIps.size() + " perm IP bans and " + permbannedNames.size() + " perm username bans.");
+>>>>>>> devel
     }
 
     @Override
@@ -65,9 +69,15 @@ public class PermbanList extends FreedomService
             if (FUtil.fuzzyIpMatch(testIp, ip, 4))
             {
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
+<<<<<<< HEAD
                         ChatColor.RED + "Your IP address is permanently blacklisted from this server.\n"
                                 + "Release procedures are available at\n"
                                 + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+=======
+                        ChatColor.RED + "Your IP address is permanently banned from this server.\n"
+                        + "Release procedures are available at\n"
+                        + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+>>>>>>> devel
                 return;
             }
         }
@@ -78,15 +88,22 @@ public class PermbanList extends FreedomService
             if (testPlayer.equalsIgnoreCase(username))
             {
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
+<<<<<<< HEAD
                         ChatColor.RED + "Your username is permanently blacklisted from this server.\n"
                                 + "Release procedures are available at\n"
                                 + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+=======
+                        ChatColor.RED + "Your username is permanently banned from this server.\n"
+                        + "Release procedures are available at\n"
+                        + ChatColor.GOLD + ConfigEntry.SERVER_PERMBAN_URL.getString());
+>>>>>>> devel
                 return;
             }
         }
 
     }
 
+<<<<<<< HEAD
     public Set<String> getPermbannedNames()
     {
         return this.permbannedNames;
@@ -96,4 +113,6 @@ public class PermbanList extends FreedomService
     {
         return this.permbannedIps;
     }
+=======
+>>>>>>> devel
 }

@@ -11,9 +11,16 @@ import org.bukkit.plugin.Plugin;
 
 public class WorldEditBridge extends FreedomService
 {
+<<<<<<< HEAD
     private final WorldEditListener listener;
     //
     private WorldEditPlugin worldeditPlugin = null;
+=======
+
+    private final WorldEditListener listener;
+    //
+    private WorldEditPlugin worldedit = null;
+>>>>>>> devel
 
     public WorldEditBridge(TotalFreedomMod plugin)
     {
@@ -33,6 +40,7 @@ public class WorldEditBridge extends FreedomService
         listener.unregister();
     }
 
+<<<<<<< HEAD
     public WorldEditPlugin getWorldEditPlugin()
     {
         if (worldeditPlugin == null)
@@ -57,6 +65,8 @@ public class WorldEditBridge extends FreedomService
         return worldeditPlugin;
     }
 
+=======
+>>>>>>> devel
     public void undo(Player player, int count)
     {
         try
@@ -80,6 +90,7 @@ public class WorldEditBridge extends FreedomService
         }
     }
 
+<<<<<<< HEAD
     public void redo(Player player, int count)
     {
         try
@@ -101,6 +112,30 @@ public class WorldEditBridge extends FreedomService
         {
             FLog.severe(ex);
         }
+=======
+    private WorldEditPlugin getWorldEditPlugin()
+    {
+        if (worldedit == null)
+        {
+            try
+            {
+                Plugin we = server.getPluginManager().getPlugin("WorldEdit");
+                if (we != null)
+                {
+                    if (we instanceof WorldEditPlugin)
+                    {
+                        worldedit = (WorldEditPlugin) we;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                FLog.severe(ex);
+            }
+        }
+
+        return worldedit;
+>>>>>>> devel
     }
 
     public void setLimit(Player player, int limit)
@@ -120,6 +155,7 @@ public class WorldEditBridge extends FreedomService
 
     }
 
+<<<<<<< HEAD
     public int getDefaultLimit()
     {
         final WorldEditPlugin wep = getWorldEditPlugin();
@@ -144,6 +180,8 @@ public class WorldEditBridge extends FreedomService
 
     }
 
+=======
+>>>>>>> devel
     private LocalSession getPlayerSession(Player player)
     {
         final WorldEditPlugin wep = getWorldEditPlugin();

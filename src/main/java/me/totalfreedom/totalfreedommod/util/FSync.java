@@ -8,6 +8,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class FSync
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     public static void playerMsg(final Player player, final String message)
     {
         final TotalFreedomMod plugin = TotalFreedomMod.plugin();
@@ -23,6 +27,7 @@ public class FSync
         }.runTask(plugin);
     }
 
+<<<<<<< HEAD
     public static void playerMsg(final CommandSender sender, final String message)
     {
         final TotalFreedomMod plugin = TotalFreedomMod.plugin();
@@ -38,6 +43,8 @@ public class FSync
         }.runTask(plugin);
     }
 
+=======
+>>>>>>> devel
     public static void playerKick(final Player player, final String reason)
     {
         final TotalFreedomMod plugin = TotalFreedomMod.plugin();

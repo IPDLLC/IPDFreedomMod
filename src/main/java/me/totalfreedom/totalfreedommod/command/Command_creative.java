@@ -11,6 +11,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Quickly change your own gamemode to creative, or define someone's username to change theirs.", usage = "/<command> <-a | [partialname]>", aliases = "gmc")
 public class Command_creative extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -27,7 +31,11 @@ public class Command_creative extends FreedomCommand
             return true;
         }
 
+<<<<<<< HEAD
         checkRank(Rank.SENIOR_ADMIN);
+=======
+        checkRank(Rank.SUPER_ADMIN);
+>>>>>>> devel
 
         if (args[0].equals("-a"))
         {

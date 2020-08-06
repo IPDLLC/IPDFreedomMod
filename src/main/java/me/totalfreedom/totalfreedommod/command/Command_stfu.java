@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,6 +11,11 @@ import me.totalfreedom.totalfreedommod.punishments.PunishmentType;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
+=======
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -17,10 +23,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.MODERATOR, source = SourceType.BOTH)
 @CommandParameters(description = "Mutes a player with brute force.", usage = "/<command> [[-s] <player> [reason] | list | purge | all]", aliases = "mute")
 public class Command_stfu extends FreedomCommand
 {
+=======
+@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Mutes a player with brute force.", usage = "/<command> [[-s] <player> [reason] | list | purge | all]", aliases = "mute")
+public class Command_stfu extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -65,14 +79,21 @@ public class Command_stfu extends FreedomCommand
                     count++;
                 }
             }
+<<<<<<< HEAD
             plugin.mu.MUTED_PLAYERS.clear();
+=======
+>>>>>>> devel
             msg("Unmuted " + count + " players.");
             return true;
         }
 
         if (args[0].equals("all"))
         {
+<<<<<<< HEAD
             FUtil.adminAction(sender.getName(), "Muting all non-admins", true);
+=======
+            FUtil.adminAction(sender.getName(), "Muting all non-Superadmins", true);
+>>>>>>> devel
 
             FPlayer playerdata;
             int counter = 0;
@@ -128,7 +149,11 @@ public class Command_stfu extends FreedomCommand
         {
             if (plugin.al.isAdmin(player))
             {
+<<<<<<< HEAD
                 msg(player.getName() + " is an admin, and can't be muted.");
+=======
+                msg(player.getName() + " is a superadmin, and can't be muted.");
+>>>>>>> devel
                 return true;
             }
 
@@ -137,6 +162,7 @@ public class Command_stfu extends FreedomCommand
 
             if (smite)
             {
+<<<<<<< HEAD
                 Command_smite.smite(sender, player, reason);
             }
 
@@ -169,5 +195,24 @@ public class Command_stfu extends FreedomCommand
             return arguments;
         }
         return Collections.emptyList();
+=======
+                Command_smite.smite(player);
+            }
+
+            if (reason != null)
+            {
+                msg(player, "You have been muted. Reason: " + reason, ChatColor.RED);
+            }
+            else
+            {
+                msg(player, "You have been muted.", ChatColor.RED);
+            }
+
+            msg("Muted " + player.getName());
+
+        }
+
+        return true;
+>>>>>>> devel
     }
 }

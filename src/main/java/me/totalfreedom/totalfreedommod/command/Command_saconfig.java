@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,6 +11,11 @@ import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.masterbuilder.MasterBuilder;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.playerverification.VPlayer;
+=======
+import java.util.Date;
+import me.totalfreedom.totalfreedommod.admin.Admin;
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import net.pravian.aero.util.Ips;
@@ -20,9 +26,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
+<<<<<<< HEAD
 @CommandParameters(description = "Manage admins.", usage = "/<command> <list | clean | reload | setrank <username> <rank> | <add | remove | info> <username>>")
 public class Command_saconfig extends FreedomCommand
 {
+=======
+@CommandParameters(description = "Manage admins.", usage = "/<command> <list | clean | reload | | setrank <username> <rank> | <add | remove | info> <username>>")
+public class Command_saconfig extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -35,17 +48,30 @@ public class Command_saconfig extends FreedomCommand
         {
             case "list":
             {
+<<<<<<< HEAD
                 msg("Admins: " + StringUtils.join(plugin.al.getAdminNames(), ", "), ChatColor.GOLD);
+=======
+                msg("Superadmins: " + StringUtils.join(plugin.al.getAdminNames(), ", "), ChatColor.GOLD);
+
+>>>>>>> devel
                 return true;
             }
 
             case "clean":
             {
+<<<<<<< HEAD
+=======
+                checkConsole();
+>>>>>>> devel
                 checkRank(Rank.TELNET_ADMIN);
 
                 FUtil.adminAction(sender.getName(), "Cleaning admin list", true);
                 plugin.al.deactivateOldEntries(true);
+<<<<<<< HEAD
                 msg("Admins: " + StringUtils.join(plugin.al.getAdminNames(), ", "), ChatColor.GOLD);
+=======
+                msg("Superadmins: " + StringUtils.join(plugin.al.getAdminNames(), ", "), ChatColor.GOLD);
+>>>>>>> devel
 
                 return true;
             }
@@ -62,10 +88,16 @@ public class Command_saconfig extends FreedomCommand
 
             case "setrank":
             {
+<<<<<<< HEAD
                 checkNotHostConsole();
                 checkRank(Rank.SENIOR_CONSOLE);
                 
                 
+=======
+                checkConsole();
+                checkNotHostConsole();
+                checkRank(Rank.SENIOR_CONSOLE);
+>>>>>>> devel
 
                 if (args.length < 3)
                 {
@@ -85,9 +117,15 @@ public class Command_saconfig extends FreedomCommand
                     return true;
                 }
 
+<<<<<<< HEAD
                 if (!rank.isAtLeast(Rank.MODERATOR))
                 {
                     msg("Rank must be Moderator or higher.", ChatColor.RED);
+=======
+                if (!rank.isAtLeast(Rank.SUPER_ADMIN))
+                {
+                    msg("Rank must be superadmin or higher.", ChatColor.RED);
+>>>>>>> devel
                     return true;
                 }
 
@@ -103,6 +141,7 @@ public class Command_saconfig extends FreedomCommand
                 admin.setRank(rank);
                 plugin.al.save();
 
+<<<<<<< HEAD
                 Player player = getPlayer(admin.getName());
                 if (player != null)
                 {
@@ -114,6 +153,8 @@ public class Command_saconfig extends FreedomCommand
                     plugin.dc.syncRoles(admin);
                 }
 
+=======
+>>>>>>> devel
                 msg("Set " + admin.getName() + "'s rank to " + rank.getName());
                 return true;
             }
@@ -140,7 +181,11 @@ public class Command_saconfig extends FreedomCommand
 
                 if (admin == null)
                 {
+<<<<<<< HEAD
                     msg("Admin not found: " + args[1]);
+=======
+                    msg("Superadmin not found: " + args[1]);
+>>>>>>> devel
                 }
                 else
                 {
@@ -157,6 +202,7 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
+<<<<<<< HEAD
                 checkRank(Rank.TELNET_CONSOLE);
 
                 // Player already an admin?
@@ -168,6 +214,13 @@ public class Command_saconfig extends FreedomCommand
                     return true;
                 }
 
+=======
+                checkConsole();
+                checkRank(Rank.TELNET_ADMIN);
+
+                // Player already an admin?
+                final Player player = getPlayer(args[1]);
+>>>>>>> devel
                 if (player != null && plugin.al.isAdmin(player))
                 {
                     msg("That player is already admin.");
@@ -186,6 +239,7 @@ public class Command_saconfig extends FreedomCommand
                     }
                 }
 
+<<<<<<< HEAD
                 if (plugin.pv.isPlayerImpostor(player))
                 {
                     msg("This player was labeled as a player impostor and is not an admin, therefore they cannot be added to the admin list.", ChatColor.RED);
@@ -199,6 +253,10 @@ public class Command_saconfig extends FreedomCommand
                         msg("This player was labeled as a Master Builder impostor and is not an admin, therefore they cannot be added to the admin list.", ChatColor.RED);
                         return true;
                     }
+=======
+                if (admin == null) // New admin
+                {
+>>>>>>> devel
                     if (player == null)
                     {
                         msg(FreedomCommand.PLAYER_NOT_FOUND);
@@ -207,6 +265,7 @@ public class Command_saconfig extends FreedomCommand
 
                     FUtil.adminAction(sender.getName(), "Adding " + player.getName() + " to the admin list", true);
                     plugin.al.addAdmin(new Admin(player));
+<<<<<<< HEAD
                     admin = new Admin(player);
                     if (player != null)
                     {
@@ -230,6 +289,12 @@ public class Command_saconfig extends FreedomCommand
                 else // Existing admin
                 {
                     FUtil.adminAction(sender.getName(), "Re-adding " + admin.getName() + " to the admin list", true);
+=======
+                }
+                else // Existing admin
+                {
+                    FUtil.adminAction(sender.getName(), "Readding " + admin.getName() + " to the admin list", true);
+>>>>>>> devel
 
                     if (player != null)
                     {
@@ -237,6 +302,7 @@ public class Command_saconfig extends FreedomCommand
                         admin.addIp(Ips.getIp(player));
                     }
 
+<<<<<<< HEAD
                     // Handle master builders
                     if (!plugin.mbl.isMasterBuilder(player))
                     {
@@ -294,6 +360,13 @@ public class Command_saconfig extends FreedomCommand
                     {
                         plugin.dc.syncRoles(admin);
                     }
+=======
+                    admin.setActive(true);
+                    admin.setLastLogin(new Date());
+
+                    plugin.al.save();
+                    plugin.al.updateTables();
+>>>>>>> devel
                 }
 
                 if (player != null)
@@ -304,6 +377,7 @@ public class Command_saconfig extends FreedomCommand
                         fPlayer.getFreezeData().setFrozen(false);
                         msg(player.getPlayer(), "You have been unfrozen.");
                     }
+<<<<<<< HEAD
 
                     if (!player.isOp())
                     {
@@ -311,6 +385,8 @@ public class Command_saconfig extends FreedomCommand
                         player.sendMessage(YOU_ARE_OP);
                     }
                     plugin.pv.removeEntry(player.getName()); // Admins can't have player verification entries
+=======
+>>>>>>> devel
                 }
 
                 return true;
@@ -323,14 +399,23 @@ public class Command_saconfig extends FreedomCommand
                     return false;
                 }
 
+<<<<<<< HEAD
                 checkRank(Rank.TELNET_CLAN_CONSOLE);
+=======
+                checkConsole();
+                checkRank(Rank.TELNET_ADMIN);
+>>>>>>> devel
 
                 Player player = getPlayer(args[1]);
                 Admin admin = player != null ? plugin.al.getAdmin(player) : plugin.al.getEntryByName(args[1]);
 
                 if (admin == null)
                 {
+<<<<<<< HEAD
                     msg("Admin not found: " + args[1]);
+=======
+                    msg("Superadmin not found: " + args[1]);
+>>>>>>> devel
                     return true;
                 }
 
@@ -338,6 +423,7 @@ public class Command_saconfig extends FreedomCommand
                 admin.setActive(false);
                 plugin.al.save();
                 plugin.al.updateTables();
+<<<<<<< HEAD
                 if (player != null)
                 {
                     plugin.rm.updateDisplay(player);
@@ -348,6 +434,8 @@ public class Command_saconfig extends FreedomCommand
                     plugin.dc.syncRoles(admin);
                 }
 
+=======
+>>>>>>> devel
                 return true;
             }
 
@@ -358,6 +446,7 @@ public class Command_saconfig extends FreedomCommand
         }
     }
 
+<<<<<<< HEAD
     @Override
     public List<String> getTabCompleteOptions(CommandSender sender, Command command, String alias, String[] args)
     {
@@ -408,4 +497,6 @@ public class Command_saconfig extends FreedomCommand
     private void checkRank(Rank rank, Rank rank0, Rank rank1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+=======
+>>>>>>> devel
 }

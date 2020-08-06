@@ -7,10 +7,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+<<<<<<< HEAD
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Quickly change your own gamemode to adventure, or define someone's username to change theirs.", usage = "/<command> <[partialname] | -a>", aliases = "gma")
 public class Command_adventure extends FreedomCommand
 {
+=======
+@CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+@CommandParameters(description = "Quickly change your own gamemode to adventure, or define someone's username to change theirs.", usage = "/<command> <-a | [partialname]>", aliases = "gma")
+public class Command_adventure extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -27,8 +35,11 @@ public class Command_adventure extends FreedomCommand
             return true;
         }
 
+<<<<<<< HEAD
         checkRank(Rank.SENIOR_ADMIN);
 
+=======
+>>>>>>> devel
         if (args[0].equals("-a"))
         {
             for (Player targetPlayer : server.getOnlinePlayers())
@@ -48,9 +59,16 @@ public class Command_adventure extends FreedomCommand
             return true;
         }
 
+<<<<<<< HEAD
         msg("Setting " + player.getName() + " to game mode adventure.");
         msg(player, sender.getName() + " set your game mode to adventure.");
         player.setGameMode(GameMode.ADVENTURE);
+=======
+        msg("Setting " + player.getName() + " to game mode adventure");
+        msg(player, sender.getName() + " set your game mode to adventure");
+        player.setGameMode(GameMode.ADVENTURE);
+
+>>>>>>> devel
         return true;
     }
 }

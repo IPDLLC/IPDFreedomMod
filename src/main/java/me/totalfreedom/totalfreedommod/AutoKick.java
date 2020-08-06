@@ -23,7 +23,11 @@ public class AutoKick extends FreedomService
     @Override
     protected void onStart()
     {
+<<<<<<< HEAD
         autoKickTicks = (long)ConfigEntry.AUTOKICK_TIME.getInteger() * 1000L;
+=======
+        autoKickTicks = (long) ConfigEntry.AUTOKICK_TIME.getInteger() * 1000L;
+>>>>>>> devel
         autoKickThreshold = ConfigEntry.AUTOKICK_THRESHOLD.getDouble();
 
         if (!ConfigEntry.AUTOKICK_ENABLED.getBoolean())
@@ -51,8 +55,14 @@ public class AutoKick extends FreedomService
 
     private void autoKickCheck()
     {
+<<<<<<< HEAD
         final boolean doAwayKickCheck
                 = plugin.esb.isEnabled()
+=======
+
+        final boolean doAwayKickCheck
+                = plugin.esb.isEssentialsEnabled()
+>>>>>>> devel
                 && ((server.getOnlinePlayers().size() / server.getMaxPlayers()) > autoKickThreshold);
 
         if (!doAwayKickCheck)

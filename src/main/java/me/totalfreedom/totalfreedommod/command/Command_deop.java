@@ -12,6 +12,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Deop a player.", usage = "/<command> <playername>")
 public class Command_deop extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -36,6 +40,7 @@ public class Command_deop extends FreedomCommand
             player = DepreciationAggregator.getOfflinePlayer(server, args[0]);
         }
 
+<<<<<<< HEAD
         FUtil.adminAction(sender.getName(), "De-opping " + player.getName(), true);
 
         player.setOp(false);
@@ -46,6 +51,12 @@ public class Command_deop extends FreedomCommand
             p.sendMessage(YOU_ARE_NOT_OP);
         }
 
+=======
+        FUtil.adminAction(sender.getName(), "De-opping " + player.getName(), false);
+
+        player.setOp(false);
+
+>>>>>>> devel
         return true;
     }
 }

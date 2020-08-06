@@ -23,6 +23,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public final class AdminWorld extends CustomWorld
 {
+<<<<<<< HEAD
     private static final long CACHE_CLEAR_FREQUENCY = 30L * 1000L; //30 seconds, milliseconds
     private static final long TP_COOLDOWN_TIME = 500L; //0.5 seconds, milliseconds
     private static final String GENERATION_PARAMETERS = ConfigEntry.FLATLANDS_GENERATE_PARAMS.getString();
@@ -30,6 +31,16 @@ public final class AdminWorld extends CustomWorld
     private final Map<Player, Long> teleportCooldown = new HashMap<>();
     private final Map<CommandSender, Boolean> accessCache = new HashMap<>();
     String WORLD_NAME = "adminworld";
+=======
+
+    private static final long CACHE_CLEAR_FREQUENCY = 30L * 1000L; //30 seconds, milliseconds
+    private static final long TP_COOLDOWN_TIME = 500L; //0.5 seconds, milliseconds
+    private static final String GENERATION_PARAMETERS = ConfigEntry.FLATLANDS_GENERATE_PARAMS.getString();
+    private static final String WORLD_NAME = "adminworld";
+    //
+    private final Map<Player, Long> teleportCooldown = new HashMap<>();
+    private final Map<CommandSender, Boolean> accessCache = new HashMap<>();
+>>>>>>> devel
     //
     private Long cacheLastCleared = null;
     private Map<Player, Player> guestList = new HashMap<>(); // Guest, Supervisor
@@ -55,7 +66,11 @@ public final class AdminWorld extends CustomWorld
     @Override
     protected World generateWorld()
     {
+<<<<<<< HEAD
         final WorldCreator worldCreator = new WorldCreator(WORLD_NAME);
+=======
+        final WorldCreator worldCreator = new WorldCreator(getName());
+>>>>>>> devel
         worldCreator.generateStructures(false);
         worldCreator.type(WorldType.NORMAL);
         worldCreator.environment(World.Environment.NORMAL);
@@ -67,10 +82,17 @@ public final class AdminWorld extends CustomWorld
         world.setSpawnLocation(0, 50, 0);
 
         final Block welcomeSignBlock = world.getBlockAt(0, 50, 0);
+<<<<<<< HEAD
         welcomeSignBlock.setType(Material.SIGN);
         org.bukkit.block.Sign welcomeSign = (org.bukkit.block.Sign)welcomeSignBlock.getState();
 
         org.bukkit.material.Sign signData = (org.bukkit.material.Sign)welcomeSign.getData();
+=======
+        welcomeSignBlock.setType(Material.SIGN_POST);
+        org.bukkit.block.Sign welcomeSign = (org.bukkit.block.Sign) welcomeSignBlock.getState();
+
+        org.bukkit.material.Sign signData = (org.bukkit.material.Sign) welcomeSign.getData();
+>>>>>>> devel
         signData.setFacingDirection(BlockFace.NORTH);
 
         welcomeSign.setLine(0, ChatColor.GREEN + "AdminWorld");
@@ -107,6 +129,7 @@ public final class AdminWorld extends CustomWorld
         return player;
     }
 
+<<<<<<< HEAD
     public List<String> getGuestList()
     {
         List<String> guests = new ArrayList<>();
@@ -117,6 +140,8 @@ public final class AdminWorld extends CustomWorld
         return guests;
     }
 
+=======
+>>>>>>> devel
     public Player removeGuest(String partialName)
     {
         partialName = partialName.toLowerCase();

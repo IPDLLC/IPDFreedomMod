@@ -12,6 +12,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Set world spawnpoint.", usage = "/<command>")
 public class Command_setspawnworld extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -24,6 +28,10 @@ public class Command_setspawnworld extends FreedomCommand
         {
             plugin.pa.addProtectedArea("spawn_" + playerSender.getWorld().getName(), pos, ConfigEntry.PROTECTAREA_RADIUS.getDouble());
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         return true;
     }
 }

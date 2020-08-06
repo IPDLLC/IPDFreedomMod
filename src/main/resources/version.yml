@@ -1,4 +1,8 @@
 #
 # Config version
 #
+<<<<<<< HEAD
 version: 1
+=======
+version: 1
+>>>>>>> devel

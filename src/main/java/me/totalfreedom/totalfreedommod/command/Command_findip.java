@@ -10,6 +10,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Shows all IPs registered to a player", usage = "/<command> <player>")
 public class Command_findip extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

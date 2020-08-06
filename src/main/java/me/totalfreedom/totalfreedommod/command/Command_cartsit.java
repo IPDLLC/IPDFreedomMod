@@ -10,6 +10,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Sit in nearest minecart. If target is in a minecart already, they will disembark.", usage = "/<command> [partialname]")
 public class Command_cartsit extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -37,7 +41,11 @@ public class Command_cartsit extends FreedomCommand
         }
         else if (targetPlayer != playerSender && !isAdmin(sender))
         {
+<<<<<<< HEAD
             sender.sendMessage("Only admins can select another player as a /cartsit target.");
+=======
+            sender.sendMessage("Only superadmins can select another player as a /cartsit target.");
+>>>>>>> devel
             return true;
         }
 
@@ -68,11 +76,19 @@ public class Command_cartsit extends FreedomCommand
 
             if (nearest_cart != null)
             {
+<<<<<<< HEAD
                 nearest_cart.addPassenger(targetPlayer);
             }
             else
             {
                 msg("There are no empty minecarts in the target world.");
+=======
+                nearest_cart.setPassenger(targetPlayer);
+            }
+            else
+            {
+                sender.sendMessage("There are no empty minecarts in the target world.");
+>>>>>>> devel
             }
         }
 

@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 public enum Rank implements Displayable
 {
 
+<<<<<<< HEAD
     IMPOSTOR("an", "Impostor", Type.PLAYER, ChatColor.BLACK, "Imp"),
     NON_OP("a", "Non-Op", Type.PLAYER, ChatColor.DARK_GRAY, ""),
     OP("an", "Op", Type.PLAYER, ChatColor.GRAY, "OP"),
@@ -19,12 +20,25 @@ public enum Rank implements Displayable
     SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.GOLD, "Console"),
     SYSTEM_ADMIN("a", "System Administrator", Type.ADMIN, ChatColor.DARK_BLUE, "System Admin"),
     SYS_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, ChatColor.DARK_BLUE, "Console");
+=======
+    IMPOSTOR("an", "Impostor", Type.PLAYER, "Imp", ChatColor.YELLOW),
+    NON_OP("a", "Non-Op", Type.PLAYER, "", ChatColor.GREEN),
+    OP("an", "Op", Type.PLAYER, "OP", ChatColor.RED),
+    SUPER_ADMIN("a", "Super Admin", Type.ADMIN, "SA", ChatColor.AQUA),
+    TELNET_ADMIN("a", "Telnet Admin", Type.ADMIN, "STA", ChatColor.DARK_GREEN),
+    SENIOR_ADMIN("a", "Senior Admin", Type.ADMIN, "SrA", ChatColor.GOLD),
+    TELNET_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE),
+    SENIOR_CONSOLE("the", "Console", Type.ADMIN_CONSOLE, "Console", ChatColor.DARK_PURPLE);
+>>>>>>> devel
     @Getter
     private final Type type;
     @Getter
     private final String name;
+<<<<<<< HEAD
     @Getter
     private final String abbr;
+=======
+>>>>>>> devel
     private final String determiner;
     @Getter
     private final String tag;
@@ -33,17 +47,25 @@ public enum Rank implements Displayable
     @Getter
     private final ChatColor color;
 
+<<<<<<< HEAD
     private Rank(String determiner, String name, Type type, ChatColor color, String abbr)
     {
         this.type = type;
         this.name = name;
         this.abbr = abbr;
+=======
+    private Rank(String determiner, String name, Type type, String abbr, ChatColor color)
+    {
+        this.type = type;
+        this.name = name;
+>>>>>>> devel
         this.determiner = determiner;
         this.tag = abbr.isEmpty() ? "" : "[" + abbr + "]";
         this.coloredTag = abbr.isEmpty() ? "" : ChatColor.DARK_GRAY + "[" + color + abbr + ChatColor.DARK_GRAY + "]" + color;
         this.color = color;
     }
 
+<<<<<<< HEAD
     public static Rank findRank(String string)
     {
         try
@@ -57,6 +79,8 @@ public enum Rank implements Displayable
         return Rank.NON_OP;
     }
 
+=======
+>>>>>>> devel
     @Override
     public String getColoredName()
     {
@@ -69,12 +93,15 @@ public enum Rank implements Displayable
         return determiner + " " + color + ChatColor.ITALIC + name;
     }
 
+<<<<<<< HEAD
     @Override
     public String getAbbr()
     {
         return abbr;
     }
 
+=======
+>>>>>>> devel
     public boolean isConsole()
     {
         return getType() == Type.ADMIN_CONSOLE;
@@ -117,6 +144,7 @@ public enum Rank implements Displayable
             case TELNET_ADMIN:
             case TELNET_CONSOLE:
                 return TELNET_CONSOLE;
+<<<<<<< HEAD
             case TELNET_CLAN_ADMIN:
             case TELNET_CLAN_CONSOLE:
                 return TELNET_CLAN_CONSOLE;
@@ -126,11 +154,47 @@ public enum Rank implements Displayable
             case SYSTEM_ADMIN:
             case SYS_CONSOLE:
                 return SYS_CONSOLE;
+=======
+            case SENIOR_ADMIN:
+            case SENIOR_CONSOLE:
+                return SENIOR_CONSOLE;
+>>>>>>> devel
             default:
                 return null;
         }
     }
 
+<<<<<<< HEAD
+=======
+    public Rank getPlayerVariant()
+    {
+        switch (this)
+        {
+            case TELNET_ADMIN:
+            case TELNET_CONSOLE:
+                return TELNET_ADMIN;
+            case SENIOR_ADMIN:
+            case SENIOR_CONSOLE:
+                return SENIOR_ADMIN;
+            default:
+                return null;
+        }
+    }
+
+    public static Rank findRank(String string)
+    {
+        try
+        {
+            return Rank.valueOf(string.toUpperCase());
+        }
+        catch (Exception ignored)
+        {
+        }
+
+        return Rank.NON_OP;
+    }
+
+>>>>>>> devel
     public static enum Type
     {
 

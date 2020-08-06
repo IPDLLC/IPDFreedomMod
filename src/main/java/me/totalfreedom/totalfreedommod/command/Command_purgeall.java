@@ -9,9 +9,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
 @CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH)
+<<<<<<< HEAD
 @CommandParameters(description = "Purge everything! (except for bans).", usage = "/<command>")
 public class Command_purgeall extends FreedomCommand
 {
+=======
+@CommandParameters(description = "Superadmin command - Purge everything! (except for bans).", usage = "/<command>")
+public class Command_purgeall extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -65,7 +72,11 @@ public class Command_purgeall extends FreedomCommand
         plugin.fm.setGlobalFreeze(false);
 
         // Remove all mobs
+<<<<<<< HEAD
         Command_mobpurge.purgeMobs(null);
+=======
+        Command_mobpurge.purgeMobs();
+>>>>>>> devel
 
         return true;
     }

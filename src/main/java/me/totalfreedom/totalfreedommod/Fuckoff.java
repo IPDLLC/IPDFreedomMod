@@ -9,6 +9,10 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class Fuckoff extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     public Fuckoff(TotalFreedomMod plugin)
     {
         super(plugin);
@@ -63,4 +67,8 @@ public class Fuckoff extends FreedomService
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

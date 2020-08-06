@@ -3,6 +3,10 @@ package me.totalfreedom.totalfreedommod.httpd.module;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+<<<<<<< HEAD
+=======
+import lombok.Getter;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.httpd.HTTPDPageBuilder;
 import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD.HTTPSession;

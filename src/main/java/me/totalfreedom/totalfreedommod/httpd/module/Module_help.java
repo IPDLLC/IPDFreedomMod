@@ -10,17 +10,29 @@ import java.util.List;
 import java.util.Map;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.command.FreedomCommand;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD;
 import me.totalfreedom.totalfreedommod.rank.Displayable;
 import net.pravian.aero.command.CommandReflection;
+=======
+import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.heading;
+import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.paragraph;
+import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD;
+import me.totalfreedom.totalfreedommod.rank.Displayable;
+import net.pravian.aero.command.CommandReflection;
+import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.command.SimpleCommandMap;
+<<<<<<< HEAD
 import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.heading;
 import static me.totalfreedom.totalfreedommod.httpd.HTMLGenerationTools.paragraph;
 import static org.apache.commons.lang3.StringEscapeUtils.escapeHtml4;
+=======
+>>>>>>> devel
 
 public class Module_help extends HTTPDModule
 {
@@ -30,6 +42,7 @@ public class Module_help extends HTTPDModule
         super(plugin, session);
     }
 
+<<<<<<< HEAD
     private static String buildDescription(Command command)
     {
         StringBuilder sb = new StringBuilder();
@@ -53,6 +66,8 @@ public class Module_help extends HTTPDModule
         return sb.toString();
     }
 
+=======
+>>>>>>> devel
     @Override
     public String getBody()
     {
@@ -65,10 +80,17 @@ public class Module_help extends HTTPDModule
         final StringBuilder responseBody = new StringBuilder()
                 .append(heading("Command Help", 1))
                 .append(paragraph(
+<<<<<<< HEAD
                         "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
                                 + "Please note that it does not include vanilla server commands."));
 
         final Collection<Command> knownCommands = ((SimpleCommandMap)map).getCommands();
+=======
+                                "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
+                                + "Please note that it does not include vanilla server commands."));
+
+        final Collection<Command> knownCommands = ((SimpleCommandMap) map).getCommands();
+>>>>>>> devel
         final Map<String, List<Command>> commandsByPlugin = new HashMap<>();
 
         for (Command command : knownCommands)
@@ -76,10 +98,22 @@ public class Module_help extends HTTPDModule
             String pluginName = "Bukkit";
             if (command instanceof PluginIdentifiableCommand)
             {
+<<<<<<< HEAD
                 pluginName = ((PluginIdentifiableCommand)command).getPlugin().getName();
             }
 
             List<Command> pluginCommands = commandsByPlugin.computeIfAbsent(pluginName, k -> Lists.newArrayList());
+=======
+                pluginName = ((PluginIdentifiableCommand) command).getPlugin().getName();
+            }
+
+            List<Command> pluginCommands = commandsByPlugin.get(pluginName);
+            if (pluginCommands == null)
+            {
+                pluginCommands = Lists.newArrayList();
+                commandsByPlugin.put(pluginName, pluginCommands);
+            }
+>>>>>>> devel
 
             pluginCommands.add(command);
         }
@@ -119,6 +153,32 @@ public class Module_help extends HTTPDModule
         return responseBody.toString();
     }
 
+<<<<<<< HEAD
+=======
+    private static String buildDescription(Command command)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(
+                "<li><span class=\"commandName\">{$CMD_NAME}</span> - Usage: <span class=\"commandUsage\">{$CMD_USAGE}</span>"
+                .replace("{$CMD_NAME}", escapeHtml4(command.getName().trim()))
+                .replace("{$CMD_USAGE}", escapeHtml4(command.getUsage().trim())));
+
+        if (!command.getAliases().isEmpty())
+        {
+            sb.append(
+                    " - Aliases: <span class=\"commandAliases\">{$CMD_ALIASES}</span>"
+                    .replace("{$CMD_ALIASES}", escapeHtml4(StringUtils.join(command.getAliases(), ", "))));
+        }
+
+        sb.append(
+                "<br><span class=\"commandDescription\">{$CMD_DESC}</span></li>\r\n"
+                .replace("{$CMD_DESC}", escapeHtml4(command.getDescription().trim())));
+
+        return sb.toString();
+    }
+
+>>>>>>> devel
     @Override
     public String getTitle()
     {

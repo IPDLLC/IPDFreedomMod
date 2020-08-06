@@ -1,5 +1,9 @@
 #
+<<<<<<< HEAD
 # TotalFreedomMod 2019.3.2 Admin List
+=======
+# TotalFreedomMod 5.0 Admin List
+>>>>>>> devel
 #
 
 prozza:
@@ -7,7 +11,11 @@ prozza:
   active: true
   rank: SENIOR_ADMIN
   ips:
+<<<<<<< HEAD
     - 127.0.0.1
+=======
+  - 127.0.0.1
+>>>>>>> devel
   last_login: Wed, 2 Apr 2016 16:08:39 +0200
   login_message: 'the &5Lead Developer&b!'
 
@@ -16,8 +24,13 @@ madgeek1450:
   active: true
   rank: SENIOR_ADMIN
   ips:
+<<<<<<< HEAD
     - 1.2.3.4
     - 8.8.8.8
+=======
+  - 1.2.3.4
+  - 8.8.8.8
+>>>>>>> devel
   last_login: Wed, 2 Apr 2016 16:08:39 +0200
   login_message: 'the &4Co-Founder&b and &6Master-ass-kicker&b.'
 
@@ -26,6 +39,10 @@ markbyron:
   active: true
   rank: SENIOR_ADMIN
   ips:
+<<<<<<< HEAD
     - 8.8.4.4
+=======
+  - 8.8.4.4
+>>>>>>> devel
   last_login: Wed, 2 Apr 2016 16:08:39 +0200
   login_message: 'the &dOwner&b.'

@@ -43,12 +43,15 @@ public class ServerPing extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         if (LoginProcess.isLockdownEnabled())
         {
             event.setMotd(ChatColor.RED + "Server is in lock-down.");
             return;
         }
 
+=======
+>>>>>>> devel
         if (Bukkit.hasWhitelist())
         {
             event.setMotd(ChatColor.RED + "Whitelist enabled.");
@@ -61,7 +64,12 @@ public class ServerPing extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         String baseMotd = ConfigEntry.SERVER_MOTD.getString().replace("%mcversion%", plugin.si.getVersion());
+=======
+//        String baseMotd = ConfigEntry.SERVER_MOTD.getString().replace("%mcversion%", plugin.si.getVersion());
+        String baseMotd = ConfigEntry.SERVER_MOTD.getString();
+>>>>>>> devel
         baseMotd = baseMotd.replace("\\n", "\n");
         baseMotd = FUtil.colorize(baseMotd);
 

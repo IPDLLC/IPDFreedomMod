@@ -1,7 +1,10 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import com.google.common.collect.Lists;
 import java.util.List;
+=======
+>>>>>>> devel
 import lombok.Getter;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.admin.Admin;
@@ -16,13 +19,20 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
+<<<<<<< HEAD
 import org.bukkit.util.StringUtil;
+=======
+>>>>>>> devel
 
 public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod>
 {
 
     public static final String YOU_ARE_OP = ChatColor.YELLOW + "You are now op!";
     public static final String YOU_ARE_NOT_OP = ChatColor.YELLOW + "You are no longer op!";
+<<<<<<< HEAD
+=======
+    public static final String NOT_FROM_CONSOLE = "This command may not be used from the console.";
+>>>>>>> devel
     public static final String PLAYER_NOT_FOUND = ChatColor.GRAY + "Player not found!";
     //
     @Getter
@@ -45,6 +55,7 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
         }
     }
 
+<<<<<<< HEAD
     public static FreedomCommand getFrom(Command command)
     {
         try
@@ -57,6 +68,8 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
         }
     }
 
+=======
+>>>>>>> devel
     @Override
     public final boolean runCommand(final CommandSender sender, final Command command, final String label, final String[] args)
     {
@@ -80,6 +93,7 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
         }
     }
 
+<<<<<<< HEAD
     protected List<String> getTabCompleteOptions(CommandSender sender, Command command, String alias, String[] args)
     {
         return null;
@@ -96,6 +110,8 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
         return StringUtil.copyPartialMatches(args[args.length - 1], options, Lists.<String>newArrayList());
     }
 
+=======
+>>>>>>> devel
     protected abstract boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole);
 
     protected void checkConsole()
@@ -188,4 +204,19 @@ public abstract class FreedomCommand extends AbstractCommandBase<TotalFreedomMod
     {
         return plugin.pl.getData(player);
     }
+<<<<<<< HEAD
+=======
+
+    public static FreedomCommand getFrom(Command command)
+    {
+        try
+        {
+            return (FreedomCommand) ((FreedomCommandExecutor) (((PluginCommand) command).getExecutor())).getCommandBase();
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+>>>>>>> devel
 }

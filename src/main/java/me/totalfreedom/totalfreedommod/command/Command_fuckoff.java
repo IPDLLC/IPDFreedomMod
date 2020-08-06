@@ -10,6 +10,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "You'll never even see it coming.", usage = "/<command> <on [radius (default=25)] | off>")
 public class Command_fuckoff extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

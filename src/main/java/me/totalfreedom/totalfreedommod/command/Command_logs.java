@@ -10,6 +10,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Register your connection with the TFM logviewer.", usage = "/<command> [off]")
 public class Command_logs extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(final CommandSender sender, final Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

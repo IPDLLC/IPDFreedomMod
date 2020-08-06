@@ -5,6 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
@@ -34,8 +38,11 @@ public class GameRuleHandler extends FreedomService
         setGameRule(GameRule.MOB_GRIEFING, false, false);
         setGameRule(GameRule.COMMAND_BLOCK_OUTPUT, false);
         setGameRule(GameRule.NATURAL_REGENERATION, true, false);
+<<<<<<< HEAD
         setGameRule(GameRule.KEEP_INVENTORY, true, false);
         setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false, false);
+=======
+>>>>>>> devel
         commitGameRules();
     }
 
@@ -94,8 +101,12 @@ public class GameRuleHandler extends FreedomService
         DO_TILE_DROPS("doTileDrops", true),
         COMMAND_BLOCK_OUTPUT("commandBlockOutput", true),
         NATURAL_REGENERATION("naturalRegeneration", true),
+<<<<<<< HEAD
         DO_DAYLIGHT_CYCLE("doDaylightCycle", true),
         ANNOUNCE_ADVANCEMENTS("announceAdvancements", false);
+=======
+        DO_DAYLIGHT_CYCLE("doDaylightCycle", true);
+>>>>>>> devel
         //
         private final String gameRuleName;
         private final boolean defaultValue;

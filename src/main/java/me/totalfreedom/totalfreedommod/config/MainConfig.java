@@ -1,6 +1,10 @@
 package me.totalfreedom.totalfreedommod.config;
 
 import java.io.File;
+<<<<<<< HEAD
+=======
+import java.io.FileNotFoundException;
+>>>>>>> devel
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,7 +24,10 @@ public class MainConfig extends PluginComponent<TotalFreedomMod>
     //
     private final EnumMap<ConfigEntry, Object> entries;
     private final ConfigDefaults defaults;
+<<<<<<< HEAD
     public YamlConfiguration configuration;
+=======
+>>>>>>> devel
 
     public MainConfig(TotalFreedomMod plugin)
     {
@@ -67,8 +74,11 @@ public class MainConfig extends PluginComponent<TotalFreedomMod>
 
             config.load(getConfigFile());
 
+<<<<<<< HEAD
             configuration = config;
 
+=======
+>>>>>>> devel
             for (ConfigEntry entry : ConfigEntry.values())
             {
                 String path = entry.getConfigName();

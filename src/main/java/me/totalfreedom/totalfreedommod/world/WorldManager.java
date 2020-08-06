@@ -4,6 +4,10 @@ import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
+<<<<<<< HEAD
+=======
+import static me.totalfreedom.totalfreedommod.util.FUtil.playerMsg;
+>>>>>>> devel
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -15,14 +19,20 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+<<<<<<< HEAD
 import static me.totalfreedom.totalfreedommod.util.FUtil.playerMsg;
+=======
+>>>>>>> devel
 
 public class WorldManager extends FreedomService
 {
 
     public Flatlands flatlands;
     public AdminWorld adminworld;
+<<<<<<< HEAD
     public MasterBuilderWorld masterBuilderWorld;
+=======
+>>>>>>> devel
 
     public WorldManager(TotalFreedomMod plugin)
     {
@@ -30,7 +40,10 @@ public class WorldManager extends FreedomService
 
         this.flatlands = new Flatlands();
         this.adminworld = new AdminWorld();
+<<<<<<< HEAD
         this.masterBuilderWorld = new MasterBuilderWorld();
+=======
+>>>>>>> devel
     }
 
     @Override
@@ -38,7 +51,10 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld();
         adminworld.getWorld();
+<<<<<<< HEAD
         masterBuilderWorld.getWorld();
+=======
+>>>>>>> devel
 
         // Disable weather
         if (ConfigEntry.DISABLE_WEATHER.getBoolean())
@@ -58,7 +74,10 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld().save();
         adminworld.getWorld().save();
+<<<<<<< HEAD
         masterBuilderWorld.getWorld().save();
+=======
+>>>>>>> devel
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -105,10 +124,13 @@ public class WorldManager extends FreedomService
             {
                 return;
             }
+<<<<<<< HEAD
             else if (event.getWorld().equals(masterBuilderWorld.getWorld()) && masterBuilderWorld.getWeatherMode() != WorldWeather.OFF)
             {
                 return;
             }
+=======
+>>>>>>> devel
         }
         catch (Exception ex)
         {
@@ -129,10 +151,13 @@ public class WorldManager extends FreedomService
             {
                 return;
             }
+<<<<<<< HEAD
             else if (event.getWorld().equals(masterBuilderWorld.getWorld()) && masterBuilderWorld.getWeatherMode() != WorldWeather.OFF)
             {
                 return;
             }
+=======
+>>>>>>> devel
         }
         catch (Exception ex)
         {

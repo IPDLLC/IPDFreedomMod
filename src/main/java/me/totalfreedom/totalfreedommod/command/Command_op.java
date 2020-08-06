@@ -13,6 +13,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Makes a player operator", usage = "/<command> <playername>")
 public class Command_op extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -54,12 +58,15 @@ public class Command_op extends FreedomCommand
         FUtil.adminAction(sender.getName(), "Opping " + player.getName(), false);
         player.setOp(true);
 
+<<<<<<< HEAD
         if (player.isOnline())
         {
             Player p = (Player)player;
             p.sendMessage(YOU_ARE_OP);
         }
 
+=======
+>>>>>>> devel
         return true;
     }
 }

@@ -9,6 +9,10 @@ import org.bukkit.ChatColor;
 
 public class CommandLoader extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Getter
     private final SimpleCommandHandler<TotalFreedomMod> handler;
 
@@ -25,13 +29,20 @@ public class CommandLoader extends FreedomService
         handler.clearCommands();
         handler.setExecutorFactory(new FreedomCommandExecutor.FreedomExecutorFactory(plugin));
         handler.setCommandClassPrefix("Command_");
+<<<<<<< HEAD
 
+=======
+>>>>>>> devel
         handler.setPermissionMessage(ChatColor.RED + "You do not have permission to use this command.");
         handler.setOnlyConsoleMessage(ChatColor.RED + "This command can only be used from the console.");
         handler.setOnlyPlayerMessage(ChatColor.RED + "This command can only be used by players.");
 
         handler.loadFrom(FreedomCommand.class.getPackage());
+<<<<<<< HEAD
         handler.registerAll(plugin.getDescription().getName(), true);
+=======
+        handler.registerAll("TotalFreedomMod", true);
+>>>>>>> devel
 
         FLog.info("Loaded " + handler.getExecutors().size() + " commands.");
     }
@@ -41,4 +52,9 @@ public class CommandLoader extends FreedomService
     {
         handler.clearCommands();
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> devel

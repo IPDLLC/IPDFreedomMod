@@ -3,6 +3,10 @@ package me.totalfreedom.totalfreedommod.blocking;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+>>>>>>> devel
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -82,7 +86,11 @@ public class InteractBlocker extends FreedomService
                 break;
             }
 
+<<<<<<< HEAD
             case TNT_MINECART:
+=======
+            case EXPLOSIVE_MINECART:
+>>>>>>> devel
             {
                 if (ConfigEntry.ALLOW_TNT_MINECARTS.getBoolean())
                 {
@@ -94,6 +102,17 @@ public class InteractBlocker extends FreedomService
                 event.setCancelled(true);
                 break;
             }
+<<<<<<< HEAD
+=======
+
+            case SIGN:
+            case SIGN_POST:
+            case WALL_SIGN:
+            {
+                player.sendMessage(ChatColor.GRAY + "Sign interaction is currently disabled.");
+                break;
+            }
+>>>>>>> devel
         }
     }
 }

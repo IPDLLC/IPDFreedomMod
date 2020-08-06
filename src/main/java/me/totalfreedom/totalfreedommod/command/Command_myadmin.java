@@ -1,12 +1,19 @@
 package me.totalfreedom.totalfreedommod.command;
 
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.util.Random;
 import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.discord.Discord;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
+=======
+import me.totalfreedom.totalfreedommod.admin.Admin;
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+import net.pravian.aero.util.ChatUtils;
+>>>>>>> devel
 import net.pravian.aero.util.Ips;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -15,14 +22,25 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
+<<<<<<< HEAD
 @CommandParameters(description = "Manage my admin entry", usage = "/<command> [-o <admin>] <clearips | clearip <ip> | setlogin <message> | clearlogin | setacformat <format> | clearacformat> | oldtags | logstick | syncroles | verification <enable | disable>>")
 public class Command_myadmin extends FreedomCommand
 {
+=======
+@CommandParameters(description = "Manage my admin entry", usage = "/<command> [-o <admin>] <clearips | clearip <ip> | setlogin <message> | clearlogin>")
+public class Command_myadmin extends FreedomCommand
+{
+
+>>>>>>> devel
     @Override
     protected boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         checkPlayer();
+<<<<<<< HEAD
         checkRank(Rank.MODERATOR);
+=======
+        checkRank(Rank.SUPER_ADMIN);
+>>>>>>> devel
 
         if (args.length < 1)
         {
@@ -146,7 +164,11 @@ public class Command_myadmin extends FreedomCommand
                 FUtil.adminAction(sender.getName(), "Setting personal login message" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 target.setLoginMessage(msg);
                 msg((init == null ? "Your" : targetPlayer.getName() + "'s") + " login message is now: ");
+<<<<<<< HEAD
                 msg("> " + ChatColor.AQUA + (msg.contains("%name%") ? "" : target.getName() + " is ") + FUtil.colorize(msg).replace("%name%", targetPlayer.getName()));
+=======
+                msg("> " + ChatColor.AQUA + targetPlayer.getName() + " is " + ChatUtils.colorize(target.getLoginMessage()));
+>>>>>>> devel
                 plugin.al.save();
                 plugin.al.updateTables();
                 return true;
@@ -161,6 +183,7 @@ public class Command_myadmin extends FreedomCommand
                 return true;
             }
 
+<<<<<<< HEAD
             case "settag":
             {
                 msg("Please use /tag set to set your tag.", ChatColor.RED);
@@ -295,10 +318,16 @@ public class Command_myadmin extends FreedomCommand
                     return true;
                 }
             }
+=======
+>>>>>>> devel
             default:
             {
                 return false;
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

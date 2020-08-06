@@ -1,10 +1,19 @@
 # TotalFreedomMod #
 
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Telesphoreo/TotalFreedomMod.svg?branch=1.13.2)](https://travis-ci.org/Telesphoreo/TotalFreedomMod)
 
 TotalFreedomMod is a CraftBukkit server plugin designed primarily to support the [Official TotalFreedom Minecraft Server](http://totalfreedom.me/). However, you are more than welcome to adapt the source for your own server.
 
 This plugin was originally coded by StevenLawson (Madgeek1450), with Jerom van der Sar (Prozza) becoming heavily involved in its development some time later. Developers OxLemonxO and ZeroEpoch1969 forked TotalFreedomMod under their own organization, TFPatches. This fork is based off of the TFPatches version, including many bug fixes, an overhauled build proccess, and updated plugins that have a bridge. TotalFreedomMod consists of over 85 custom coded commands and a large variety of distinguishable features not included in any other plugin. The plugin has since its beginning grown immensely. Together, with the main TotalFreedom server, TotalFreedomMod has a long-standing reputation of effectiveness whilst maintaining a clear feeling of openness towards the administrators and the players themselves.
+=======
+
+[![Build Status](https://travis-ci.org/TotalFreedom/TotalFreedomMod.svg?branch=devel)](https://travis-ci.org/TotalFreedom/TotalFreedomMod)
+
+TotalFreedomMod is a CraftBukkit server plugin designed primarily to support the [Official TotalFreedom Minecraft Server](http://totalfreedom.me/). However, you are more than welcome to adapt the source for your own server.
+
+This plugin was originally coded by StevenLawson (Madgeek1450), with Jerom van der Sar (Prozza) becoming heavily involved in its development some time later. It consists of over 85 custom coded commands and a large variety of distinguishable features not included in any other plugin. The plugin has since its beginning grown immensely. Together, with the main TotalFreedom server, TotalFreedomMod has a long-standing reputation of effectiveness whilst maintaining a clear feeling of openness towards the administrators and the players themselves.
+>>>>>>> devel
 
 ### Download ###
 You may download official binaries from the [releases page](https://github.com/TotalFreedom/TotalFreedomMod/releases).

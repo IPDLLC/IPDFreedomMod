@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.command;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,6 +8,9 @@ import java.util.List;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import org.bukkit.ChatColor;
+=======
+import me.totalfreedom.totalfreedommod.rank.Rank;
+>>>>>>> devel
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -15,6 +19,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
+<<<<<<< HEAD
 @CommandParameters(description = "Enchant items.", usage = "/<command> <list | addall | reset | add <name> [level] | remove <name>>")
 public class Command_enchant extends FreedomCommand
 {
@@ -28,6 +33,11 @@ public class Command_enchant extends FreedomCommand
 
         return range;
     }
+=======
+@CommandParameters(description = "Enchant items.", usage = "/<command> <list | addall | reset | add <name> | remove <name>>")
+public class Command_enchant extends FreedomCommand
+{
+>>>>>>> devel
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -107,7 +117,11 @@ public class Command_enchant extends FreedomCommand
 
             try
             {
+<<<<<<< HEAD
                 ench = Enchantment.getByName(args[1].toUpperCase());
+=======
+                ench = Enchantment.getByName(args[1]);
+>>>>>>> devel
             }
             catch (Exception ex)
             {
@@ -121,6 +135,7 @@ public class Command_enchant extends FreedomCommand
 
             if (args[0].equalsIgnoreCase("add"))
             {
+<<<<<<< HEAD
                 if (!ench.canEnchantItem(item) && !ConfigEntry.ALLOW_UNSAFE_ENCHANTMENTS.getBoolean())
                 {
                     msg("Can't use this enchantment on held item.");
@@ -156,6 +171,18 @@ public class Command_enchant extends FreedomCommand
                 }
 
                 msg("Added enchantment: " + ench.getName());
+=======
+                if (ench.canEnchantItem(item))
+                {
+                    item.addEnchantment(ench, ench.getMaxLevel());
+
+                    msg("Added enchantment: " + ench.getName());
+                }
+                else
+                {
+                    msg("Can't use this enchantment on held item.");
+                }
+>>>>>>> devel
             }
             else if (args[0].equals("remove"))
             {
@@ -167,6 +194,7 @@ public class Command_enchant extends FreedomCommand
 
         return true;
     }
+<<<<<<< HEAD
 
     public List<String> getAllEnchantments()
     {
@@ -266,4 +294,6 @@ public class Command_enchant extends FreedomCommand
         return Collections.emptyList();
     }
 
+=======
+>>>>>>> devel
 }

@@ -11,7 +11,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> devel
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -25,7 +28,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+<<<<<<< HEAD
 import org.bukkit.Material;
+=======
+>>>>>>> devel
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -33,6 +39,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class FUtil
 {
+<<<<<<< HEAD
     public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "WickedGamingUK", "Arcaknight", "OxLemonxO", "Wild1145", "Catholic_Mario", "LickTheCheese", "G6_", "jucelo");
@@ -55,6 +62,29 @@ public class FUtil
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     private static Iterator<ChatColor> CHAT_COLOR_ITERATOR;
+=======
+
+    private static final Random RANDOM = new Random();
+    //
+    public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
+    // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
+    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ");
+    public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
+    public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
+    public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
+            ChatColor.DARK_BLUE,
+            ChatColor.DARK_GREEN,
+            ChatColor.DARK_AQUA,
+            ChatColor.DARK_RED,
+            ChatColor.DARK_PURPLE,
+            ChatColor.GOLD,
+            ChatColor.BLUE,
+            ChatColor.GREEN,
+            ChatColor.AQUA,
+            ChatColor.RED,
+            ChatColor.LIGHT_PURPLE,
+            ChatColor.YELLOW);
+>>>>>>> devel
 
     static
     {
@@ -64,6 +94,13 @@ public class FUtil
         }
     }
 
+<<<<<<< HEAD
+=======
+    private FUtil()
+    {
+    }
+
+>>>>>>> devel
     public static void cancel(BukkitTask task)
     {
         if (task == null)
@@ -80,6 +117,7 @@ public class FUtil
         }
     }
 
+<<<<<<< HEAD
     public static boolean hasMbConfigPermission(String name)
     {
         return ConfigEntry.SERVER_OWNERS.getStringList().contains(name) || ConfigEntry.SERVER_EXECUTIVES.getStringList().contains(name) || ConfigEntry.SERVER_MASTER_BUILDER_MANAGEMENT.getStringList().contains(name);
@@ -105,6 +143,8 @@ public class FUtil
         return names;
     }
 
+=======
+>>>>>>> devel
     public static void bcastMsg(String message, ChatColor color)
     {
         FLog.info(message, true);
@@ -152,7 +192,11 @@ public class FUtil
                 Math.round(location.getZ()));
     }
 
+<<<<<<< HEAD
     public static boolean deleteFolder(File file)
+=======
+    public static boolean deleteFolder(final File file)
+>>>>>>> devel
     {
         if (file.exists() && file.isDirectory())
         {
@@ -161,6 +205,7 @@ public class FUtil
         return false;
     }
 
+<<<<<<< HEAD
     public static boolean deleteFile(File file)
     {
         if (file.exists() && file.isFile())
@@ -174,6 +219,18 @@ public class FUtil
     public static void deleteCoreDumps()
     {
         final File[] coreDumps = new File(".").listFiles(file -> file.getName().startsWith("java.core"));
+=======
+    public static void deleteCoreDumps()
+    {
+        final File[] coreDumps = new File(".").listFiles(new FileFilter()
+        {
+            @Override
+            public boolean accept(File file)
+            {
+                return file.getName().startsWith("java.core");
+            }
+        });
+>>>>>>> devel
 
         for (File dump : coreDumps)
         {
@@ -186,12 +243,21 @@ public class FUtil
     {
         Pattern timePattern = Pattern.compile(
                 "(?:([0-9]+)\\s*y[a-z]*[,\\s]*)?"
+<<<<<<< HEAD
                         + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?"
                         + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?"
                         + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
                         + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?"
                         + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?"
                         + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
+=======
+                + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
+>>>>>>> devel
         Matcher m = timePattern.matcher(time);
         int years = 0;
         int months = 0;
@@ -379,14 +445,22 @@ public class FUtil
             {
                 Field field = checkClass.getDeclaredField(name);
                 field.setAccessible(true);
+<<<<<<< HEAD
                 return (T)field.get(from);
+=======
+                return (T) field.get(from);
+>>>>>>> devel
 
             }
             catch (NoSuchFieldException | IllegalAccessException ex)
             {
             }
+<<<<<<< HEAD
         }
         while (checkClass.getSuperclass() != Object.class
+=======
+        } while (checkClass.getSuperclass() != Object.class
+>>>>>>> devel
                 && ((checkClass = checkClass.getSuperclass()) != null));
 
         return null;
@@ -397,6 +471,7 @@ public class FUtil
         return CHAT_COLOR_POOL.get(RANDOM.nextInt(CHAT_COLOR_POOL.size()));
     }
 
+<<<<<<< HEAD
     public static String rainbowify(String string)
     {
         CHAT_COLOR_ITERATOR = CHAT_COLOR_POOL.iterator();
@@ -416,6 +491,8 @@ public class FUtil
         return newString.toString();
     }
 
+=======
+>>>>>>> devel
     public static String colorize(String string)
     {
         return ChatColor.translateAlternateColorCodes('&', string);
@@ -441,6 +518,7 @@ public class FUtil
         return date.getTime() / 1000L;
     }
 
+<<<<<<< HEAD
     public static String getNMSVersion()
     {
         return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
@@ -452,4 +530,12 @@ public class FUtil
         int value = (int)(Math.random() * range) + min;
         return value;
     }
+=======
+    public static String getNmsVersion()
+    {
+        String packageName = Bukkit.getServer().getClass().getPackage().getName();
+        return packageName.substring(packageName.lastIndexOf('.') + 1);
+    }
+
+>>>>>>> devel
 }

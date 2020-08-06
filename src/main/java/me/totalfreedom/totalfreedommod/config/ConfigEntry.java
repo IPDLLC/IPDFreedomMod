@@ -5,6 +5,10 @@ import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 
 public enum ConfigEntry
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     FORCE_IP_ENABLED(Boolean.class, "forceip.enabled"),
     FORCE_IP_PORT(Integer.class, "forceip.port"),
     FORCE_IP_KICKMSG(String.class, "forceip.kickmsg"),
@@ -17,6 +21,7 @@ public enum ConfigEntry
     ALLOW_LAVA_PLACE(Boolean.class, "allow.lava_place"),
     ALLOW_TNT_MINECARTS(Boolean.class, "allow.tnt_minecarts"),
     ALLOW_WATER_PLACE(Boolean.class, "allow.water_place"),
+<<<<<<< HEAD
     ALLOW_REDSTONE(Boolean.class, "allow.redstone"),
     ALLOW_FIREWORK_EXPLOSION(Boolean.class, "allow.fireworks"),
     ALLOW_FROSTWALKER(Boolean.class, "allow.frostwalker"),
@@ -25,6 +30,8 @@ public enum ConfigEntry
     BLOCKED_WILDCARD_COMMANDS(List.class, "blocked.wildcard_commands"),
     BLOCKED_MUTED_COMMANDS(List.class, "blocked.muted_commands"),
     BLOCKED_CHATCODES(String.class, "blocked.chatcodes"),
+=======
+>>>>>>> devel
     //
     MOB_LIMITER_ENABLED(Boolean.class, "moblimiter.enabled"),
     MOB_LIMITER_MAX(Integer.class, "moblimiter.max"),
@@ -42,6 +49,7 @@ public enum ConfigEntry
     SERVER_ADDRESS(String.class, "server.address"),
     SERVER_MOTD(String.class, "server.motd"),
     SERVER_OWNERS(List.class, "server.owners"),
+<<<<<<< HEAD
     SERVER_MANAGERS(List.class, "server.managers"),
     SERVER_YOUTUBERS(List.class, "server.youtubers"),
     SERVER_EXECUTIVES(List.class, "server.executives"),
@@ -74,6 +82,14 @@ public enum ConfigEntry
     COREPROTECT_MYSQL_PASSWORD(String.class, "coreprotect.password"),
     COREPROTECT_MYSQL_DATABASE(String.class, "coreprotect.database"),
     //
+=======
+    SERVER_BAN_URL(String.class, "server.ban_url"),
+    SERVER_PERMBAN_URL(String.class, "server.permban_url"),
+    //
+    ADMINLIST_CLEAN_THESHOLD_HOURS(Integer.class, "adminlist.clean_threshold_hours"),
+    ADMINLIST_CONSOLE_IS_SENIOR(Boolean.class, "adminlist.console_is_senior"),
+    //
+>>>>>>> devel
     DISABLE_NIGHT(Boolean.class, "disable.night"),
     DISABLE_WEATHER(Boolean.class, "disable.weather"),
     //
@@ -117,6 +133,7 @@ public enum ConfigEntry
     OVERLORD_IPS(List.class, "overlord_ips"),
     NOADMIN_IPS(List.class, "noadmin_ips"),
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
+<<<<<<< HEAD
     ADMIN_INFO(List.class, "admininfo"),
     MASTER_BUILDER_INFO(List.class, "masterbuilderinfo"),
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe"),
@@ -125,16 +142,24 @@ public enum ConfigEntry
     AMP_USERNAME(String.class, "amp.username"),
     AMP_PASSWORD(String.class, "amp.password"),
     AMP_URL(String.class, "amp.url");
+=======
+    AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe");
+>>>>>>> devel
     //
     private final Class<?> type;
     private final String configName;
 
+<<<<<<< HEAD
     ConfigEntry(Class<?> type, String configName)
+=======
+    private ConfigEntry(Class<?> type, String configName)
+>>>>>>> devel
     {
         this.type = type;
         this.configName = configName;
     }
 
+<<<<<<< HEAD
     public static ConfigEntry findConfigEntry(String name)
     {
         name = name.toLowerCase().replace("_", "");
@@ -148,6 +173,8 @@ public enum ConfigEntry
         return null;
     }
 
+=======
+>>>>>>> devel
     public Class<?> getType()
     {
         return type;
@@ -210,11 +237,31 @@ public enum ConfigEntry
     @SuppressWarnings("unchecked")
     public List<String> getStringList()
     {
+<<<<<<< HEAD
         return (List<String>)getList();
+=======
+        return (List<String>) getList();
+>>>>>>> devel
     }
 
     private MainConfig getConfig()
     {
         return TotalFreedomMod.plugin().config;
     }
+<<<<<<< HEAD
+=======
+
+    public static ConfigEntry findConfigEntry(String name)
+    {
+        name = name.toLowerCase().replace("_", "");
+        for (ConfigEntry entry : values())
+        {
+            if (entry.toString().toLowerCase().replace("_", "").equals(name))
+            {
+                return entry;
+            }
+        }
+        return null;
+    }
+>>>>>>> devel
 }

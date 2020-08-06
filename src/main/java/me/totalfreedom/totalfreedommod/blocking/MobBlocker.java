@@ -3,14 +3,18 @@ package me.totalfreedom.totalfreedommod.blocking;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
+=======
+>>>>>>> devel
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Ghast;
 import org.bukkit.entity.Giant;
 import org.bukkit.entity.HumanEntity;
+<<<<<<< HEAD
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Slime;
 import org.bukkit.entity.Wither;
@@ -18,6 +22,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
+=======
+import org.bukkit.entity.Slime;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+>>>>>>> devel
 
 public class MobBlocker extends FreedomService
 {
@@ -37,6 +47,7 @@ public class MobBlocker extends FreedomService
     {
     }
 
+<<<<<<< HEAD
     //fixes crash mobs, credit to Mafrans
     @EventHandler(priority = EventPriority.NORMAL)
     public void onEntitySpawn(EntitySpawnEvent e)
@@ -60,6 +71,8 @@ public class MobBlocker extends FreedomService
         }
     }
 
+=======
+>>>>>>> devel
     @EventHandler(priority = EventPriority.NORMAL)
     public void onCreatureSpawn(CreatureSpawnEvent event)
     {
@@ -69,7 +82,10 @@ public class MobBlocker extends FreedomService
         }
 
         final Entity spawned = event.getEntity();
+<<<<<<< HEAD
 
+=======
+>>>>>>> devel
         if (spawned instanceof EnderDragon)
         {
             if (ConfigEntry.MOB_LIMITER_DISABLE_DRAGON.getBoolean())
@@ -94,6 +110,7 @@ public class MobBlocker extends FreedomService
                 return;
             }
         }
+<<<<<<< HEAD
         else if (spawned instanceof Wither)
         {
             if (ConfigEntry.MOB_LIMITER_DISABLE_DRAGON.getBoolean())
@@ -102,6 +119,8 @@ public class MobBlocker extends FreedomService
                 return;
             }
         }
+=======
+>>>>>>> devel
         else if (spawned instanceof Giant)
         {
             if (ConfigEntry.MOB_LIMITER_DISABLE_GIANT.getBoolean())
@@ -126,7 +145,11 @@ public class MobBlocker extends FreedomService
         int mobcount = 0;
         for (Entity entity : event.getLocation().getWorld().getLivingEntities())
         {
+<<<<<<< HEAD
             if (!(entity instanceof HumanEntity) && entity instanceof LivingEntity)
+=======
+            if (!(entity instanceof HumanEntity))
+>>>>>>> devel
             {
                 mobcount++;
             }
@@ -137,4 +160,8 @@ public class MobBlocker extends FreedomService
             event.setCancelled(true);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

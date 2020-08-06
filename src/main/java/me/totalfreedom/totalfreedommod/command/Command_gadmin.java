@@ -18,6 +18,48 @@ import org.bukkit.entity.Player;
         usage = "/<command> [list | [<kick | nameban | ipban | ban | op | deop | ci | fr | smite> <targethash>] ]")
 public class Command_gadmin extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+    private enum GadminMode
+    {
+
+        LIST("list"),
+        KICK("kick"),
+        NAMEBAN("nameban"),
+        IPBAN("ipban"),
+        BAN("ban"),
+        OP("op"),
+        DEOP("deop"),
+        CI("ci"),
+        FR("fr"),
+        SMITE("smite");
+        private final String modeName;
+
+        private GadminMode(String command)
+        {
+            this.modeName = command;
+        }
+
+        public String getModeName()
+        {
+            return modeName;
+        }
+
+        public static GadminMode findMode(String needle)
+        {
+            for (final GadminMode mode : GadminMode.values())
+            {
+                if (needle.equalsIgnoreCase(mode.getModeName()))
+                {
+                    return mode;
+                }
+            }
+            return null;
+        }
+    }
+
+>>>>>>> devel
     public String getPlayerHash(Player player)
     {
         return UUID.nameUUIDFromBytes(player.getName().toLowerCase().getBytes(StandardCharsets.UTF_8)).toString().substring(0, 4);
@@ -159,7 +201,11 @@ public class Command_gadmin extends FreedomCommand
             }
             case SMITE:
             {
+<<<<<<< HEAD
                 Command_smite.smite(sender, target);
+=======
+                Command_smite.smite(target);
+>>>>>>> devel
 
                 break;
             }
@@ -167,6 +213,7 @@ public class Command_gadmin extends FreedomCommand
 
         return true;
     }
+<<<<<<< HEAD
 
     private enum GadminMode
     {
@@ -204,4 +251,6 @@ public class Command_gadmin extends FreedomCommand
             return modeName;
         }
     }
+=======
+>>>>>>> devel
 }

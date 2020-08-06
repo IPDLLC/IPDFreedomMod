@@ -1,16 +1,26 @@
 package me.totalfreedom.totalfreedommod.blocking.command;
 
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> devel
 import lombok.Getter;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+<<<<<<< HEAD
 import org.spigotmc.SpigotConfig;
 
 public class CommandBlockerEntry
 {
+=======
+
+public class CommandBlockerEntry
+{
+
+>>>>>>> devel
     @Getter
     private final CommandBlockerRank rank;
     @Getter
@@ -27,11 +37,16 @@ public class CommandBlockerEntry
         this(rank, action, command, null, message);
     }
 
+<<<<<<< HEAD
     CommandBlockerEntry(CommandBlockerRank rank, CommandBlockerAction action, String command, String subCommand, String message)
+=======
+    public CommandBlockerEntry(CommandBlockerRank rank, CommandBlockerAction action, String command, String subCommand, String message)
+>>>>>>> devel
     {
         this.rank = rank;
         this.action = action;
         this.command = command;
+<<<<<<< HEAD
         this.subCommand = ((subCommand == null) ? null : subCommand.toLowerCase().trim());
         this.message = ((message == null || message.equals("_")) ? "That command is blocked." : message);
     }
@@ -49,6 +64,27 @@ public class CommandBlockerEntry
             sender.sendMessage(SpigotConfig.unknownCommandMessage);
             return;
         }
+=======
+        this.subCommand = (subCommand == null ? null : subCommand.toLowerCase().trim());
+        this.message = (message == null || message.equals("_") ? "That command is blocked." : message);
+    }
+
+    public void doActions(CommandSender sender)
+    {
+        if (action == CommandBlockerAction.BLOCK_AND_EJECT && sender instanceof Player)
+        {
+            TotalFreedomMod.plugin().ae.autoEject((Player) sender, "You used a prohibited command: " + command);
+            FUtil.bcastMsg(sender.getName() + " was automatically kicked for using harmful commands.", ChatColor.RED);
+            return;
+        }
+
+        if (action == CommandBlockerAction.BLOCK_UNKNOWN)
+        {
+            FUtil.playerMsg(sender, "Unknown command. Type \"help\" for help.", ChatColor.RESET);
+            return;
+        }
+
+>>>>>>> devel
         FUtil.playerMsg(sender, FUtil.colorize(message));
     }
 }

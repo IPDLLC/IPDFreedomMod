@@ -56,11 +56,24 @@ public class ItemFun extends FreedomService
 
         switch (event.getMaterial())
         {
+<<<<<<< HEAD
             case TROPICAL_FISH:
+=======
+            case RAW_FISH:
+>>>>>>> devel
             {
                 final int RADIUS_HIT = 5;
                 final int STRENGTH = 4;
 
+<<<<<<< HEAD
+=======
+                // Clownfish
+                if (DepreciationAggregator.getData_MaterialData(event.getItem().getData()) != 2)
+                {
+                    break;
+                }
+
+>>>>>>> devel
                 if (!plugin.al.isSeniorAdmin(player))
                 {
                     final StringBuilder msg = new StringBuilder();
@@ -71,7 +84,11 @@ public class ItemFun extends FreedomService
                     }
                     player.sendMessage(msg.toString());
 
+<<<<<<< HEAD
                     player.getEquipment().getItemInMainHand().setType(Material.POTATO);
+=======
+                    player.getEquipment().getItemInMainHand().setType(Material.POTATO_ITEM);
+>>>>>>> devel
                     break;
                 }
 
@@ -120,7 +137,11 @@ public class ItemFun extends FreedomService
                 break;
             }
 
+<<<<<<< HEAD
             case CARROT:
+=======
+            case CARROT_ITEM:
+>>>>>>> devel
             {
                 if (!ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
                 {
@@ -132,6 +153,7 @@ public class ItemFun extends FreedomService
                     break;
                 }
 
+<<<<<<< HEAD
                 if (player.getWorld().equals(plugin.wm.masterBuilderWorld.getWorld()) && plugin.mbwr.doRestrict(player))
                 {
                     break;
@@ -144,6 +166,15 @@ public class ItemFun extends FreedomService
 
                 double distance = 150.0;
                 Block targetBlock = DepreciationAggregator.getTargetBlock(player, null, Math.round((float)distance));
+=======
+                Location location = player.getLocation().clone();
+
+                Vector playerPostion = location.toVector().add(new Vector(0.0, 1.65, 0.0));
+                Vector playerDirection = location.getDirection().normalize();
+
+                double distance = 150.0;
+                Block targetBlock = DepreciationAggregator.getTargetBlock(player, null, Math.round((float) distance));
+>>>>>>> devel
                 if (targetBlock != null)
                 {
                     distance = location.distance(targetBlock.getLocation());
@@ -154,7 +185,11 @@ public class ItemFun extends FreedomService
                 Block lastBlock = null;
                 for (double offset = 0.0; offset <= distance; offset += (distance / 25.0))
                 {
+<<<<<<< HEAD
                     Block block = playerPosition.clone().add(playerDirection.clone().multiply(offset)).toLocation(player.getWorld()).getBlock();
+=======
+                    Block block = playerPostion.clone().add(playerDirection.clone().multiply(offset)).toLocation(player.getWorld()).getBlock();
+>>>>>>> devel
 
                     if (!block.equals(lastBlock))
                     {
@@ -200,7 +235,11 @@ public class ItemFun extends FreedomService
                 Location player_pos = player.getLocation();
                 Vector direction = player_pos.getDirection().normalize();
 
+<<<<<<< HEAD
                 LivingEntity rezzed_mob = (LivingEntity)player.getWorld().spawnEntity(player_pos.add(direction.multiply(2.0)), fPlayer.mobThrowerCreature());
+=======
+                LivingEntity rezzed_mob = (LivingEntity) player.getWorld().spawnEntity(player_pos.add(direction.multiply(2.0)), fPlayer.mobThrowerCreature());
+>>>>>>> devel
                 rezzed_mob.setVelocity(direction.multiply(fPlayer.mobThrowerSpeed()));
                 fPlayer.enqueueMob(rezzed_mob);
 
@@ -208,7 +247,11 @@ public class ItemFun extends FreedomService
                 break;
             }
 
+<<<<<<< HEAD
             case GUNPOWDER:
+=======
+            case SULPHUR:
+>>>>>>> devel
             {
                 if (!fPlayer.isMP44Armed())
                 {
@@ -240,11 +283,14 @@ public class ItemFun extends FreedomService
                     break;
                 }
 
+<<<<<<< HEAD
                 if (player.getWorld().equals(plugin.wm.masterBuilderWorld.getWorld()) && plugin.mbwr.doRestrict(player))
                 {
                     break;
                 }
 
+=======
+>>>>>>> devel
                 event.setCancelled(true);
                 Block targetBlock;
 

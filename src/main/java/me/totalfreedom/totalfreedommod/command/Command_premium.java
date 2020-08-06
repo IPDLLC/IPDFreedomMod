@@ -16,6 +16,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 @CommandParameters(description = "Validates if a given account is premium.", usage = "/<command> <player>", aliases = "prem")
 public class Command_premium extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -47,7 +51,11 @@ public class Command_premium extends FreedomCommand
                     final URLConnection urlConnection = getUrl.openConnection();
                     final String message;
                     try ( // Read the response
+<<<<<<< HEAD
                           BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream())))
+=======
+                            BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream())))
+>>>>>>> devel
                     {
                         message = (!"PREMIUM".equalsIgnoreCase(in.readLine()) ? ChatColor.RED + "No" : ChatColor.DARK_GREEN + "Yes");
                     }
@@ -70,7 +78,11 @@ public class Command_premium extends FreedomCommand
                 catch (Exception ex)
                 {
                     FLog.severe(ex);
+<<<<<<< HEAD
                     msg("There was an error querying the Mojang server.", ChatColor.RED);
+=======
+                    msg("There was an error querying the mojang server.", ChatColor.RED);
+>>>>>>> devel
                 }
             }
         }.runTaskAsynchronously(plugin);

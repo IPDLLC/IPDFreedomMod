@@ -21,6 +21,10 @@ import org.bukkit.plugin.Plugin;
 
 public class BukkitTelnetBridge extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private BukkitTelnet bukkitTelnetPlugin = null;
 
     public BukkitTelnetBridge(TotalFreedomMod plugin)
@@ -113,7 +117,11 @@ public class BukkitTelnetBridge extends FreedomService
                 {
                     if (bukkitTelnet instanceof BukkitTelnet)
                     {
+<<<<<<< HEAD
                         bukkitTelnetPlugin = (BukkitTelnet)bukkitTelnet;
+=======
+                        bukkitTelnetPlugin = (BukkitTelnet) bukkitTelnet;
+>>>>>>> devel
                     }
                 }
             }

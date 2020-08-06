@@ -1,6 +1,10 @@
 package me.totalfreedom.totalfreedommod.command;
 
 import me.totalfreedom.totalfreedommod.rank.Rank;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,6 +13,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Goto the nether.", usage = "/<command>")
 public class Command_nether extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

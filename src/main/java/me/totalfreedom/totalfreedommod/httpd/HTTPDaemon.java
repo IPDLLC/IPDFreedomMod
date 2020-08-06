@@ -10,10 +10,16 @@ import java.util.regex.Pattern;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD.Response;
 import me.totalfreedom.totalfreedommod.httpd.module.HTTPDModule;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_admins;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_bans;
+=======
+import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD.HTTPSession;
+import me.totalfreedom.totalfreedommod.httpd.NanoHTTPD.Response;
+import me.totalfreedom.totalfreedommod.httpd.module.HTTPDModule;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.httpd.module.Module_dump;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_file;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_help;
@@ -22,29 +28,44 @@ import me.totalfreedom.totalfreedommod.httpd.module.Module_logfile;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_logs;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_permbans;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_players;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.httpd.module.Module_punishments;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_reports;
 import me.totalfreedom.totalfreedommod.httpd.module.Module_schematic;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import org.apache.commons.io.FilenameUtils;
+=======
+import me.totalfreedom.totalfreedommod.httpd.module.Module_schematic;
+import me.totalfreedom.totalfreedommod.util.FLog;
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public class HTTPDaemon extends FreedomService
 {
 
+<<<<<<< HEAD
     private static final Pattern EXT_REGEX = Pattern.compile("\\.([^\\.\\s]+)$");
     public static String MIME_DEFAULT_BINARY = "application/octet-stream";
     //
     public int port;
     public Map<String, ModuleExecutable> modules = new HashMap<>();
     private HTTPD httpd;
+=======
+    public static String MIME_DEFAULT_BINARY = "application/octet-stream";
+    private static final Pattern EXT_REGEX = Pattern.compile("\\.([^\\.\\s]+)$");
+    //
+    public int port;
+    private HTTPD httpd;
+    public Map<String, ModuleExecutable> modules = new HashMap<>();
+>>>>>>> devel
 
     public HTTPDaemon(TotalFreedomMod plugin)
     {
         super(plugin);
     }
 
+<<<<<<< HEAD
     public static Response serveFileBasic(File file)
     {
         Response response = null;
@@ -84,6 +105,8 @@ public class HTTPDaemon extends FreedomService
         return response;
     }
 
+=======
+>>>>>>> devel
     @Override
     public void onStart()
     {
@@ -92,14 +115,21 @@ public class HTTPDaemon extends FreedomService
             return;
         }
 
+<<<<<<< HEAD
         port = ConfigEntry.HTTPD_PORT.getInteger();
         ;
+=======
+        port = ConfigEntry.HTTPD_PORT.getInteger();;
+>>>>>>> devel
         httpd = new HTTPD(port);
 
         // Modules
         modules.clear();
+<<<<<<< HEAD
         module("admins", Module_admins.class, true);
         module("bans", Module_bans.class, true);
+=======
+>>>>>>> devel
         module("dump", Module_dump.class, true);
         module("file", Module_file.class, true);
         module("help", Module_help.class, false);
@@ -108,8 +138,11 @@ public class HTTPDaemon extends FreedomService
         module("logs", Module_logs.class, true);
         module("permbans", Module_permbans.class, true);
         module("players", Module_players.class, false);
+<<<<<<< HEAD
         module("punishments", Module_punishments.class, true);
         module("reports", Module_reports.class, true);
+=======
+>>>>>>> devel
         module("schematic", Module_schematic.class, true);
 
         try
@@ -190,4 +223,40 @@ public class HTTPDaemon extends FreedomService
         }
     }
 
+<<<<<<< HEAD
+=======
+    public static Response serveFileBasic(File file)
+    {
+        Response response = null;
+
+        if (file != null && file.exists())
+        {
+            try
+            {
+                String mimetype = null;
+
+                Matcher matcher = EXT_REGEX.matcher(file.getCanonicalPath());
+                if (matcher.find())
+                {
+                    mimetype = Module_file.MIME_TYPES.get(matcher.group(1));
+                }
+
+                if (mimetype == null || mimetype.trim().isEmpty())
+                {
+                    mimetype = MIME_DEFAULT_BINARY;
+                }
+
+                response = new Response(Response.Status.OK, mimetype, new FileInputStream(file));
+                response.addHeader("Content-Length", "" + file.length());
+            }
+            catch (IOException ex)
+            {
+                FLog.severe(ex);
+            }
+        }
+
+        return response;
+    }
+
+>>>>>>> devel
 }

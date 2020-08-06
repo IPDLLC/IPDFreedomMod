@@ -17,6 +17,10 @@ import org.bukkit.plugin.PluginDescriptionFile;
 @CommandParameters(description = "Show all commands for all server plugins.", usage = "/<command>", aliases = "cmdlist")
 public class Command_commandlist extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -27,13 +31,21 @@ public class Command_commandlist extends FreedomCommand
             try
             {
                 PluginDescriptionFile desc = targetPlugin.getDescription();
+<<<<<<< HEAD
                 Map<String, Map<String, Object>> map = desc.getCommands();
+=======
+                Map<String, Map<String, Object>> map = (Map<String, Map<String, Object>>) desc.getCommands();
+>>>>>>> devel
 
                 if (map != null)
                 {
                     for (Entry<String, Map<String, Object>> entry : map.entrySet())
                     {
+<<<<<<< HEAD
                         String command_name = entry.getKey();
+=======
+                        String command_name = (String) entry.getKey();
+>>>>>>> devel
                         commands.add(command_name);
                     }
                 }
@@ -45,7 +57,11 @@ public class Command_commandlist extends FreedomCommand
 
         Collections.sort(commands);
 
+<<<<<<< HEAD
         sender.sendMessage(StringUtils.join(commands, ", "));
+=======
+        sender.sendMessage(StringUtils.join(commands, ","));
+>>>>>>> devel
 
         return true;
     }

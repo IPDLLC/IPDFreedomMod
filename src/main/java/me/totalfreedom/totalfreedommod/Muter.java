@@ -1,11 +1,19 @@
 package me.totalfreedom.totalfreedommod;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.util.Arrays;
+>>>>>>> devel
 import java.util.List;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import me.totalfreedom.totalfreedommod.util.FSync;
+<<<<<<< HEAD
+=======
+import org.apache.commons.lang3.StringUtils;
+>>>>>>> devel
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
@@ -13,12 +21,20 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+<<<<<<< HEAD
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class Muter extends FreedomService
 {
     private final static List<String> MUTE_COMMANDS = ConfigEntry.BLOCKED_MUTED_COMMANDS.getStringList();
     public final ArrayList MUTED_PLAYERS = new ArrayList();
+=======
+
+public class Muter extends FreedomService
+{
+
+    public static final List<String> MUTE_COMMANDS = Arrays.asList(StringUtils.split("say,me,msg,tell,reply,mail", ","));
+>>>>>>> devel
 
     public Muter(TotalFreedomMod plugin)
     {
@@ -38,19 +54,29 @@ public class Muter extends FreedomService
     @EventHandler(priority = EventPriority.LOW)
     public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event)
     {
+<<<<<<< HEAD
         Player player = event.getPlayer();
 
         FPlayer fPlayer = plugin.pl.getPlayerSync(player);
+=======
+        FPlayer fPlayer = plugin.pl.getPlayerSync(event.getPlayer());
+>>>>>>> devel
 
         if (!fPlayer.isMuted())
         {
             return;
         }
 
+<<<<<<< HEAD
         if (plugin.al.isAdminSync(player))
         {
             fPlayer.setMuted(false);
             MUTED_PLAYERS.remove(player.getName());
+=======
+        if (plugin.al.isAdminSync(event.getPlayer()))
+        {
+            fPlayer.setMuted(false);
+>>>>>>> devel
             return;
         }
 
@@ -61,6 +87,10 @@ public class Muter extends FreedomService
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         Player player = event.getPlayer();
         FPlayer fPlayer = plugin.pl.getPlayer(event.getPlayer());
 
@@ -103,6 +133,7 @@ public class Muter extends FreedomService
         }
     }
 
+<<<<<<< HEAD
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
@@ -114,4 +145,6 @@ public class Muter extends FreedomService
             playerdata.setMuted(true);
         }
     }
+=======
+>>>>>>> devel
 }

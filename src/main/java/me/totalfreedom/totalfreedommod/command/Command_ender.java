@@ -1,6 +1,10 @@
 package me.totalfreedom.totalfreedommod.command;
 
 import me.totalfreedom.totalfreedommod.rank.Rank;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,10 +13,17 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Goto the ender / \"The End\".", usage = "/<command>")
 public class Command_ender extends FreedomCommand
 {
+<<<<<<< HEAD
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         msg("Hey look, you found the Ender easter egg!");
+=======
+
+    @Override
+    public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
+    {
+>>>>>>> devel
         plugin.wm.gotoWorld(playerSender, server.getWorlds().get(0).getName() + "_the_end");
         return true;
     }

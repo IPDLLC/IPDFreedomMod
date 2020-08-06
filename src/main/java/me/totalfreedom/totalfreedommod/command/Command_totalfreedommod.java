@@ -2,6 +2,10 @@ package me.totalfreedom.totalfreedommod.command;
 
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.config.MainConfig;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FLog;
 import org.bukkit.ChatColor;
@@ -16,6 +20,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Shows information about TotalFreedomMod or reloads it", usage = "/<command> [reload]", aliases = "tfm")
 public class Command_totalfreedommod extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -50,15 +58,25 @@ public class Command_totalfreedommod extends FreedomCommand
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
         msg("Created by Madgeek1450 and Prozza.", ChatColor.GOLD);
         msg(String.format("Version "
+<<<<<<< HEAD
                         + ChatColor.BLUE + "%s - %s Build %s " + ChatColor.GOLD + "("
                         + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
+=======
+                + ChatColor.BLUE + "%s - %s Build %s " + ChatColor.GOLD + "("
+                + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
+>>>>>>> devel
                 build.codename,
                 build.version,
                 build.number,
                 build.head), ChatColor.GOLD);
         msg(String.format("Compiled "
+<<<<<<< HEAD
                         + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
                         + ChatColor.BLUE + "%s",
+=======
+                + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
+                + ChatColor.BLUE + "%s",
+>>>>>>> devel
                 build.date,
                 build.author), ChatColor.GOLD);
         msg("Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod"

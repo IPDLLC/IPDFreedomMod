@@ -11,6 +11,10 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class Announcer extends FreedomService
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private final List<String> announcements = Lists.newArrayList();
     @Getter
     private boolean enabled;
@@ -35,7 +39,11 @@ public class Announcer extends FreedomService
         announcements.clear();
         for (Object announcement : ConfigEntry.ANNOUNCER_ANNOUNCEMENTS.getList())
         {
+<<<<<<< HEAD
             announcements.add(FUtil.colorize((String)announcement));
+=======
+            announcements.add(FUtil.colorize((String) announcement));
+>>>>>>> devel
         }
 
         if (!enabled)
@@ -83,4 +91,8 @@ public class Announcer extends FreedomService
     {
         FUtil.bcastMsg(prefix + message);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

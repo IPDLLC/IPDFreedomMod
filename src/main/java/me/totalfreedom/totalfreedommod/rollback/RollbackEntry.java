@@ -1,11 +1,18 @@
 package me.totalfreedom.totalfreedommod.rollback;
 
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.util.FLog;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+<<<<<<< HEAD
 import org.bukkit.block.data.BlockData;
+=======
+>>>>>>> devel
 
 public class RollbackEntry
 {
@@ -16,7 +23,11 @@ public class RollbackEntry
     public final int x;
     public final short y;
     public final int z;
+<<<<<<< HEAD
     public final BlockData data;
+=======
+    public final byte data;
+>>>>>>> devel
     public final Material blockMaterial;
     private final boolean isBreak;
 
@@ -25,7 +36,11 @@ public class RollbackEntry
         final Location location = block.getLocation();
 
         this.x = location.getBlockX();
+<<<<<<< HEAD
         this.y = (short)location.getBlockY();
+=======
+        this.y = (short) location.getBlockY();
+>>>>>>> devel
         this.z = location.getBlockZ();
         this.worldName = location.getWorld().getName();
         this.author = author;
@@ -33,13 +48,21 @@ public class RollbackEntry
         if (entryType == EntryType.BLOCK_BREAK)
         {
             this.blockMaterial = block.getType();
+<<<<<<< HEAD
             this.data = block.getBlockData();
+=======
+            this.data = DepreciationAggregator.getData_Block(block);
+>>>>>>> devel
             this.isBreak = true;
         }
         else
         {
             this.blockMaterial = block.getType();
+<<<<<<< HEAD
             this.data = block.getBlockData();
+=======
+            this.data = DepreciationAggregator.getData_Block(block);
+>>>>>>> devel
             this.isBreak = false;
         }
     }
@@ -48,7 +71,11 @@ public class RollbackEntry
     {
         try
         {
+<<<<<<< HEAD
             return new Location(Bukkit.getWorld(worldName), x, (int)y, z);
+=======
+            return new Location(Bukkit.getWorld(worldName), x, (int) y, z);
+>>>>>>> devel
         }
         catch (Exception ex)
         {
@@ -73,7 +100,11 @@ public class RollbackEntry
         if (isBreak)
         {
             block.setType(getMaterial());
+<<<<<<< HEAD
             block.setBlockData(data);
+=======
+            DepreciationAggregator.setData_Block(block, data);
+>>>>>>> devel
         }
         else
         {
@@ -92,7 +123,11 @@ public class RollbackEntry
         else
         {
             block.setType(getMaterial());
+<<<<<<< HEAD
             block.setBlockData(data);
+=======
+            DepreciationAggregator.setData_Block(block, data);
+>>>>>>> devel
         }
     }
 }

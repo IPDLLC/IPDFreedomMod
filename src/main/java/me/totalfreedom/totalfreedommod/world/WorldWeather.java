@@ -19,6 +19,18 @@ public enum WorldWeather
         this.aliases = Arrays.asList(StringUtils.split(aliases, ","));
     }
 
+<<<<<<< HEAD
+=======
+    public void setWorldToWeather(World world)
+    {
+        world.setStorm(this == RAIN || this == STORM);
+        world.setWeatherDuration(this == RAIN || this == STORM ? 20 * 60 * 5 : 0);
+
+        world.setThundering(this == STORM);
+        world.setThunderDuration(this == STORM ? 20 * 60 * 5 : 0);
+    }
+
+>>>>>>> devel
     public static WorldWeather getByAlias(String needle)
     {
         needle = needle.toLowerCase();
@@ -31,6 +43,7 @@ public enum WorldWeather
         }
         return null;
     }
+<<<<<<< HEAD
 
     public void setWorldToWeather(World world)
     {
@@ -40,4 +53,6 @@ public enum WorldWeather
         world.setThundering(this == STORM);
         world.setThunderDuration(this == STORM ? 20 * 60 * 5 : 0);
     }
+=======
+>>>>>>> devel
 }

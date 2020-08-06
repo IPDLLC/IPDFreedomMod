@@ -2,7 +2,10 @@ package me.totalfreedom.totalfreedommod.command;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.config.ConfigEntry;
+=======
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -15,9 +18,22 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Essentials Interface Command - Remove distracting things from nicknames of all players on server.", usage = "/<command>", aliases = "nc")
 public class Command_nickclean extends FreedomCommand
 {
+<<<<<<< HEAD
     private static final String[] BLOCK = ConfigEntry.BLOCKED_CHATCODES.getString().split(",");
 
     private static final Pattern REGEX = Pattern.compile(FUtil.colorize(ChatColor.COLOR_CHAR + "[" + StringUtils.join(BLOCK, "") + "]"), Pattern.CASE_INSENSITIVE);
+=======
+
+    private static final ChatColor[] BLOCKED = new ChatColor[]
+    {
+        ChatColor.MAGIC,
+        ChatColor.STRIKETHROUGH,
+        ChatColor.ITALIC,
+        ChatColor.UNDERLINE,
+        ChatColor.BLACK
+    };
+    private static final Pattern REGEX = Pattern.compile(ChatColor.COLOR_CHAR + "[" + StringUtils.join(BLOCKED, "") + "]", Pattern.CASE_INSENSITIVE);
+>>>>>>> devel
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -39,6 +55,10 @@ public class Command_nickclean extends FreedomCommand
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         return true;
     }
 }

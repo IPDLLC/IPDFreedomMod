@@ -73,7 +73,11 @@ public class ConfigConverter extends PluginComponent<TotalFreedomMod>
         }
 
         convertSuperadmins(new File(backup, "superadmin.yml"));
+<<<<<<< HEAD
         convertPermbans(new File(backup, "permbans.yml"));
+=======
+        convertPermbans(new File(backup, "permban.yml"));
+>>>>>>> devel
 
         logger.info("Conversion complete!");
     }

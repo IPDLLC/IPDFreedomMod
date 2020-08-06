@@ -17,6 +17,10 @@ import org.bukkit.scheduler.BukkitTask;
 @CommandParameters(description = "View ticks-per-second", usage = "/<command>")
 public class Command_health extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private static final int BYTES_PER_MB = 1024 * 1024;
     private static final DoubleRange TPS_RANGE = new DoubleRange(20.0 - 0.1, 20.0 + 0.1);
 
@@ -26,10 +30,17 @@ public class Command_health extends FreedomCommand
         Runtime runtime = Runtime.getRuntime();
         long usedMem = runtime.totalMemory() - runtime.freeMemory();
 
+<<<<<<< HEAD
         msg("Reserved Memory: " + (double)runtime.totalMemory() / (double)BYTES_PER_MB + "mb");
         msg("Used Memory: " + new DecimalFormat("#").format((double)usedMem / (double)BYTES_PER_MB)
                 + "mb (" + new DecimalFormat("#").format(((double)usedMem / (double)runtime.totalMemory()) * 100.0) + "%)");
         msg("Max Memory: " + (double)runtime.maxMemory() / (double)BYTES_PER_MB + "mb");
+=======
+        msg("Reserved Memory: " + (double) runtime.totalMemory() / (double) BYTES_PER_MB + "mb");
+        msg("Used Memory: " + new DecimalFormat("#").format((double) usedMem / (double) BYTES_PER_MB)
+                + "mb (" + new DecimalFormat("#").format(((double) usedMem / (double) runtime.totalMemory()) * 100.0) + "%)");
+        msg("Max Memory: " + (double) runtime.maxMemory() / (double) BYTES_PER_MB + "mb");
+>>>>>>> devel
         msg("Calculating ticks per second, please wait...");
 
         new BukkitRunnable()
@@ -39,7 +50,11 @@ public class Command_health extends FreedomCommand
             {
                 try
                 {
+<<<<<<< HEAD
                     TickMeter tickMeter = new TickMeter(plugin);
+=======
+                    TFM_TickMeter tickMeter = new TFM_TickMeter(plugin);
+>>>>>>> devel
                     tickMeter.startTicking();
                     Thread.sleep(2500);
                     final double ticksPerSecond = tickMeter.stopTicking();
@@ -69,7 +84,11 @@ public class Command_health extends FreedomCommand
         return true;
     }
 
+<<<<<<< HEAD
     private class TickMeter
+=======
+    private class TFM_TickMeter
+>>>>>>> devel
     {
 
         private final AtomicInteger ticks = new AtomicInteger();
@@ -77,12 +96,20 @@ public class Command_health extends FreedomCommand
         private long startTime;
         private BukkitTask task;
 
+<<<<<<< HEAD
         TickMeter(TotalFreedomMod plugin)
+=======
+        public TFM_TickMeter(TotalFreedomMod plugin)
+>>>>>>> devel
         {
             this.plugin = plugin;
         }
 
+<<<<<<< HEAD
         void startTicking()
+=======
+        public void startTicking()
+>>>>>>> devel
         {
             startTime = System.currentTimeMillis();
             ticks.set(0);
@@ -97,13 +124,24 @@ public class Command_health extends FreedomCommand
             }.runTaskTimer(plugin, 0L, 1L);
         }
 
+<<<<<<< HEAD
         double stopTicking()
+=======
+        public double stopTicking()
+>>>>>>> devel
         {
             task.cancel();
             long elapsed = System.currentTimeMillis() - startTime;
             int tickCount = ticks.get();
 
+<<<<<<< HEAD
             return (double)tickCount / ((double)elapsed / 1000.0);
         }
     }
+=======
+            return (double) tickCount / ((double) elapsed / 1000.0);
+        }
+    }
+
+>>>>>>> devel
 }

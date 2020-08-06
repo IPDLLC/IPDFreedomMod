@@ -18,6 +18,10 @@ import org.bukkit.entity.Player;
 
 public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends AbstractCommandExecutor<C>
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private final TotalFreedomMod plugin;
 
     public FreedomCommandExecutor(TotalFreedomMod plugin, AeroCommandHandler<?> handler, String name, C command)
@@ -28,7 +32,11 @@ public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends Abstra
 
     protected FreedomCommand getCommand()
     {
+<<<<<<< HEAD
         return commandBase instanceof FreedomCommand ? (FreedomCommand)commandBase : null;
+=======
+        return commandBase instanceof FreedomCommand ? (FreedomCommand) commandBase : null;
+>>>>>>> devel
     }
 
     @Override
@@ -81,7 +89,11 @@ public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends Abstra
         }
         catch (Exception ex)
         {
+<<<<<<< HEAD
             // If this is ever ran, TFM failed:
+=======
+            // If this is ever ran, TFM failed :
+>>>>>>> devel
             FLog.severe("Unhandled command exception: " + command.getName());
             FLog.severe(ex);
             sender.sendMessage(ChatColor.RED + "Unhandled Command Error: " + command.getName());
@@ -115,7 +127,11 @@ public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends Abstra
             return false;
         }
 
+<<<<<<< HEAD
         final Player player = sender instanceof Player ? (Player)sender : null;
+=======
+        final Player player = sender instanceof Player ? (Player) sender : null;
+>>>>>>> devel
 
         // Only console
         if (perms.source() == SourceType.ONLY_CONSOLE
@@ -163,6 +179,10 @@ public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends Abstra
 
     public static class FreedomExecutorFactory implements AeroCommandExecutorFactory
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         private final TotalFreedomMod plugin;
 
         public FreedomExecutorFactory(TotalFreedomMod plugin)
@@ -175,6 +195,10 @@ public class FreedomCommandExecutor<C extends AeroCommandBase<?>> extends Abstra
         {
             return new FreedomCommandExecutor<>(plugin, handler, name, command);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     }
 
 }

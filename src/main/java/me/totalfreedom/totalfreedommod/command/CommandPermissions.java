@@ -7,9 +7,17 @@ import me.totalfreedom.totalfreedommod.rank.Rank;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CommandPermissions
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     Rank level();
 
     SourceType source();
 
     boolean blockHostConsole() default false;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> devel

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="https://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -6,10 +7,19 @@
         <groupId>me.totalfreedom</groupId>
     <artifactId>TotalFreedomMod</artifactId>
     <version>2019.3.2</version>
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.totalfreedom</groupId>
+    <artifactId>totalfreedom</artifactId>
+    <version>5.0.1</version>
+>>>>>>> devel
     <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<<<<<<< HEAD
         <tfm.build.codename>Iris</tfm.build.codename>
         <jar.finalName>${project.name}</jar.finalName>
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -17,6 +27,19 @@
     </properties>
 
     <name>IPDFreedomMod</name>
+=======
+        <tfm.build.version>${project.version}</tfm.build.version>
+        <tfm.build.codename>Electrum</tfm.build.codename>
+        <tfm.build.number>${maven.buildnumber}</tfm.build.number>
+        <tfm.build.date>${maven.build.timestamp}</tfm.build.date>
+        <tfm.build.author>${buildAuthor}</tfm.build.author>
+        <tfm.build.head>${buildHead}</tfm.build.head>
+        <jar.finalName>${project.name}</jar.finalName>
+        <maven.build.timestamp.format>dd/MM/yyyy hh:mm aa</maven.build.timestamp.format>
+    </properties>
+
+    <name>TotalFreedomMod</name>
+>>>>>>> devel
     <description>Server modification for the TotalFreedom server</description>
     <url>https://github.com/TotalFreedom/TotalFreedomMod</url>
 
@@ -33,9 +56,15 @@
     </organization>
 
     <scm>
+<<<<<<< HEAD
         <connection>scm:git:git@github.com:Telesphoreo/TotalFreedomMod.git</connection>
         <developerConnection>scm:git:git@github.com:Telesphoreo/TotalFreedomMod.git</developerConnection>
         <url>git@github.com:Telesphoreo/TotalFreedomMod.git</url>
+=======
+        <connection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</connection>
+        <developerConnection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</developerConnection>
+        <url>git@github.com:TotalFreedom/TotalFreedomMod.git</url>
+>>>>>>> devel
     </scm>
 
     <repositories>
@@ -45,6 +74,7 @@
         </repository>
 
         <repository>
+<<<<<<< HEAD
             <id>jcenter</id>
             <name>jcenter-bintray</name>
             <url>https://jcenter.bintray.com</url>
@@ -53,11 +83,22 @@
         <repository>
             <id>elmakers-repo</id>
             <url>https://maven.elmakers.com/repository/</url>
+=======
+            <id>ess-repo</id>
+            <url>http://repo.ess3.net/content/groups/essentials</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+>>>>>>> devel
         </repository>
 
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+<<<<<<< HEAD
         </repository>
 
         <repository>
@@ -83,11 +124,31 @@
         <repository>
             <id>playpro</id>
             <url>https://maven.playpro.com/</url>
+=======
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>sk89q-snapshots</id>
+            <url>http://maven.sk89q.com/artifactory/repo</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+>>>>>>> devel
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
+<<<<<<< HEAD
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
@@ -119,10 +180,34 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>1.4</version>
+=======
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+>>>>>>> devel
             <scope>compile</scope>
         </dependency>
 
         <dependency>
+<<<<<<< HEAD
             <groupId>LibsDisguises</groupId>
             <artifactId>LibsDisguises</artifactId>
             <version>9.8.1-TF</version>
@@ -134,10 +219,22 @@
             <artifactId>worldedit-bukkit</artifactId>
             <version>7.0.0-beta-05</version>
             <scope>provided</scope>
+=======
+            <groupId>com.github.Pravian</groupId>
+            <artifactId>Aero</artifactId>
+            <version>a0e1dc5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.TotalFreedom</groupId>
+            <artifactId>BukkitTelnet</artifactId>
+            <version>4.5-pre1</version>
+>>>>>>> devel
         </dependency>
 
         <dependency>
             <groupId>net.ess3</groupId>
+<<<<<<< HEAD
             <artifactId>EssentialsX</artifactId>
             <version>2.16.1</version>
             <scope>provided</scope>
@@ -163,6 +260,26 @@
             <version>7.0.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+=======
+            <artifactId>Essentials</artifactId>
+            <version>2.13.1</version>
+        </dependency>
+ 
+        <!-- The following have been changed to Telesphoreo's personal repo as it is the most stable current TF-WorldEdit build. These will be changed to a TotalFreedom build in the future -->
+ 
+        <dependency>
+            <groupId>com.github.Telesphoreo.TF-WorldEdit</groupId>
+            <artifactId>worldedit-bukkit</artifactId>
+            <version>7.0.0-TF-SNAPSHOT-R0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.Telesphoreo.TF-WorldEdit</groupId>
+            <artifactId>worldedit-core</artifactId>
+            <version>7.0.0-TF-SNAPSHOT-R0.2</version>
+        </dependency>
+
+>>>>>>> devel
     </dependencies>
 
     <build>
@@ -179,7 +296,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+<<<<<<< HEAD
                 <version>3.8.0</version>
+=======
+                <version>3.3</version>
+>>>>>>> devel
                 <configuration>
                     <outputFileName>TotalFreedomMod.jar</outputFileName>
                     <compilerVersion>1.8</compilerVersion>
@@ -188,6 +309,7 @@
                 </configuration>
             </plugin>
 
+<<<<<<< HEAD
             <!-- Shading !-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -250,6 +372,30 @@
                         <match>*</match>
                     </gitDescribe>
                 </configuration>
+=======
+            <!-- Git describe -->
+            <plugin>
+                <groupId>com.lukegb.mojo</groupId>
+                <artifactId>gitdescribe-maven-plugin</artifactId>
+                <version>3.0</version>
+                <executions>
+                    <execution>
+                        <id>git-describe</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>gitdescribe</goal>
+                        </goals>
+                        <configuration>
+                            <descriptionProperty>buildHead</descriptionProperty>
+                            <extraArguments>
+                                <param>--tags</param>
+                                <param>--always</param>
+                                <param>HEAD</param>
+                            </extraArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+>>>>>>> devel
             </plugin>
 
             <!-- Antrun -->
@@ -259,6 +405,7 @@
                 <version>1.8</version>
                 <executions>
                     <execution>
+<<<<<<< HEAD
                         <id>default-cli</id>
                         <phase>initialize</phase>
                         <configuration>
@@ -272,6 +419,16 @@
                                     <entry key="buildDate" value="${timestamp}"/>
                                     <!--suppress UnresolvedMavenProperty -->
                                     <entry key="buildHead" value="${git.commit.id.abbrev}"/>
+=======
+                        <phase>initialize</phase>
+                        <configuration>
+                            <target>
+                                <propertyfile file="src/main/resources/build.properties" comment="Build information. Edit this to your liking.">
+                                    <entry key="buildAuthor" default="unknown" />
+                                    <entry key="buildNumber" default="0" />
+                                    <entry key="buildCodeName" default="${tfm.build.codename}" />
+                                    <entry key="buildVersion" default="${project.version}" />
+>>>>>>> devel
                                 </propertyfile>
                             </target>
                         </configuration>
@@ -280,9 +437,15 @@
                         </goals>
                     </execution>
                 </executions>
+<<<<<<< HEAD
             </plugin>
 
 
+=======
+               
+            </plugin>
+
+>>>>>>> devel
             <!-- Properties -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -296,7 +459,11 @@
                         </goals>
                         <configuration>
                             <files>
+<<<<<<< HEAD
                                 <file>${project.basedir}/src/main/resources/build.properties</file>
+=======
+                                <file>${basedir}/src/main/resources/build.properties</file>
+>>>>>>> devel
                             </files>
                         </configuration>
                     </execution>
@@ -306,7 +473,11 @@
             <!-- Checkstyle -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+<<<<<<< HEAD
                 <version>3.0.0</version>
+=======
+                <version>2.17</version>
+>>>>>>> devel
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <executions>
                     <execution>
@@ -324,6 +495,54 @@
                 </configuration>
             </plugin>
 
+<<<<<<< HEAD
+=======
+            <!-- Git describe -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.2.4</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>validate-the-git-infos</id>
+                        <goals>
+                            <goal>validateRevision</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                    <prefix>git</prefix>
+                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+                    <verbose>false</verbose>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <generateGitPropertiesFilename>${basedir}/src/main/resources/git.properties</generateGitPropertiesFilename>
+                    <format>properties</format>
+                    <failOnNoGitDirectory>true</failOnNoGitDirectory>
+                    <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>git.build.time</includeOnlyProperty>
+                        <includeOnlyProperty>git.commit.id</includeOnlyProperty>
+                        <includeOnlyProperty>git.commit.id.abbrev</includeOnlyProperty>
+                    </includeOnlyProperties>
+                    <gitDescribe>
+                        <skip>false</skip>
+                        <always>false</always>
+                        <abbrev>7</abbrev>
+                        <dirty>-dirty</dirty>
+                        <match>*</match>
+                    </gitDescribe>
+                </configuration>
+            </plugin>
+
+>>>>>>> devel
             <!-- Buildnumber -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -340,8 +559,12 @@
 
                 <configuration>
                     <buildNumberPropertyName>maven.buildnumber</buildNumberPropertyName>
+<<<<<<< HEAD
                     <buildNumberPropertiesFileLocation>${project.basedir}/src/main/resources/build.properties
                     </buildNumberPropertiesFileLocation>
+=======
+                    <buildNumberPropertiesFileLocation>${basedir}/src/main/resources/build.properties</buildNumberPropertiesFileLocation>
+>>>>>>> devel
                     <format>{0,number,#}</format>
                     <items>
                         <item>buildNumber</item>
@@ -357,7 +580,16 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+<<<<<<< HEAD
                 <version>3.0.0</version>
+=======
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.17</version>
+>>>>>>> devel
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>

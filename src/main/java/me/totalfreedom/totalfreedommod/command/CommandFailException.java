@@ -10,4 +10,8 @@ public class CommandFailException extends RuntimeException
         super(message);
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> devel

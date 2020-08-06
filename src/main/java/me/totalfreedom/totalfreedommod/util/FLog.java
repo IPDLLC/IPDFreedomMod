@@ -5,6 +5,10 @@ import java.util.logging.Logger;
 
 public class FLog
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     private static final Logger FALLBACK_LOGGER = Logger.getLogger("Minecraft-Server");
     private static Logger serverLogger = null;
     private static Logger pluginLogger = null;
@@ -72,6 +76,19 @@ public class FLog
         getLogger(false).log(level, null, throwable);
     }
 
+<<<<<<< HEAD
+=======
+    public static void setServerLogger(Logger logger)
+    {
+        serverLogger = logger;
+    }
+
+    public static void setPluginLogger(Logger logger)
+    {
+        pluginLogger = logger;
+    }
+
+>>>>>>> devel
     private static Logger getLogger(boolean raw)
     {
         if (raw || pluginLogger == null)
@@ -89,18 +106,24 @@ public class FLog
         return (pluginLogger != null ? pluginLogger : FALLBACK_LOGGER);
     }
 
+<<<<<<< HEAD
     public static void setPluginLogger(Logger logger)
     {
         pluginLogger = logger;
     }
 
+=======
+>>>>>>> devel
     public static Logger getServerLogger()
     {
         return (serverLogger != null ? serverLogger : FALLBACK_LOGGER);
     }
+<<<<<<< HEAD
 
     public static void setServerLogger(Logger logger)
     {
         serverLogger = logger;
     }
+=======
+>>>>>>> devel
 }

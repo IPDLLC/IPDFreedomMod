@@ -21,6 +21,10 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class FPlayer
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     public static final long AUTO_PURGE_TICKS = 5L * 60L * 20L;
 
     @Getter
@@ -29,28 +33,45 @@ public class FPlayer
     private final String name;
     @Getter
     private final String ip;
+<<<<<<< HEAD
     @Getter
     private final FreezeData freezeData = new FreezeData(this);
     @Getter
     private final CageData cageData = new CageData(this);
     private final List<LivingEntity> mobThrowerQueue = new ArrayList<>();
+=======
+>>>>>>> devel
     //
     @Setter
     private Player player;
     //
     private BukkitTask unmuteTask;
     @Getter
+<<<<<<< HEAD
+=======
+    private final FreezeData freezeData = new FreezeData(this);
+    @Getter
+>>>>>>> devel
     private double fuckoffRadius = 0;
     private int messageCount = 0;
     private int totalBlockDestroy = 0;
     private int totalBlockPlace = 0;
     private int freecamDestroyCount = 0;
     private int freecamPlaceCount = 0;
+<<<<<<< HEAD
+=======
+    @Getter
+    private final CageData cageData = new CageData(this);
+>>>>>>> devel
     private boolean isOrbiting = false;
     private double orbitStrength = 10.0;
     private boolean mobThrowerEnabled = false;
     private EntityType mobThrowerEntity = EntityType.PIG;
     private double mobThrowerSpeed = 4.0;
+<<<<<<< HEAD
+=======
+    private final List<LivingEntity> mobThrowerQueue = new ArrayList<>();
+>>>>>>> devel
     private BukkitTask mp44ScheduleTask = null;
     private boolean mp44Armed = false;
     private boolean mp44Firing = false;
@@ -65,6 +86,7 @@ public class FPlayer
     private boolean cmdspyEnabled = false;
     private String tag = null;
     private int warningCount = 0;
+<<<<<<< HEAD
     @Getter
     @Setter
     private boolean editBlocked = false;
@@ -74,6 +96,8 @@ public class FPlayer
     @Getter
     @Setter
     private boolean invSee = false;
+=======
+>>>>>>> devel
 
     public FPlayer(TotalFreedomMod plugin, Player player)
     {
@@ -283,7 +307,10 @@ public class FPlayer
     public void setMuted(boolean muted)
     {
         FUtil.cancel(unmuteTask);
+<<<<<<< HEAD
         plugin.mu.MUTED_PLAYERS.remove(getPlayer().getName());
+=======
+>>>>>>> devel
         unmuteTask = null;
 
         if (!muted)
@@ -295,14 +322,18 @@ public class FPlayer
         {
             return;
         }
+<<<<<<< HEAD
 
         plugin.mu.MUTED_PLAYERS.add(getPlayer().getName());
 
+=======
+>>>>>>> devel
         unmuteTask = new BukkitRunnable()
         {
             @Override
             public void run()
             {
+<<<<<<< HEAD
                 if (getPlayer() != null)
                 {
                     FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Unmuting " + getPlayer().getName(), false);
@@ -313,6 +344,10 @@ public class FPlayer
                     FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Unmuting " + getName(), false);
                     plugin.mu.MUTED_PLAYERS.remove(getName());
                 }
+=======
+                FUtil.adminAction("TotalFreedom", "Unmuting " + getPlayer().getName(), false);
+                setMuted(false);
+>>>>>>> devel
             }
         }.runTaskLater(plugin, AUTO_PURGE_TICKS);
     }
@@ -327,6 +362,7 @@ public class FPlayer
         this.lockupScheduleTask = id;
     }
 
+<<<<<<< HEAD
     public String getLastMessage()
     {
         return lastMessage;
@@ -335,6 +371,16 @@ public class FPlayer
     public void setLastMessage(String message)
     {
         this.lastMessage = message;
+=======
+    public void setLastMessage(String message)
+    {
+        this.lastMessage = message;
+    }
+
+    public String getLastMessage()
+    {
+        return lastMessage;
+>>>>>>> devel
     }
 
     public void setAdminChat(boolean inAdminchat)
@@ -377,11 +423,14 @@ public class FPlayer
         return cmdspyEnabled;
     }
 
+<<<<<<< HEAD
     public String getTag()
     {
         return this.tag;
     }
 
+=======
+>>>>>>> devel
     public void setTag(String tag)
     {
         if (tag == null)
@@ -394,6 +443,14 @@ public class FPlayer
         }
     }
 
+<<<<<<< HEAD
+=======
+    public String getTag()
+    {
+        return this.tag;
+    }
+
+>>>>>>> devel
     public int getWarningCount()
     {
         return this.warningCount;
@@ -413,6 +470,10 @@ public class FPlayer
 
     private class ArrowShooter extends BukkitRunnable
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
         private final Player player;
 
         private ArrowShooter(Player player)

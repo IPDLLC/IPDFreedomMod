@@ -2,6 +2,7 @@ package me.totalfreedom.totalfreedommod.command;
 
 import java.util.Arrays;
 import java.util.List;
+<<<<<<< HEAD
 import me.totalfreedom.totalfreedommod.admin.Admin;
 import me.totalfreedom.totalfreedommod.masterbuilder.MasterBuilder;
 import me.totalfreedom.totalfreedommod.player.FPlayer;
@@ -9,6 +10,11 @@ import me.totalfreedom.totalfreedommod.playerverification.VPlayer;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.apache.commons.lang3.ArrayUtils;
+=======
+import me.totalfreedom.totalfreedommod.player.FPlayer;
+import me.totalfreedom.totalfreedommod.rank.Rank;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+>>>>>>> devel
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,6 +22,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
+<<<<<<< HEAD
 @CommandParameters(description = "Sets yourself a prefix", usage = "/<command> [-s[ave]] <set <tag..> | list | off | clear <player> | clearall>")
 public class Command_tag extends FreedomCommand
 {
@@ -23,10 +30,21 @@ public class Command_tag extends FreedomCommand
             "admin", "owner", "moderator", "developer", "console", "dev", "staff", "mod", "sra", "tca", "sta", "sa");
 
     public boolean save = false;
+=======
+@CommandParameters(description = "Sets yourself a prefix", usage = "/<command> <set <tag..> | off | clear <player> | clearall>")
+public class Command_tag extends FreedomCommand
+{
+
+    public static final List<String> FORBIDDEN_WORDS = Arrays.asList(new String[]
+    {
+        "admin", "owner", "moderator", "developer", "console"
+    });
+>>>>>>> devel
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
+<<<<<<< HEAD
         if (args.length < 1)
         {
             return false;
@@ -43,6 +61,8 @@ public class Command_tag extends FreedomCommand
             args = ArrayUtils.remove(args, 0);
         }
 
+=======
+>>>>>>> devel
         if (args.length == 1)
         {
             if ("list".equalsIgnoreCase(args[0]))
@@ -60,7 +80,10 @@ public class Command_tag extends FreedomCommand
 
                 return true;
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> devel
             else if ("clearall".equalsIgnoreCase(args[0]))
             {
                 if (!plugin.al.isAdmin(sender))
@@ -95,12 +118,18 @@ public class Command_tag extends FreedomCommand
                 else
                 {
                     plugin.pl.getPlayer(playerSender).setTag(null);
+<<<<<<< HEAD
                     if (save)
                     {
                         save(playerSender, null);
                     }
                     msg("Your tag has been removed." + (save ? " (Saved)" : ""));
                 }
+=======
+                    msg("Your tag has been removed.");
+                }
+
+>>>>>>> devel
                 return true;
             }
             else
@@ -127,18 +156,23 @@ public class Command_tag extends FreedomCommand
                 }
 
                 plugin.pl.getPlayer(player).setTag(null);
+<<<<<<< HEAD
 
                 if (save)
                 {
                     save(player, null);
                 }
                 msg("Removed " + player.getName() + "'s tag." + (save ? " (Saved)" : ""));
+=======
+                msg("Removed " + player.getName() + "'s tag.");
+>>>>>>> devel
 
                 return true;
             }
             else if ("set".equalsIgnoreCase(args[0]))
             {
                 final String inputTag = StringUtils.join(args, " ", 1, args.length);
+<<<<<<< HEAD
                 final String strippedTag = StringUtils.replaceEachRepeatedly(StringUtils.strip(inputTag),
                         new String[]
                                 {
@@ -162,6 +196,28 @@ public class Command_tag extends FreedomCommand
 
                 if (!plugin.al.isAdmin(sender))
                 {
+=======
+                final String outputTag = FUtil.colorize(StringUtils.replaceEachRepeatedly(StringUtils.strip(inputTag),
+                        new String[]
+                        {
+                            "" + ChatColor.COLOR_CHAR, "&k"
+                        },
+                        new String[]
+                        {
+                            "", ""
+                        })) + ChatColor.RESET;
+
+                if (!plugin.al.isAdmin(sender))
+                {
+                    final String rawTag = ChatColor.stripColor(outputTag).toLowerCase();
+
+                    if (rawTag.length() > 20)
+                    {
+                        msg("That tag is too long (Max is 20 characters).");
+                        return true;
+                    }
+
+>>>>>>> devel
                     for (String word : FORBIDDEN_WORDS)
                     {
                         if (rawTag.contains(word))
@@ -173,11 +229,16 @@ public class Command_tag extends FreedomCommand
                 }
 
                 plugin.pl.getPlayer(playerSender).setTag(outputTag);
+<<<<<<< HEAD
                 if (save)
                 {
                     save(playerSender, outputTag);
                 }
                 msg("Tag set to '" + outputTag + ChatColor.GRAY + "'." + (save ? " (Saved)" : ""));
+=======
+                msg("Tag set to '" + outputTag + "'.");
+
+>>>>>>> devel
                 return true;
             }
             else
@@ -190,6 +251,7 @@ public class Command_tag extends FreedomCommand
             return false;
         }
     }
+<<<<<<< HEAD
 
     public void save(Player player, String tag)
     {
@@ -216,4 +278,6 @@ public class Command_tag extends FreedomCommand
             plugin.pv.saveVerificationData(vPlayer);
         }
     }
+=======
+>>>>>>> devel
 }

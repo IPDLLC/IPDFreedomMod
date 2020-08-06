@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod;
 
+<<<<<<< HEAD
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -12,12 +13,22 @@ public class ServerInterface extends FreedomService
 {
     public final static String COMPILE_NMS_VERSION = "v1_13_R2";
     public final static String nms = FUtil.getNMSVersion();
+=======
+import me.totalfreedom.totalfreedommod.util.FLog;
+import me.totalfreedom.totalfreedommod.util.FUtil;
+
+public class ServerInterface extends FreedomService
+{
+
+    public static final String COMPILE_NMS_VERSION = "v1_12_R1";
+>>>>>>> devel
 
     public ServerInterface(TotalFreedomMod plugin)
     {
         super(plugin);
     }
 
+<<<<<<< HEAD
     public static void warnVersion()
     {
         if (!COMPILE_NMS_VERSION.equals(nms))
@@ -37,6 +48,8 @@ public class ServerInterface extends FreedomService
         }
     }
 
+=======
+>>>>>>> devel
     @Override
     protected void onStart()
     {
@@ -47,6 +60,7 @@ public class ServerInterface extends FreedomService
     {
     }
 
+<<<<<<< HEAD
     // Need to do this. Bukkit's methods don't save, so online mode will always default to true.
     public boolean setOnlineMode(boolean mode)
     {
@@ -114,3 +128,65 @@ public class ServerInterface extends FreedomService
         return Bukkit.getVersion();
     }
 }
+=======
+    public static void warnVersion()
+    {
+        final String nms = FUtil.getNmsVersion();
+
+        if (!COMPILE_NMS_VERSION.equals(nms))
+        {
+            FLog.warning(TotalFreedomMod.pluginName + " is compiled for " + COMPILE_NMS_VERSION + " but the server is running version " + nms + "!");
+            FLog.warning("This might result in unexpected behaviour!");
+        }
+    }
+
+//    public void setOnlineMode(boolean mode)
+//    {
+//        final PropertyManager manager = getServer().getPropertyManager();
+//        manager.setProperty("online-mode", mode);
+//        manager.savePropertiesFile();
+//    }
+//
+//    public int purgeWhitelist()
+//    {
+//        String[] whitelisted = getServer().getPlayerList().getWhitelisted();
+//        int size = whitelisted.length;
+//        for (EntityPlayer player : getServer().getPlayerList().players)
+//        {
+//            getServer().getPlayerList().getWhitelist().remove(player.getProfile());
+//        }
+//
+//        try
+//        {
+//            getServer().getPlayerList().getWhitelist().save();
+//        }
+//        catch (Exception ex)
+//        {
+//            FLog.warning("Could not purge the whitelist!");
+//            FLog.warning(ex);
+//        }
+//        return size;
+//    }
+//
+//    public boolean isWhitelisted()
+//    {
+//        return getServer().getPlayerList().getHasWhitelist();
+//    }
+//
+//    public List<?> getWhitelisted()
+//    {
+//        return Arrays.asList(getServer().getPlayerList().getWhitelisted());
+//    }
+//
+//    public String getVersion()
+//    {
+//        return getServer().getVersion();
+//    }
+//
+//    private MinecraftServer getServer()
+//    {
+//        return ((CraftServer) Bukkit.getServer()).getServer();
+//    }
+
+}
+>>>>>>> devel

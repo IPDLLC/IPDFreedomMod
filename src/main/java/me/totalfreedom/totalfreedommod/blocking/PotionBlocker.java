@@ -1,5 +1,6 @@
 package me.totalfreedom.totalfreedommod.blocking;
 
+<<<<<<< HEAD
 import java.util.Collection;
 import me.totalfreedom.totalfreedommod.FreedomService;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
@@ -13,6 +14,15 @@ import org.bukkit.event.entity.LingeringPotionSplashEvent;
 import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+=======
+import me.totalfreedom.totalfreedommod.FreedomService;
+import me.totalfreedom.totalfreedommod.TotalFreedomMod;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.entity.PotionSplashEvent;
+>>>>>>> devel
 import org.bukkit.projectiles.ProjectileSource;
 
 public class PotionBlocker extends FreedomService
@@ -38,6 +48,7 @@ public class PotionBlocker extends FreedomService
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onThrowPotion(PotionSplashEvent event)
     {
+<<<<<<< HEAD
         ThrownPotion potion = event.getEntity();
         ProjectileSource projectileSource = potion.getShooter();
         Player player = null;
@@ -87,6 +98,33 @@ public class PotionBlocker extends FreedomService
             }
         }
         return false;
+=======
+        ProjectileSource source = event.getEntity().getShooter();
+
+        if (!(source instanceof Player))
+        {
+            event.setCancelled(true);
+            return;
+        }
+
+        Player thrower = (Player) source;
+
+        if (plugin.al.isAdmin(thrower))
+        {
+            return;
+        }
+
+        for (Player player : thrower.getWorld().getPlayers())
+        {
+            if (thrower.getLocation().distanceSquared(player.getLocation()) < POTION_BLOCK_RADIUS_SQUARED)
+            {
+                thrower.sendMessage(ChatColor.RED + "You cannot use splash potions close to other players.");
+                event.setCancelled(true);
+                return;
+            }
+        }
+
+>>>>>>> devel
     }
 
 }

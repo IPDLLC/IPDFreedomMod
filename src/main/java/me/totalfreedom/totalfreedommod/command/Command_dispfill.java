@@ -3,6 +3,10 @@ package me.totalfreedom.totalfreedommod.command;
 import java.util.ArrayList;
 import java.util.List;
 import me.totalfreedom.totalfreedommod.rank.Rank;
+<<<<<<< HEAD
+=======
+import me.totalfreedom.totalfreedommod.util.DepreciationAggregator;
+>>>>>>> devel
 import me.totalfreedom.totalfreedommod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Location;
@@ -19,6 +23,7 @@ import org.bukkit.inventory.ItemStack;
 @CommandParameters(description = "Fill nearby dispensers with a set of items of your choice.", usage = "/<command> <radius> <comma,separated,items>")
 public class Command_dispfill extends FreedomCommand
 {
+<<<<<<< HEAD
     private static void setDispenserContents(final Block targetBlock, final ItemStack[] items)
     {
         if (targetBlock.getType() == Material.DISPENSER)
@@ -28,6 +33,8 @@ public class Command_dispfill extends FreedomCommand
             dispenserInv.addItem(items);
         }
     }
+=======
+>>>>>>> devel
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -52,6 +59,19 @@ public class Command_dispfill extends FreedomCommand
             for (final String searchItem : itemsRaw)
             {
                 Material material = Material.matchMaterial(searchItem);
+<<<<<<< HEAD
+=======
+                if (material == null)
+                {
+                    try
+                    {
+                        material = DepreciationAggregator.getMaterial(Integer.parseInt(searchItem));
+                    }
+                    catch (NumberFormatException ex)
+                    {
+                    }
+                }
+>>>>>>> devel
 
                 if (material != null)
                 {
@@ -97,4 +117,17 @@ public class Command_dispfill extends FreedomCommand
 
         return true;
     }
+<<<<<<< HEAD
+=======
+
+    private static void setDispenserContents(final Block targetBlock, final ItemStack[] items)
+    {
+        if (targetBlock.getType() == Material.DISPENSER)
+        {
+            final Inventory dispenserInv = ((Dispenser) targetBlock.getState()).getInventory();
+            dispenserInv.clear();
+            dispenserInv.addItem(items);
+        }
+    }
+>>>>>>> devel
 }

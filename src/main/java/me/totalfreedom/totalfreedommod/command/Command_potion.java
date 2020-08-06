@@ -1,8 +1,11 @@
 package me.totalfreedom.totalfreedommod.command;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collections;
+=======
+>>>>>>> devel
 import java.util.List;
 import me.totalfreedom.totalfreedommod.rank.Rank;
 import me.totalfreedom.totalfreedommod.util.FUtil;
@@ -20,6 +23,10 @@ import org.bukkit.potion.PotionEffectType;
         usage = "/<command> <list | clear [target name] | add <type> <duration> <amplifier> [target name]>")
 public class Command_potion extends FreedomCommand
 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -72,7 +79,11 @@ public class Command_potion extends FreedomCommand
                 {
                     if (!plugin.al.isAdmin(sender))
                     {
+<<<<<<< HEAD
                         msg(ChatColor.RED + "Only admins can clear potion effects from other players.");
+=======
+                        msg("Only superadmins can clear potion effects from other players.");
+>>>>>>> devel
                         return true;
                     }
                 }
@@ -116,7 +127,11 @@ public class Command_potion extends FreedomCommand
                 {
                     if (!plugin.al.isAdmin(sender))
                     {
+<<<<<<< HEAD
                         sender.sendMessage(ChatColor.RED + "Only admins can apply potion effects to other players.");
+=======
+                        sender.sendMessage("Only superadmins can apply potion effects to other players.");
+>>>>>>> devel
                         return true;
                     }
                 }
@@ -161,9 +176,15 @@ public class Command_potion extends FreedomCommand
                 target.addPotionEffect(new_effect, true);
                 msg(
                         "Added potion effect: " + new_effect.getType().getName()
+<<<<<<< HEAD
                                 + ", Duration: " + new_effect.getDuration()
                                 + ", Amplifier: " + new_effect.getAmplifier()
                                 + (!target.equals(playerSender) ? " to player " + target.getName() + "." : " to yourself."), ChatColor.AQUA);
+=======
+                        + ", Duration: " + new_effect.getDuration()
+                        + ", Amplifier: " + new_effect.getAmplifier()
+                        + (!target.equals(playerSender) ? " to player " + target.getName() + "." : " to yourself."), ChatColor.AQUA);
+>>>>>>> devel
 
                 return true;
             }
@@ -178,6 +199,7 @@ public class Command_potion extends FreedomCommand
         }
         return true;
     }
+<<<<<<< HEAD
 
     @Override
     public List<String> getTabCompleteOptions(CommandSender sender, Command command, String alias, String[] args)
@@ -242,4 +264,6 @@ public class Command_potion extends FreedomCommand
         }
         return types;
     }
+=======
+>>>>>>> devel
 }

@@ -5,6 +5,10 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Collections;
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+>>>>>>> devel
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,7 +29,10 @@ import org.bukkit.event.player.PlayerLoginEvent;
 public class BanManager extends FreedomService
 {
 
+<<<<<<< HEAD
     public static final String CONFIG_FILENAME = "bans.yml";
+=======
+>>>>>>> devel
     private final Set<Ban> bans = Sets.newHashSet();
     private final Map<String, Ban> ipBans = Maps.newHashMap();
     private final Map<String, Ban> nameBans = Maps.newHashMap();
@@ -72,7 +79,11 @@ public class BanManager extends FreedomService
 
         // Load unbannable usernames
         unbannableUsernames.clear();
+<<<<<<< HEAD
         unbannableUsernames.addAll((Collection<? extends String>)ConfigEntry.FAMOUS_PLAYERS.getList());
+=======
+        unbannableUsernames.addAll((Collection<? extends String>) ConfigEntry.FAMOUS_PLAYERS.getList());
+>>>>>>> devel
         FLog.info("Loaded " + unbannableUsernames.size() + " unbannable usernames.");
     }
 
@@ -273,7 +284,17 @@ public class BanManager extends FreedomService
     private void updateViews()
     {
         // Remove expired bans
+<<<<<<< HEAD
         bans.removeIf(Ban::isExpired);
+=======
+        for (Iterator<Ban> it = bans.iterator(); it.hasNext();)
+        {
+            if (it.next().isExpired())
+            {
+                it.remove();
+            }
+        }
+>>>>>>> devel
 
         nameBans.clear();
         ipBans.clear();
@@ -293,4 +314,8 @@ public class BanManager extends FreedomService
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> devel
 }

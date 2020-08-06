@@ -1,5 +1,11 @@
 # TFM excludes
+<<<<<<< HEAD
 build.properties
+=======
+/lib
+build.properties
+git.properties
+>>>>>>> devel
 
 # Netbeans excludes
 /nbproject/private
@@ -16,10 +22,17 @@ manifest.mf
 /.settings
 
 # IntelliJ excludes
+<<<<<<< HEAD
 *.ipr
 *.iws
 /.idea
 *.iml
+=======
+*.iml
+*.ipr
+*.iws
+/.idea
+>>>>>>> devel
 
 # Maven excludes
 /target
@@ -31,7 +44,10 @@ manifest.mf
 .Trashes
 ehthumbs.db
 Thumbs.db
+<<<<<<< HEAD
 dependency-reduced-pom.xml
 .checkstyle
 .classpath
 .factorypath
+=======
+>>>>>>> devel
